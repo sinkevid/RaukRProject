@@ -8,6 +8,38 @@ output: html_notebook
 
 Read in the data
 ```{r}
+
+#You need to download: https://cran.r-project.org/src/contrib/Archive/GenABEL.data/GenABEL.data_1.0.0.tar.gz
+#and https://cran.r-project.org/src/contrib/Archive/GenABEL/GenABEL_1.8-0.tar.gz
+#and `install.packages('GanABEL.data_1.0.0.tar.gz', repos=NULL, type = 'source')`
+#`install.packages('GanABEL_1.8-0.tar.gz', repos=NULL, type = 'source')` (edited
+
+
+library(GenABEL)
 load("geno_data_raw.rdat")
+
+data_raw[8]
+str(data_raw, max.level=4)
+
+#Data is S4 format
+data_raw@phdata$Breed
+
+data_raw@gtdata@idnames
+data_raw@gtdata@coding
+
+str(data_raw@phdata$Breed,list.len = 5)
+
+str(data_raw@gtdata@idnames,list.len = 5)
+
+str(data_raw@gtdata@chromosome)
+
+library(tidyverse)
+IDBreed <- tibble(data_raw@phdata$Breed,data_raw@gtdata@idnames) #table of a table :D
+
+phdata <- data_raw@phdata
+
+genedata <- signature(object = "gwaa.data")
+
+p <- summary(data_raw@gtdata)#summary of the genetic data
 ```
 
