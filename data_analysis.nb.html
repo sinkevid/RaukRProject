@@ -249,46 +249,32 @@ $(document).ready(function () {
 <p>Read in the data</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG4jWW91IG5lZWQgdG8gZG93bmxvYWQ6IGh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3NyYy9jb250cmliL0FyY2hpdmUvR2VuQUJFTC5kYXRhL0dlbkFCRUwuZGF0YV8xLjAuMC50YXIuZ3pcbiNhbmQgaHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvc3JjL2NvbnRyaWIvQXJjaGl2ZS9HZW5BQkVML0dlbkFCRUxfMS44LTAudGFyLmd6XG4jYW5kIGBpbnN0YWxsLnBhY2thZ2VzKCdHYW5BQkVMLmRhdGFfMS4wLjAudGFyLmd6JywgcmVwb3M9TlVMTCwgdHlwZSA9ICdzb3VyY2UnKWBcbiNgaW5zdGFsbC5wYWNrYWdlcygnR2FuQUJFTF8xLjgtMC50YXIuZ3onLCByZXBvcz1OVUxMLCB0eXBlID0gJ3NvdXJjZScpYCAoZWRpdGVkXG5cblxubGlicmFyeShHZW5BQkVMKVxubG9hZChcImdlbm9fZGF0YV9yYXcucmRhdFwiKVxuXG5kYXRhX3Jhd1s4XVxuc3RyKGRhdGFfcmF3LCBtYXgubGV2ZWw9NClcblxuI0RhdGEgaXMgUzQgZm9ybWF0XG5kYXRhX3Jhd0BwaGRhdGEkQnJlZWRcblxuZGF0YV9yYXdAZ3RkYXRhQGlkbmFtZXNcbmRhdGFfcmF3QGd0ZGF0YUBjb2Rpbmdcblxuc3RyKGRhdGFfcmF3QHBoZGF0YSRCcmVlZCxsaXN0LmxlbiA9IDUpXG5cbnN0cihkYXRhX3Jhd0BndGRhdGFAaWRuYW1lcyxsaXN0LmxlbiA9IDUpXG5cbnN0cihkYXRhX3Jhd0BndGRhdGFAY2hyb21vc29tZSlcblxubGlicmFyeSh0aWR5dmVyc2UpXG5JREJyZWVkIDwtIHRpYmJsZShkYXRhX3Jhd0BwaGRhdGEkQnJlZWQsZGF0YV9yYXdAZ3RkYXRhQGlkbmFtZXMpICN0YWJsZSBvZiBhIHRhYmxlIDpEXG5cbnBoZGF0YSA8LSBkYXRhX3Jhd0BwaGRhdGFcblxuZ2VuZWRhdGEgPC0gc2lnbmF0dXJlKG9iamVjdCA9IFwiZ3dhYS5kYXRhXCIpXG5cbnAgPC0gc3VtbWFyeShkYXRhX3Jhd0BndGRhdGEpI3N1bW1hcnkgb2YgdGhlIGdlbmV0aWMgZGF0YVxuYGBgIn0= -->
-<pre class="r"><code>
-#You need to download: https://cran.r-project.org/src/contrib/Archive/GenABEL.data/GenABEL.data_1.0.0.tar.gz
-#and https://cran.r-project.org/src/contrib/Archive/GenABEL/GenABEL_1.8-0.tar.gz
-#and `install.packages('GanABEL.data_1.0.0.tar.gz', repos=NULL, type = 'source')`
-#`install.packages('GanABEL_1.8-0.tar.gz', repos=NULL, type = 'source')` (edited
-
-
-library(GenABEL)
-load(&quot;geno_data_raw.rdat&quot;)
-
-data_raw[8]
-str(data_raw, max.level=4)
-
-#Data is S4 format
-data_raw@phdata$Breed
-
-data_raw@gtdata@idnames
-data_raw@gtdata@coding
-
-str(data_raw@phdata$Breed,list.len = 5)
-
-str(data_raw@gtdata@idnames,list.len = 5)
-
-str(data_raw@gtdata@chromosome)
-
-library(tidyverse)
-IDBreed &lt;- tibble(data_raw@phdata$Breed,data_raw@gtdata@idnames) #table of a table :D
-
-phdata &lt;- data_raw@phdata
-
-genedata &lt;- signature(object = &quot;gwaa.data&quot;)
-
-p &lt;- summary(data_raw@gtdata)#summary of the genetic data</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5cbmBgYCJ9 -->
+<pre class="r"><code>library(tidyverse)
+</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUmVnaXN0ZXJlZCBTMyBtZXRob2RzIG92ZXJ3cml0dGVuIGJ5ICdnZ3Bsb3QyJzpcbiAgbWV0aG9kICAgICAgICAgZnJvbSBcbiAgWy5xdW9zdXJlcyAgICAgcmxhbmdcbiAgYy5xdW9zdXJlcyAgICAgcmxhbmdcbiAgcHJpbnQucXVvc3VyZXMgcmxhbmdcblx1MDAxYlszN20tLSBcdTAwMWJbMW1BdHRhY2hpbmcgcGFja2FnZXNcdTAwMWJbMjJtIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSB0aWR5dmVyc2UgMS4yLjEgLS1cdTAwMWJbMzltXG5cdTAwMWJbMzdtXHUwMDFiWzMybXZcdTAwMWJbMzdtIFx1MDAxYlszNG1nZ3Bsb3QyXHUwMDFiWzM3bSAzLjEuMSAgICAgXHUwMDFiWzMybXZcdTAwMWJbMzdtIFx1MDAxYlszNG1wdXJyciAgXHUwMDFiWzM3bSAwLjMuMlxuXHUwMDFiWzMybXZcdTAwMWJbMzdtIFx1MDAxYlszNG10aWJibGUgXHUwMDFiWzM3bSAyLjEuMyAgICAgXHUwMDFiWzMybXZcdTAwMWJbMzdtIFx1MDAxYlszNG1kcGx5ciAgXHUwMDFiWzM3bSAwLjguMVxuXHUwMDFiWzMybXZcdTAwMWJbMzdtIFx1MDAxYlszNG10aWR5ciAgXHUwMDFiWzM3bSAwLjguMyAgICAgXHUwMDFiWzMybXZcdTAwMWJbMzdtIFx1MDAxYlszNG1zdHJpbmdyXHUwMDFiWzM3bSAxLjQuMFxuXHUwMDFiWzMybXZcdTAwMWJbMzdtIFx1MDAxYlszNG1yZWFkciAgXHUwMDFiWzM3bSAxLjMuMSAgICAgXHUwMDFiWzMybXZcdTAwMWJbMzdtIFx1MDAxYlszNG1mb3JjYXRzXHUwMDFiWzM3bSAwLjQuMFx1MDAxYlszOW1cblx1MDAxYlszN20tLSBcdTAwMWJbMW1Db25mbGljdHNcdTAwMWJbMjJtIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSB0aWR5dmVyc2VfY29uZmxpY3RzKCkgLS1cblx1MDAxYlszMW14XHUwMDFiWzM3bSBcdTAwMWJbMzRtZHBseXJcdTAwMWJbMzdtOjpcdTAwMWJbMzJtZmlsdGVyKClcdTAwMWJbMzdtIG1hc2tzIFx1MDAxYlszNG1zdGF0c1x1MDAxYlszN206OmZpbHRlcigpXG5cdTAwMWJbMzFteFx1MDAxYlszN20gXHUwMDFiWzM0bWRwbHlyXHUwMDFiWzM3bTo6XHUwMDFiWzMybWxhZygpXHUwMDFiWzM3bSAgICBtYXNrcyBcdTAwMWJbMzRtc3RhdHNcdTAwMWJbMzdtOjpsYWcoKVxuXHUwMDFiWzMxbXhcdTAwMWJbMzdtIFx1MDAxYlszNG1wdXJyclx1MDAxYlszN206Olx1MDAxYlszMm1tYXAoKVx1MDAxYlszN20gICAgbWFza3MgXHUwMDFiWzM0bUdlbkFCRUxcdTAwMWJbMzdtOjptYXAoKVxuXHUwMDFiWzMxbXhcdTAwMWJbMzdtIFx1MDAxYlszNG1kcGx5clx1MDAxYlszN206Olx1MDAxYlszMm1zZWxlY3QoKVx1MDAxYlszN20gbWFza3MgXHUwMDFiWzM0bU1BU1NcdTAwMWJbMzdtOjpzZWxlY3QoKVx1MDAxYlszOW1cbiJ9 -->
+<pre><code>Registered S3 methods overwritten by 'ggplot2':
+  method         from 
+  [.quosures     rlang
+  c.quosures     rlang
+  print.quosures rlang
+[37m-- [1mAttaching packages[22m --------------------------------------- tidyverse 1.2.1 --[39m
+[37m[32mv[37m [34mggplot2[37m 3.1.1     [32mv[37m [34mpurrr  [37m 0.3.2
+[32mv[37m [34mtibble [37m 2.1.3     [32mv[37m [34mdplyr  [37m 0.8.1
+[32mv[37m [34mtidyr  [37m 0.8.3     [32mv[37m [34mstringr[37m 1.4.0
+[32mv[37m [34mreadr  [37m 1.3.1     [32mv[37m [34mforcats[37m 0.4.0[39m
+[37m-- [1mConflicts[22m ------------------------------------------ tidyverse_conflicts() --
+[31mx[37m [34mdplyr[37m::[32mfilter()[37m masks [34mstats[37m::filter()
+[31mx[37m [34mdplyr[37m::[32mlag()[37m    masks [34mstats[37m::lag()
+[31mx[37m [34mpurrr[37m::[32mmap()[37m    masks [34mGenABEL[37m::map()
+[31mx[37m [34mdplyr[37m::[32mselect()[37m masks [34mMASS[37m::select()[39m</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlJhdWtSIHByb2plY3QiDQpzdWJ0aXRsZTogIkFuYWx5c2lzIG9mIGdlbm9taWMgYXJyYXkgZGF0YSBmcm9tIDkgZG9nIGJyZWVkcyINCmRhdGU6ICJyIGZvcm1hdChTeXMuRGF0ZSgpLGZvcm1hdD0nJWQvJW0vJVknKSINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNClJlYWQgaW4gdGhlIGRhdGENCmBgYHtyfQ0KDQojWW91IG5lZWQgdG8gZG93bmxvYWQ6IGh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3NyYy9jb250cmliL0FyY2hpdmUvR2VuQUJFTC5kYXRhL0dlbkFCRUwuZGF0YV8xLjAuMC50YXIuZ3oNCiNhbmQgaHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvc3JjL2NvbnRyaWIvQXJjaGl2ZS9HZW5BQkVML0dlbkFCRUxfMS44LTAudGFyLmd6DQojYW5kIGBpbnN0YWxsLnBhY2thZ2VzKCdHYW5BQkVMLmRhdGFfMS4wLjAudGFyLmd6JywgcmVwb3M9TlVMTCwgdHlwZSA9ICdzb3VyY2UnKWANCiNgaW5zdGFsbC5wYWNrYWdlcygnR2FuQUJFTF8xLjgtMC50YXIuZ3onLCByZXBvcz1OVUxMLCB0eXBlID0gJ3NvdXJjZScpYCAoZWRpdGVkDQoNCg0KbGlicmFyeShHZW5BQkVMKQ0KbG9hZCgiZ2Vub19kYXRhX3Jhdy5yZGF0IikNCg0KZGF0YV9yYXdbOF0NCnN0cihkYXRhX3JhdywgbWF4LmxldmVsPTQpDQoNCiNEYXRhIGlzIFM0IGZvcm1hdA0KZGF0YV9yYXdAcGhkYXRhJEJyZWVkDQoNCmRhdGFfcmF3QGd0ZGF0YUBpZG5hbWVzDQpkYXRhX3Jhd0BndGRhdGFAY29kaW5nDQoNCnN0cihkYXRhX3Jhd0BwaGRhdGEkQnJlZWQsbGlzdC5sZW4gPSA1KQ0KDQpzdHIoZGF0YV9yYXdAZ3RkYXRhQGlkbmFtZXMsbGlzdC5sZW4gPSA1KQ0KDQpzdHIoZGF0YV9yYXdAZ3RkYXRhQGNocm9tb3NvbWUpDQoNCmxpYnJhcnkodGlkeXZlcnNlKQ0KSURCcmVlZCA8LSB0aWJibGUoZGF0YV9yYXdAcGhkYXRhJEJyZWVkLGRhdGFfcmF3QGd0ZGF0YUBpZG5hbWVzKSAjdGFibGUgb2YgYSB0YWJsZSA6RA0KDQpwaGRhdGEgPC0gZGF0YV9yYXdAcGhkYXRhDQoNCmdlbmVkYXRhIDwtIHNpZ25hdHVyZShvYmplY3QgPSAiZ3dhYS5kYXRhIikNCg0KcCA8LSBzdW1tYXJ5KGRhdGFfcmF3QGd0ZGF0YSkjc3VtbWFyeSBvZiB0aGUgZ2VuZXRpYyBkYXRhDQpgYGANCg0K</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlJhdWtSIHByb2plY3QiDQpzdWJ0aXRsZTogIkFuYWx5c2lzIG9mIGdlbm9taWMgYXJyYXkgZGF0YSBmcm9tIDkgZG9nIGJyZWVkcyINCmRhdGU6ICJyIGZvcm1hdChTeXMuRGF0ZSgpLGZvcm1hdD0nJWQvJW0vJVknKSINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNClJlYWQgaW4gdGhlIGRhdGENCmBgYHtyfQ0KDQojWW91IG5lZWQgdG8gZG93bmxvYWQ6IGh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3NyYy9jb250cmliL0FyY2hpdmUvR2VuQUJFTC5kYXRhL0dlbkFCRUwuZGF0YV8xLjAuMC50YXIuZ3oNCiNhbmQgaHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvc3JjL2NvbnRyaWIvQXJjaGl2ZS9HZW5BQkVML0dlbkFCRUxfMS44LTAudGFyLmd6DQojYW5kIGBpbnN0YWxsLnBhY2thZ2VzKCdHYW5BQkVMLmRhdGFfMS4wLjAudGFyLmd6JywgcmVwb3M9TlVMTCwgdHlwZSA9ICdzb3VyY2UnKWANCiNgaW5zdGFsbC5wYWNrYWdlcygnR2FuQUJFTF8xLjgtMC50YXIuZ3onLCByZXBvcz1OVUxMLCB0eXBlID0gJ3NvdXJjZScpYCAoZWRpdGVkDQoNCg0KbGlicmFyeShHZW5BQkVMKQ0KbG9hZCgiZ2Vub19kYXRhX3Jhdy5yZGF0IikNCg0KZGF0YV9yYXdbOF0NCnN0cihkYXRhX3JhdywgbWF4LmxldmVsPTQpICN0YWtlcyBsb25nIHRpbWUuLiBmcm9tIGFsbCB0aGUgZGF0YQ0KDQojRGF0YSBpcyBTNCBmb3JtYXQNCmRhdGFfcmF3QHBoZGF0YSRCcmVlZCAjanVzdCB0aGUgYnJlZWRzDQoNCmRhdGFfcmF3QGd0ZGF0YUBpZG5hbWVzDQpkYXRhX3Jhd0BndGRhdGFAY29kaW5nDQoNCnN0cihkYXRhX3Jhd0BwaGRhdGEkQnJlZWQsbGlzdC5sZW4gPSA1KQ0KDQpzdHIoZGF0YV9yYXdAZ3RkYXRhQGlkbmFtZXMsbGlzdC5sZW4gPSA1KQ0KDQpzdHIoZGF0YV9yYXdAZ3RkYXRhQGNocm9tb3NvbWUpDQoNCmxpYnJhcnkodGlkeXZlcnNlKQ0KSURCcmVlZCA8LSB0aWJibGUoZGF0YV9yYXdAcGhkYXRhJEJyZWVkLGRhdGFfcmF3QGd0ZGF0YUBpZG5hbWVzKSAjdGFibGUgb2YgYSB0YWJsZSA6RA0KDQpwaGRhdGEgPC0gZGF0YV9yYXdAcGhkYXRhDQoNCnAgPC0gc3VtbWFyeShkYXRhX3Jhd0BndGRhdGEpI3N1bW1hcnkgb2YgdGhlIGdlbmV0aWMgZGF0YQ0KYGBgDQoNCg==</div>
 
 
 

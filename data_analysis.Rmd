@@ -18,10 +18,10 @@ library(GenABEL)
 load("geno_data_raw.rdat")
 
 data_raw[8]
-str(data_raw, max.level=4)
+str(data_raw, max.level=4) #takes long time.. from all the data
 
 #Data is S4 format
-data_raw@phdata$Breed
+data_raw@phdata$Breed #just the breeds
 
 data_raw@gtdata@idnames
 data_raw@gtdata@coding
@@ -36,8 +36,6 @@ library(tidyverse)
 IDBreed <- tibble(data_raw@phdata$Breed,data_raw@gtdata@idnames) #table of a table :D
 
 phdata <- data_raw@phdata
-
-genedata <- signature(object = "gwaa.data")
 
 p <- summary(data_raw@gtdata)#summary of the genetic data
 ```
