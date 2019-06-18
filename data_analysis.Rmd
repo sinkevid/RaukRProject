@@ -1,6 +1,7 @@
 ---
 title: "RaukR project"
 subtitle: "Analysis of genomic array data from 9 dog breeds"
+author: Cátia Pereira, Dovilė Sinkevičiūtė, Minna Sivonen and Svandís Sæmundsdóttir
 date: "r format(Sys.Date(),format='%d/%m/%Y')"
 output: html_notebook
 ---
