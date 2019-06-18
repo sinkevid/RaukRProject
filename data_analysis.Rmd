@@ -38,5 +38,9 @@ IDBreed <- tibble(data_raw@phdata$Breed,data_raw@gtdata@idnames) #table of a tab
 phdata <- data_raw@phdata
 
 p <- summary(data_raw@gtdata)#summary of the genetic data
+p
+plot(p$Chromosome)
+
+plot(phdata$Body_weight)
 ```
 
