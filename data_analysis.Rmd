@@ -1,24 +1,14 @@
 ---
 title: "RaukR project"
 subtitle: "Analysis of genomic array data from 9 dog breeds"
+author: Cátia Pereira, Dovilė Sinkevičiūtė, Minna Sivonen and Svandís Sæmundsdóttir
 date: "r format(Sys.Date(),format='%d/%m/%Y')"
 output: html_notebook
 ---
 
 Read in the data
 ```{r}
-
-#You need to download: https://cran.r-project.org/src/contrib/Archive/GenABEL.data/GenABEL.data_1.0.0.tar.gz
-#and https://cran.r-project.org/src/contrib/Archive/GenABEL/GenABEL_1.8-0.tar.gz
-#and `install.packages('GanABEL.data_1.0.0.tar.gz', repos=NULL, type = 'source')`
-#`install.packages('GanABEL_1.8-0.tar.gz', repos=NULL, type = 'source')` (edited
-
-
-library(GenABEL)
 load("geno_data_raw.rdat")
-
-data_raw[8]
-str(data_raw, max.level=4) #takes long time.. from all the data
 
 #Data is S4 format
 data_raw@phdata$Breed #just the breeds
@@ -26,21 +16,18 @@ data_raw@phdata$Breed #just the breeds
 data_raw@gtdata@idnames
 data_raw@gtdata@coding
 
-str(data_raw@phdata$Breed,list.len = 5)
-
-str(data_raw@gtdata@idnames,list.len = 5)
-
-str(data_raw@gtdata@chromosome)
-
 library(tidyverse)
-IDBreed <- tibble(data_raw@phdata$Breed,data_raw@gtdata@idnames) #table of a table :D
 
-phdata <- data_raw@phdata
+phdata <- data_raw@phdata #table from the phdata file
 
-p <- summary(data_raw@gtdata)#summary of the genetic data
-p
+summary(data_raw@gtdata)#summary of the genetic data
+
+#playing with plotting.. nothing real stuff :)
 plot(p$Chromosome)
 
 plot(phdata$Body_weight)
+=======
+
+>>>>>>> 941b6ed9b139efdd343707ebf58821cf16d29d97
 ```
 
