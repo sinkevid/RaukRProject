@@ -1,13 +1,4 @@
----
-title: "RaukR project"
-subtitle: "Analysis of genomic array data from 9 dog breeds"
-author: Cátia Pereira, Dovilė Sinkevičiūtė, Minna Sivonen and Svandís Sæmundsdóttir
-date: "r format(Sys.Date(),format='%d/%m/%Y')"
-output: html_notebook
----
 
-Read in the data
-```{r}
 load("geno_data_raw.rdat")
 
 #Data is S4 format
@@ -26,5 +17,3 @@ summary(data_raw@gtdata)#summary of the genetic data
 plot(p$Chromosome)
 
 plot(phdata$Body_weight)
-```
-
