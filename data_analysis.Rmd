@@ -154,8 +154,9 @@ ggplot(df_data_raw, aes(Dim_1, Dim_2, color=Breed)) +
 #Multidimensional scaling MDS
 ```{r, cache= TRUE, include=FALSE}
 # Compute genomic kinship-based distances
-gkin <- ibs(data_raw, weight = 'freq')
-head(gkin)
+#gkin <- ibs(data_raw, weight = 'freq')
+#head(gkin)
+load("gkin.rdat")
 dm <- as.dist(.5 - gkin) # Normalize it
 
 # PCA
@@ -192,8 +193,9 @@ library(ggplot2)
 library(lattice)
 library(ggpubr)
 
+```
+```{r}
 #arranging the two grids side by side with one legend
 ggarrange(g,z, ncol=2, nrow=1, common.legend = TRUE, legend="bottom")
-
 ```
 

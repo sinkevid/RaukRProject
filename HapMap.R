@@ -2,13 +2,14 @@
 
 #autoencoder as a replacement/complement to MDS/PCA used for visualising population structure in genetics
 
-head(summary(data_raw@gtdata))#summary of the genetic data
+#head(summary(data_raw@gtdata))#summary of the genetic data
 
 #Getting rid off the chromosome 39 (X chromosome)
 #data_autosomal <- data_raw[,data_raw@gtdata@chromosome != "39"]
 
-# Compute genomic kinship-based distances
+# Compute genomic kinship-based distances, takes long time
 gkin <- ibs(data_raw, weight = 'freq')
+save(gkin, file="gkin.rdat")
 
 head(gkin)
 
@@ -20,7 +21,7 @@ dm <- as.dist(.5 - gkin) # Normalize it
 pca <- prcomp(dm) #Principal components analysis
 
 library(devtools)
-install_github("vqv/ggbiplot") #to get the ggbiplot
+#install_github("vqv/ggbiplot") #to get the ggbiplot
 library(ggbiplot)
 
 color_9 <- c("black", "dodgerblue4", "bisque4", "darkgreen","yellow3", "darkgoldenrod3", "darkorchid4", "darkred", "grey")
