@@ -24,6 +24,7 @@ output:
 library(tidyr)
 library(dplyr)
 library(ggplot2)
+library(GenABEL)
 
 # Load the data
 load("geno_data_raw.rdat")
@@ -77,10 +78,10 @@ data_raw@phdata %>%
 
 
 
-## Weight distribution for all breeds
+# Weight distribution for all breeds
 ```{r}
 data_raw@phdata %>% 
-    select(Breed, Body_weight) %>% 
+    dplyr::select(Breed, Body_weight) %>% 
     na.omit() %>% 
     ggplot(aes(x=Breed, y=Body_weight, fill=Breed)) +
     geom_boxplot() +
@@ -91,3 +92,6 @@ data_raw@phdata %>%
     theme_bw() + 
     theme(legend.position = "none")
 ```
+
+
+
