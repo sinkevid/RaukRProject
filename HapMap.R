@@ -87,7 +87,8 @@ act <- 'relu'
 #the data are split into the validation (20%) and the training (80%) set.
 
 # Encode genotypes
-geno_matrix <- as.double(data_raw)
+qc1 <- check.marker(data = data_raw, callrate = 1) #to remove NAs
+geno_matrix <- as.double(data_raw[qc1$idok, qc1$snpok]) #to remove NAs
 geno_tensor <- geno_matrix/2 #keras::to_categorical(geno_matrix)
 
 # Split into the training and the validation set
@@ -108,23 +109,12 @@ act <- 'relu'
 #* heterozygotes to 0.5 * homozygotes aa to 0 Next, 
 #the data are split into the validation (20%) and the training (80%) set.
 
-# Encode genotypes, with sample size 2000 (randomly chosen), not the whole data
-set.seed(12345)
-geno_matrix <- as.double(data_raw[, sample(1:nsnps(data_raw), size = 2000, replace = F)])
-geno_tensor <- geno_matrix/2 #keras::to_categorical(geno_matrix)
-
-# Split into the training and the validation set
-n_rows <- dim(geno_tensor)[1]
-train_idx <- sample(1:n_rows, size = 0.8 * n_rows, replace = F)
-train_data <- geno_tensor[train_idx, ]
-valid_data <- geno_tensor[-train_idx, ]
-
-#Define the architecture
 
 library(tensorflow)
 library(keras)
 #Did not work for me I had to run these commands
-#"devtools::install_github("rstudio/tensorflow")
+#Newest version of keras has a bug. That is not fixed. Use older version
+#devtools::install_github("rstudio/tensorflow")
 #devtools::install_github("rstudio/keras")"
 #tensorflow::install_tensorflow()
 #tensorflow::tf_config()
@@ -185,12 +175,14 @@ delta <- abs(train_data - reconstructed_points)
 heatmap(delta[1:100, 1:100], Rowv = NA, Colv = NA,
         col=heat.colors(5), scale = 'none')
 
+
 #Building the encoder
 autoencoder_weights <- autoencoder_model %>% keras::get_weights()
 keras::save_model_weights_hdf5(object = autoencoder_model,
                                filepath = './autoencoder_weights.hdf5',
                                overwrite = TRUE)
 encoder_model <- keras_model(inputs = input_layer, outputs = encoder)
+
 
 #Gives an error: You are trying to load a weight file containing 9 layers into a model with 5 layers. 
 encoder_model %>% keras::load_model_weights_hdf5(filepath = "./autoencoder_weights.hdf5",
@@ -202,18 +194,18 @@ encoder_model %>% compile(
   metrics = c('accuracy')
 )
 
-#Embedding original data
+#Embedding original data in the low-dimensional space using the encoder.
 embeded_points <-
   encoder_model %>%
   keras::predict_on_batch(x = geno_tensor)
 
 #Final results
 embedded <- data.frame(embeded_points[,1:2],
-                       pop = data_autosomal@phdata$Breed,
+                       pop = data_raw@phdata$breed,
                        type='emb')
 mds <- cbind(ibs, type='mds')
-colnames(mds) <- c('x', 'y', 'type')
-colnames(embedded) <- c('x', 'y', 'type')
+colnames(mds) <- c('x', 'y', 'pop', 'type')
+colnames(embedded) <- c('x', 'y', 'pop', 'type')
 dat <- rbind(embedded, mds)
 dat %>% ggplot(mapping = aes(x=x, y=y, col=pop)) +
   geom_point() +
