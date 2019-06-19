@@ -47,12 +47,12 @@ dogs <- data_raw@phdata %>%
   mutate_at(vars(-group_cols()), ~replace(., is.na(.), 0))
 dogs$Breed_name <- c("Boxer",
                      "Belgian Shepperd",
-                     "Cavalier King Charles spaniel",
+                     "Cavalier King Charles Spaniel",
                      "Dachshund", 
-                     "Doberman pinscher",
-                     "Finnish lapphund",
+                     "Doberman Pinscher",
+                     "Finnish Lapphund",
                      "German Shepperd",
-                     "Labrador retriever", 
+                     "Labrador Retriever", 
                      "Newfoundland")
 colnames(dogs)<- c("Abbreviation", "Female", "Male", "Breed")
 dogs[,c("Breed", "Abbreviation", "Female", "Male")]
@@ -289,8 +289,8 @@ funm <- function(x){mean(x, na.rm = T)}
 dogsWH <- data_raw@phdata %>%
   group_by(Breed, sex) %>%
   summarize(n = n(),
-            mean.Age = funm(Age), 
-            mean.Weight = funm(Body_weight)) 
+            mean.Age = round(funm(Age), digits = 2), 
+            mean.Weight = round(funm(Body_weight), digits = 2)) 
 dogsWH$sex[dogsWH$sex == 0]<- "female"
 dogsWH$sex[dogsWH$sex == 1]<- "male"
 dogsWH
@@ -329,7 +329,7 @@ ggplot(df_data_raw, aes(Dim_1, Dim_2, color=Breed)) +
 
 # Multidimensional scaling MDS
 
-```{r, cache= TRUE, include=FALSE}
+```{r, cache= TRUE, message=FALSE}
 # Compute genomic kinship-based distances
 #gkin <- ibs(data_raw, weight = 'freq')
 #head(gkin)

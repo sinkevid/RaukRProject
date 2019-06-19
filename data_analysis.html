@@ -385,18 +385,18 @@ dogs &lt;-<span class="st"> </span>data_raw<span class="op">@</span>phdata <span
 <span class="st">  </span><span class="kw">mutate_at</span>(<span class="kw">vars</span>(<span class="op">-</span><span class="kw">group_cols</span>()), <span class="op">~</span><span class="kw">replace</span>(., <span class="kw">is.na</span>(.), <span class="dv">0</span>))
 dogs<span class="op">$</span>Breed_name &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Boxer&quot;</span>,
                      <span class="st">&quot;Belgian Shepperd&quot;</span>,
-                     <span class="st">&quot;Cavalier King Charles spaniel&quot;</span>,
+                     <span class="st">&quot;Cavalier King Charles Spaniel&quot;</span>,
                      <span class="st">&quot;Dachshund&quot;</span>, 
-                     <span class="st">&quot;Doberman pinscher&quot;</span>,
-                     <span class="st">&quot;Finnish lapphund&quot;</span>,
+                     <span class="st">&quot;Doberman Pinscher&quot;</span>,
+                     <span class="st">&quot;Finnish Lapphund&quot;</span>,
                      <span class="st">&quot;German Shepperd&quot;</span>,
-                     <span class="st">&quot;Labrador retriever&quot;</span>, 
+                     <span class="st">&quot;Labrador Retriever&quot;</span>, 
                      <span class="st">&quot;Newfoundland&quot;</span>)
 <span class="kw">colnames</span>(dogs)&lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Abbreviation&quot;</span>, <span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Breed&quot;</span>)
 dogs[,<span class="kw">c</span>(<span class="st">&quot;Breed&quot;</span>, <span class="st">&quot;Abbreviation&quot;</span>, <span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>)]</code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["Breed"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Abbreviation"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Female"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Male"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"Boxer","2":"BOX","3":"0","4":"15"},{"1":"Belgian Shepperd","2":"BS","3":"0","4":"121"},{"1":"Cavalier King Charles spaniel","2":"CKCS","3":"0","4":"34"},{"1":"Dachshund","2":"DACH","3":"0","4":"40"},{"1":"Doberman pinscher","2":"DOB","3":"0","4":"36"},{"1":"Finnish lapphund","2":"FIN_LAP","3":"0","4":"47"},{"1":"German Shepperd","2":"GS","3":"0","4":"65"},{"1":"Labrador retriever","2":"LAB","3":"73","4":"52"},{"1":"Newfoundland","2":"NF","3":"44","4":"1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["Breed"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Abbreviation"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Female"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Male"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"Boxer","2":"BOX","3":"0","4":"15"},{"1":"Belgian Shepperd","2":"BS","3":"0","4":"121"},{"1":"Cavalier King Charles Spaniel","2":"CKCS","3":"0","4":"34"},{"1":"Dachshund","2":"DACH","3":"0","4":"40"},{"1":"Doberman Pinscher","2":"DOB","3":"0","4":"36"},{"1":"Finnish Lapphund","2":"FIN_LAP","3":"0","4":"47"},{"1":"German Shepperd","2":"GS","3":"0","4":"65"},{"1":"Labrador Retriever","2":"LAB","3":"73","4":"52"},{"1":"Newfoundland","2":"NF","3":"44","4":"1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <div id="distributions-of-individuals-by-country" class="section level2 tabset">
@@ -418,7 +418,6 @@ country_info[,<span class="kw">c</span>(<span class="st">&quot;Country&quot;</sp
 </div>
 <div id="map" class="section level3">
 <h3>Map</h3>
-<<<<<<< HEAD
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggmap</span>(europe.map) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">18.063240</span>, <span class="dt">y =</span> <span class="fl">59.334591</span>), <span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">size =</span> <span class="fl">6.6</span>) <span class="op">+</span><span class="st"> </span><span class="co">#Sweden</span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">2.349014</span>, <span class="dt">y =</span> <span class="fl">48.864716</span>), <span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">size =</span> <span class="fl">5.3</span>) <span class="op">+</span><span class="st"> </span><span class="co">#France</span>
@@ -428,17 +427,6 @@ country_info[,<span class="kw">c</span>(<span class="st">&quot;Country&quot;</sp
 <p><img src="data_analysis_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
 </div>
-=======
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">ggmap</span>(europe.map) <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">18.063240</span>, <span class="dt">y =</span> <span class="fl">59.334591</span>), <span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">size =</span> <span class="fl">6.6</span>) <span class="op">+</span><span class="st"> </span><span class="co">#Sweden</span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">2.349014</span>, <span class="dt">y =</span> <span class="fl">48.864716</span>), <span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">size =</span> <span class="fl">5.3</span>) <span class="op">+</span><span class="st"> </span><span class="co">#France</span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">24.945831</span>, <span class="dt">y =</span> <span class="fl">60.192059</span>), <span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">size =</span> <span class="fl">7.1</span>) <span class="op">+</span><span class="st"> </span><span class="co">#Finland</span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">11.568337</span>, <span class="dt">y =</span> <span class="fl">55.676098</span>), <span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">size =</span> <span class="fl">5.2</span>) <span class="op">+</span><span class="st"> </span><span class="co">#Denmark</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">4.402771</span>, <span class="dt">y =</span> <span class="fl">51.260197</span>), <span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">size =</span> <span class="dv">7</span>) <span class="co">#Belgium</span></a></code></pre></div>
-<p><img src="data_analysis_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-</div>
-</div>
->>>>>>> b2b652a5c710484a9c989ac63c3525a7c4006ba8
 <div id="distributions-of-breeds-by-country" class="section level2 tabset">
 <h2>Distributions of Breeds by Country</h2>
 <div id="sweden" class="section level3">
@@ -499,15 +487,9 @@ belgium</code></pre></div>
 </div>
 <div id="map-1" class="section level2">
 <h2>Map</h2>
-<<<<<<< HEAD
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggdraw</span>(<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">2.3</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">draw_plot</span>(europe.map.complete, <span class="dt">x=</span><span class="fl">0.05</span>, <span class="dt">y=</span><span class="dv">0</span>, <span class="dt">scale=</span><span class="fl">1.2</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">draw_plot</span>(breed.country.plot, <span class="dt">x=</span><span class="fl">1.2</span>, <span class="dt">y=</span><span class="dv">0</span>, <span class="dt">scale=</span><span class="fl">0.9</span>) </code></pre></div>
-=======
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">ggdraw</span>(<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">2.3</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="st">  </span><span class="kw">draw_plot</span>(europe.map.complete, <span class="dt">x=</span><span class="fl">0.05</span>, <span class="dt">y=</span><span class="dv">0</span>, <span class="dt">scale=</span><span class="fl">1.2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="st">  </span><span class="kw">draw_plot</span>(breed.country.plot, <span class="dt">x=</span><span class="fl">1.2</span>, <span class="dt">y=</span><span class="dv">0</span>, <span class="dt">scale=</span><span class="fl">0.9</span>) </a></code></pre></div>
->>>>>>> b2b652a5c710484a9c989ac63c3525a7c4006ba8
 <p><img src="data_analysis_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 </div>
 <div id="weight" class="section level2 tabset">
@@ -515,7 +497,6 @@ belgium</code></pre></div>
 <div id="graph" class="section level3">
 <h3>Graph</h3>
 <p>Weight distribution for all breeds</p>
-<<<<<<< HEAD
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(Breed, Body_weight) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">na.omit</span>() <span class="op">%&gt;%</span><span class="st"> </span>
@@ -528,20 +509,6 @@ belgium</code></pre></div>
 <span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;dodgerblue4&quot;</span>, <span class="st">&quot;bisque4&quot;</span>, <span class="st">&quot;darkgreen&quot;</span>,<span class="st">&quot;yellow3&quot;</span>, <span class="st">&quot;darkgoldenrod3&quot;</span>, <span class="st">&quot;darkorchid4&quot;</span>, <span class="st">&quot;darkred&quot;</span>, <span class="st">&quot;grey&quot;</span>)) <span class="op">+</span>
 <span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</code></pre></div>
-=======
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(Breed, Body_weight) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="st">    </span><span class="kw">na.omit</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Breed, <span class="dt">y=</span>Body_weight, <span class="dt">fill=</span>Breed)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-6" data-line-number="6"><span class="st">    </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.2</span>, <span class="dt">alpha=</span><span class="fl">0.3</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-7" data-line-number="7"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Weight distribution for all breeds&quot;</span>,</a>
-<a class="sourceLine" id="cb10-8" data-line-number="8">         <span class="dt">subtitle=</span><span class="st">&quot;RaukR project 2019&quot;</span>,</a>
-<a class="sourceLine" id="cb10-9" data-line-number="9">         <span class="dt">caption=</span><span class="st">&quot;Sources: PLoS ONE, 2015&quot;</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb10-10" data-line-number="10"><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;dodgerblue4&quot;</span>, <span class="st">&quot;bisque4&quot;</span>, <span class="st">&quot;darkgreen&quot;</span>,<span class="st">&quot;yellow3&quot;</span>, <span class="st">&quot;darkgoldenrod3&quot;</span>, <span class="st">&quot;darkorchid4&quot;</span>, <span class="st">&quot;darkred&quot;</span>, <span class="st">&quot;grey&quot;</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-11" data-line-number="11"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb10-12" data-line-number="12"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</a></code></pre></div>
->>>>>>> b2b652a5c710484a9c989ac63c3525a7c4006ba8
 <p><img src="data_analysis_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 </div>
 <div id="table-1" class="section level3">
@@ -553,14 +520,14 @@ funm &lt;-<span class="st"> </span><span class="cf">function</span>(x){<span cla
 dogsWH &lt;-<span class="st"> </span>data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">group_by</span>(Breed, sex) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>(),
-            <span class="dt">mean.Age =</span> <span class="kw">funm</span>(Age), 
-            <span class="dt">mean.Weight =</span> <span class="kw">funm</span>(Body_weight)) 
+            <span class="dt">mean.Age =</span> <span class="kw">round</span>(<span class="kw">funm</span>(Age), <span class="dt">digits =</span> <span class="dv">2</span>), 
+            <span class="dt">mean.Weight =</span> <span class="kw">round</span>(<span class="kw">funm</span>(Body_weight), <span class="dt">digits =</span> <span class="dv">2</span>)) 
 dogsWH<span class="op">$</span>sex[dogsWH<span class="op">$</span>sex <span class="op">==</span><span class="st"> </span><span class="dv">0</span>]&lt;-<span class="st"> &quot;female&quot;</span>
 dogsWH<span class="op">$</span>sex[dogsWH<span class="op">$</span>sex <span class="op">==</span><span class="st"> </span><span class="dv">1</span>]&lt;-<span class="st"> &quot;male&quot;</span>
 dogsWH</code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["Breed"],"name":[1],"type":["chr"],"align":["left"]},{"label":["sex"],"name":[2],"type":["chr"],"align":["left"]},{"label":["n"],"name":[3],"type":["int"],"align":["right"]},{"label":["mean.Age"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["mean.Weight"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"BOX","2":"male","3":"15","4":"3.433333","5":"32.980000"},{"1":"BS","2":"male","3":"121","4":"3.743526","5":"30.913717"},{"1":"CKCS","2":"male","3":"34","4":"3.342424","5":"9.476471"},{"1":"DACH","2":"male","3":"40","4":"3.674359","5":"10.280000"},{"1":"DOB","2":"male","3":"36","4":"2.997005","5":"42.934286"},{"1":"FIN_LAP","2":"male","3":"47","4":"3.614894","5":"19.984444"},{"1":"GS","2":"male","3":"65","4":"3.533846","5":"36.029365"},{"1":"LAB","2":"female","3":"73","4":"3.576056","5":"29.066197"},{"1":"LAB","2":"male","3":"52","4":"3.603922","5":"31.776471"},{"1":"NF","2":"female","3":"44","4":"3.382500","5":"54.188750"},{"1":"NF","2":"male","3":"1","4":"4.100000","5":"58.000000"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["Breed"],"name":[1],"type":["chr"],"align":["left"]},{"label":["sex"],"name":[2],"type":["chr"],"align":["left"]},{"label":["n"],"name":[3],"type":["int"],"align":["right"]},{"label":["mean.Age"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["mean.Weight"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"BOX","2":"male","3":"15","4":"3.43","5":"32.98"},{"1":"BS","2":"male","3":"121","4":"3.74","5":"30.91"},{"1":"CKCS","2":"male","3":"34","4":"3.34","5":"9.48"},{"1":"DACH","2":"male","3":"40","4":"3.67","5":"10.28"},{"1":"DOB","2":"male","3":"36","4":"3.00","5":"42.93"},{"1":"FIN_LAP","2":"male","3":"47","4":"3.61","5":"19.98"},{"1":"GS","2":"male","3":"65","4":"3.53","5":"36.03"},{"1":"LAB","2":"female","3":"73","4":"3.58","5":"29.07"},{"1":"LAB","2":"male","3":"52","4":"3.60","5":"31.78"},{"1":"NF","2":"female","3":"44","4":"3.38","5":"54.19"},{"1":"NF","2":"male","3":"1","4":"4.10","5":"58.00"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -598,7 +565,32 @@ df_data_raw &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<sp
 </div>
 <div id="multidimensional-scaling-mds" class="section level1">
 <h1>Multidimensional scaling MDS</h1>
-<<<<<<< HEAD
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Compute genomic kinship-based distances</span>
+<span class="co">#gkin &lt;- ibs(data_raw, weight = &#39;freq&#39;)</span>
+<span class="co">#head(gkin)</span>
+<span class="kw">load</span>(<span class="st">&quot;gkin.rdat&quot;</span>)
+dm &lt;-<span class="st"> </span><span class="kw">as.dist</span>(.<span class="dv">5</span> <span class="op">-</span><span class="st"> </span>gkin) <span class="co"># Normalize it</span>
+<span class="co"># PCA</span>
+pca &lt;-<span class="st"> </span><span class="kw">prcomp</span>(dm) <span class="co">#Principal components analysis</span>
+<span class="kw">library</span>(devtools)
+<span class="kw">install_github</span>(<span class="st">&quot;vqv/ggbiplot&quot;</span>) <span class="co">#to get the ggbiplot</span>
+<span class="kw">library</span>(ggbiplot)
+<span class="co">#vector for the colors</span>
+color_<span class="dv">9</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;dodgerblue4&quot;</span>, <span class="st">&quot;bisque4&quot;</span>, <span class="st">&quot;darkgreen&quot;</span>,<span class="st">&quot;yellow3&quot;</span>, <span class="st">&quot;darkgoldenrod3&quot;</span>, <span class="st">&quot;darkorchid4&quot;</span>, <span class="st">&quot;darkred&quot;</span>, <span class="st">&quot;grey&quot;</span>)
+g &lt;-<span class="st"> </span><span class="kw">ggbiplot</span>(pca, <span class="dt">obs.scale =</span> <span class="dv">1</span>, <span class="dt">var.scale =</span> <span class="dv">1</span>,
+              <span class="dt">groups =</span> data_raw<span class="op">@</span>phdata<span class="op">$</span>Breed, <span class="dt">ellipse =</span> F, <span class="co">#using breed as a group</span>
+              <span class="dt">circle =</span> <span class="ot">TRUE</span>, <span class="dt">var.axes =</span> F) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;PCA&quot;</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> color_<span class="dv">9</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&#39;none&#39;</span>) <span class="co">#removing legend</span>
+<span class="co"># MDS</span>
+ibs &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">cmdscale</span>(dm))
+ibs &lt;-<span class="st"> </span><span class="kw">cbind</span>(ibs, <span class="dt">pop =</span> data_raw<span class="op">@</span>phdata<span class="op">$</span>Breed) <span class="co">#same as group at PCA</span>
+z &lt;-<span class="kw">ggplot</span>(ibs, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>V1, <span class="dt">y=</span>V2, <span class="dt">col=</span>pop)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;MDS&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> color_<span class="dv">9</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&#39;none&#39;</span>) <span class="co">#removing legend</span></code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#arranging the two grids side by side with one legend</span>
 <span class="kw">library</span>(gridExtra)
 <span class="kw">library</span>(grid)
@@ -607,44 +599,18 @@ df_data_raw &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<sp
 <span class="kw">library</span>(ggpubr)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#arranging the two grids side by side with one legend</span>
 <span class="kw">ggarrange</span>(g,z, <span class="dt">ncol=</span><span class="dv">2</span>, <span class="dt">nrow=</span><span class="dv">1</span>, <span class="dt">common.legend =</span> <span class="ot">TRUE</span>, <span class="dt">legend=</span><span class="st">&quot;bottom&quot;</span>)</code></pre></div>
-=======
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="co">#arranging the two grids side by side with one legend</span></a>
-<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="kw">library</span>(gridExtra)</a></code></pre></div>
-<pre><code>## 
-## Attaching package: &#39;gridExtra&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
-## 
-##     combine</code></pre>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw">library</span>(grid)</a>
-<a class="sourceLine" id="cb16-2" data-line-number="2"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb16-3" data-line-number="3"><span class="kw">library</span>(lattice)</a>
-<a class="sourceLine" id="cb16-4" data-line-number="4"><span class="kw">library</span>(ggpubr)</a></code></pre></div>
-<pre><code>## Loading required package: magrittr</code></pre>
-<pre><code>## 
-## Attaching package: &#39;magrittr&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:ggmap&#39;:
-## 
-##     inset</code></pre>
-<pre><code>## The following object is masked from &#39;package:purrr&#39;:
-## 
-##     set_names</code></pre>
-<pre><code>## The following object is masked from &#39;package:tidyr&#39;:
-## 
-##     extract</code></pre>
-<pre><code>## 
-## Attaching package: &#39;ggpubr&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:cowplot&#39;:
-## 
-##     get_legend</code></pre>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="co">#arranging the two grids side by side with one legend</span></a>
-<a class="sourceLine" id="cb24-2" data-line-number="2"><span class="kw">ggarrange</span>(g,z, <span class="dt">ncol=</span><span class="dv">2</span>, <span class="dt">nrow=</span><span class="dv">1</span>, <span class="dt">common.legend =</span> <span class="ot">TRUE</span>, <span class="dt">legend=</span><span class="st">&quot;bottom&quot;</span>)</a></code></pre></div>
->>>>>>> b2b652a5c710484a9c989ac63c3525a7c4006ba8
 <p><img src="data_analysis_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 </div>
 <div id="autoencoder" class="section level1">
 <h1>Autoencoder</h1>
-<p><img src="Autoencoder.png" /></p>
-<p><img src="Training.jpeg" /></p>
+<div class="figure">
+<img src="Autoencoder.png" />
+
+</div>
+<div class="figure">
+<img src="Training.jpeg" />
+
+</div>
 </div>
 
 
