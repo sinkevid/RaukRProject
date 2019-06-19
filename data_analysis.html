@@ -418,6 +418,7 @@ country_info[,<span class="kw">c</span>(<span class="st">&quot;Country&quot;</sp
 </div>
 <div id="map" class="section level3">
 <h3>Map</h3>
+<<<<<<< HEAD
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggmap</span>(europe.map) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">18.063240</span>, <span class="dt">y =</span> <span class="fl">59.334591</span>), <span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">size =</span> <span class="fl">6.6</span>) <span class="op">+</span><span class="st"> </span><span class="co">#Sweden</span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">2.349014</span>, <span class="dt">y =</span> <span class="fl">48.864716</span>), <span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">size =</span> <span class="fl">5.3</span>) <span class="op">+</span><span class="st"> </span><span class="co">#France</span>
@@ -427,6 +428,17 @@ country_info[,<span class="kw">c</span>(<span class="st">&quot;Country&quot;</sp
 <p><img src="data_analysis_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
 </div>
+=======
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">ggmap</span>(europe.map) <span class="op">+</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">18.063240</span>, <span class="dt">y =</span> <span class="fl">59.334591</span>), <span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">size =</span> <span class="fl">6.6</span>) <span class="op">+</span><span class="st"> </span><span class="co">#Sweden</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">2.349014</span>, <span class="dt">y =</span> <span class="fl">48.864716</span>), <span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">size =</span> <span class="fl">5.3</span>) <span class="op">+</span><span class="st"> </span><span class="co">#France</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">24.945831</span>, <span class="dt">y =</span> <span class="fl">60.192059</span>), <span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">size =</span> <span class="fl">7.1</span>) <span class="op">+</span><span class="st"> </span><span class="co">#Finland</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">11.568337</span>, <span class="dt">y =</span> <span class="fl">55.676098</span>), <span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">size =</span> <span class="fl">5.2</span>) <span class="op">+</span><span class="st"> </span><span class="co">#Denmark</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">4.402771</span>, <span class="dt">y =</span> <span class="fl">51.260197</span>), <span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">size =</span> <span class="dv">7</span>) <span class="co">#Belgium</span></a></code></pre></div>
+<p><img src="data_analysis_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+</div>
+>>>>>>> b2b652a5c710484a9c989ac63c3525a7c4006ba8
 <div id="distributions-of-breeds-by-country" class="section level2 tabset">
 <h2>Distributions of Breeds by Country</h2>
 <div id="sweden" class="section level3">
@@ -487,9 +499,15 @@ belgium</code></pre></div>
 </div>
 <div id="map-1" class="section level2">
 <h2>Map</h2>
+<<<<<<< HEAD
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggdraw</span>(<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">2.3</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">draw_plot</span>(europe.map.complete, <span class="dt">x=</span><span class="fl">0.05</span>, <span class="dt">y=</span><span class="dv">0</span>, <span class="dt">scale=</span><span class="fl">1.2</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">draw_plot</span>(breed.country.plot, <span class="dt">x=</span><span class="fl">1.2</span>, <span class="dt">y=</span><span class="dv">0</span>, <span class="dt">scale=</span><span class="fl">0.9</span>) </code></pre></div>
+=======
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">ggdraw</span>(<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">2.3</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="st">  </span><span class="kw">draw_plot</span>(europe.map.complete, <span class="dt">x=</span><span class="fl">0.05</span>, <span class="dt">y=</span><span class="dv">0</span>, <span class="dt">scale=</span><span class="fl">1.2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="st">  </span><span class="kw">draw_plot</span>(breed.country.plot, <span class="dt">x=</span><span class="fl">1.2</span>, <span class="dt">y=</span><span class="dv">0</span>, <span class="dt">scale=</span><span class="fl">0.9</span>) </a></code></pre></div>
+>>>>>>> b2b652a5c710484a9c989ac63c3525a7c4006ba8
 <p><img src="data_analysis_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 </div>
 <div id="weight" class="section level2 tabset">
@@ -497,6 +515,7 @@ belgium</code></pre></div>
 <div id="graph" class="section level3">
 <h3>Graph</h3>
 <p>Weight distribution for all breeds</p>
+<<<<<<< HEAD
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(Breed, Body_weight) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">na.omit</span>() <span class="op">%&gt;%</span><span class="st"> </span>
@@ -509,6 +528,20 @@ belgium</code></pre></div>
 <span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;dodgerblue4&quot;</span>, <span class="st">&quot;bisque4&quot;</span>, <span class="st">&quot;darkgreen&quot;</span>,<span class="st">&quot;yellow3&quot;</span>, <span class="st">&quot;darkgoldenrod3&quot;</span>, <span class="st">&quot;darkorchid4&quot;</span>, <span class="st">&quot;darkred&quot;</span>, <span class="st">&quot;grey&quot;</span>)) <span class="op">+</span>
 <span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</code></pre></div>
+=======
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(Breed, Body_weight) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="st">    </span><span class="kw">na.omit</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Breed, <span class="dt">y=</span>Body_weight, <span class="dt">fill=</span>Breed)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-6" data-line-number="6"><span class="st">    </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.2</span>, <span class="dt">alpha=</span><span class="fl">0.3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-7" data-line-number="7"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Weight distribution for all breeds&quot;</span>,</a>
+<a class="sourceLine" id="cb10-8" data-line-number="8">         <span class="dt">subtitle=</span><span class="st">&quot;RaukR project 2019&quot;</span>,</a>
+<a class="sourceLine" id="cb10-9" data-line-number="9">         <span class="dt">caption=</span><span class="st">&quot;Sources: PLoS ONE, 2015&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb10-10" data-line-number="10"><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;dodgerblue4&quot;</span>, <span class="st">&quot;bisque4&quot;</span>, <span class="st">&quot;darkgreen&quot;</span>,<span class="st">&quot;yellow3&quot;</span>, <span class="st">&quot;darkgoldenrod3&quot;</span>, <span class="st">&quot;darkorchid4&quot;</span>, <span class="st">&quot;darkred&quot;</span>, <span class="st">&quot;grey&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-11" data-line-number="11"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb10-12" data-line-number="12"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</a></code></pre></div>
+>>>>>>> b2b652a5c710484a9c989ac63c3525a7c4006ba8
 <p><img src="data_analysis_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 </div>
 <div id="table-1" class="section level3">
@@ -565,6 +598,7 @@ df_data_raw &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<sp
 </div>
 <div id="multidimensional-scaling-mds" class="section level1">
 <h1>Multidimensional scaling MDS</h1>
+<<<<<<< HEAD
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#arranging the two grids side by side with one legend</span>
 <span class="kw">library</span>(gridExtra)
 <span class="kw">library</span>(grid)
@@ -573,7 +607,44 @@ df_data_raw &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<sp
 <span class="kw">library</span>(ggpubr)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#arranging the two grids side by side with one legend</span>
 <span class="kw">ggarrange</span>(g,z, <span class="dt">ncol=</span><span class="dv">2</span>, <span class="dt">nrow=</span><span class="dv">1</span>, <span class="dt">common.legend =</span> <span class="ot">TRUE</span>, <span class="dt">legend=</span><span class="st">&quot;bottom&quot;</span>)</code></pre></div>
+=======
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="co">#arranging the two grids side by side with one legend</span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="kw">library</span>(gridExtra)</a></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;gridExtra&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     combine</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw">library</span>(grid)</a>
+<a class="sourceLine" id="cb16-2" data-line-number="2"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb16-3" data-line-number="3"><span class="kw">library</span>(lattice)</a>
+<a class="sourceLine" id="cb16-4" data-line-number="4"><span class="kw">library</span>(ggpubr)</a></code></pre></div>
+<pre><code>## Loading required package: magrittr</code></pre>
+<pre><code>## 
+## Attaching package: &#39;magrittr&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:ggmap&#39;:
+## 
+##     inset</code></pre>
+<pre><code>## The following object is masked from &#39;package:purrr&#39;:
+## 
+##     set_names</code></pre>
+<pre><code>## The following object is masked from &#39;package:tidyr&#39;:
+## 
+##     extract</code></pre>
+<pre><code>## 
+## Attaching package: &#39;ggpubr&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:cowplot&#39;:
+## 
+##     get_legend</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="co">#arranging the two grids side by side with one legend</span></a>
+<a class="sourceLine" id="cb24-2" data-line-number="2"><span class="kw">ggarrange</span>(g,z, <span class="dt">ncol=</span><span class="dv">2</span>, <span class="dt">nrow=</span><span class="dv">1</span>, <span class="dt">common.legend =</span> <span class="ot">TRUE</span>, <span class="dt">legend=</span><span class="st">&quot;bottom&quot;</span>)</a></code></pre></div>
+>>>>>>> b2b652a5c710484a9c989ac63c3525a7c4006ba8
 <p><img src="data_analysis_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+</div>
+<div id="autoencoder" class="section level1">
+<h1>Autoencoder</h1>
+<p><img src="Autoencoder.png" /></p>
+<p><img src="Training.jpeg" /></p>
 </div>
 
 
