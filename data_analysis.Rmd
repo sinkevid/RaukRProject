@@ -371,3 +371,13 @@ library(ggpubr)
 #arranging the two grids side by side with one legend
 ggarrange(g,z, ncol=2, nrow=1, common.legend = TRUE, legend="bottom")
 ```
+
+# Autoencoder
+
+![](Autoencoder.png)
+
+![](Training.jpeg)
+
+
+
+
