@@ -419,8 +419,6 @@ library(ggplot2)
 library(lattice)
 library(ggpubr)
 
-
-
 ```
 
 ```{r, warning=F}
