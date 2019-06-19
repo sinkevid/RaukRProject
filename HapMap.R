@@ -9,7 +9,7 @@
 
 # Compute genomic kinship-based distances, takes long time
 gkin <- ibs(data_raw, weight = 'freq')
-save(gkin, file="gkin.rdat")
+save(gkin, file="gkin.rdat") #making .rdat file from this 
 
 head(gkin)
 
