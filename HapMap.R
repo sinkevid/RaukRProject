@@ -169,7 +169,6 @@ history <- autoencoder_model %>% fit(
   shuffle = T,
   batch_size = 256,
   validation_data = list(valid_data, valid_data)
-  #callbacks = list(checkpoint, early_stopping)
 )
 
 plot(history)
