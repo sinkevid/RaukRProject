@@ -29,6 +29,7 @@ library(maps)
 library(tidyverse)
 library(purrr)
 library(cowplot)
+library(ggmap)
 library(mapproj)
 
 
@@ -43,7 +44,7 @@ europe.map <- get_stamenmap(c(left = -25.410724, bottom = 35.479777,
                               right = 35.618354, top = 71.280356), zoom = 5)
 ggmap(europe.map)
 
-europe.map.complete <- ggmap(europe.map, extent="device") +
+europe.map.complete <- ggmap(europe.map) +
   annotate('rect', xmin=14, ymin=61.5, xmax=16, ymax=62.5, col='white', fill='white') +
   annotate('rect', xmin=2, ymin=47.5, xmax=4, ymax=48.5, col='white', fill='white') +
   annotate('rect', xmin=26, ymin=64.5, xmax=28, ymax=65.5, col='white', fill='white') +
@@ -71,12 +72,12 @@ denmark <- subset(breeds.country, breeds.country$Country == 'Den')
 belgium <- subset(breeds.country, breeds.country$Country == 'Bel')
 
 
-sweden.plot <- ggplot(breeds.sweden, aes(x=Breed, y=n)) +
+sweden.plot <- ggplot(sweden, aes(x=Breed, y=n)) +
   geom_col() +
   labs(title="Sweden") +
   theme_bw(base_family="Gidole")+ 
   xlab("Breed") +
-  ylab("Number of individuals") +
+  ylab("Individuals") +
   theme(panel.grid.minor=element_blank(),
         panel.grid.major.x=element_blank(),
         panel.grid.major.y=element_blank(),
@@ -89,12 +90,12 @@ sweden.plot <- ggplot(breeds.sweden, aes(x=Breed, y=n)) +
         plot.title=element_text(face="bold"),
         plot.caption=element_text(hjust=0,size=8))
 
-france.plot <- ggplot(breeds.france, aes(x=Breed, y=n)) +
+france.plot <- ggplot(france, aes(x=Breed, y=n)) +
   geom_col() +
   labs(title="France") +
   theme_bw(base_family="Gidole")+ 
   xlab("Breed") +
-  ylab("Number of individuals") +
+  ylab("Individuals") +
   theme(panel.grid.minor=element_blank(),
         panel.grid.major.x=element_blank(),
         panel.grid.major.y=element_blank(),
@@ -107,12 +108,12 @@ france.plot <- ggplot(breeds.france, aes(x=Breed, y=n)) +
         plot.title=element_text(face="bold"),
         plot.caption=element_text(hjust=0,size=8))
 
-finland.plot <- ggplot(breeds.finland, aes(x=Breed, y=n)) +
+finland.plot <- ggplot(finland, aes(x=Breed, y=n)) +
   geom_col() +
   labs(title="Finland") +
   theme_bw(base_family="Gidole")+ 
   xlab("Breed") +
-  ylab("Number of individuals") +
+  ylab("Individuals") +
   theme(panel.grid.minor=element_blank(),
         panel.grid.major.x=element_blank(),
         panel.grid.major.y=element_blank(),
@@ -125,12 +126,12 @@ finland.plot <- ggplot(breeds.finland, aes(x=Breed, y=n)) +
         plot.title=element_text(face="bold"),
         plot.caption=element_text(hjust=0,size=8))
 
-denmark.plot <- ggplot(breeds.denmark, aes(x=Breed, y=n)) +
+denmark.plot <- ggplot(denmark, aes(x=Breed, y=n)) +
   geom_col() +
   labs(title="Denmark") +
   theme_bw(base_family="Gidole")+ 
   xlab("Breed") +
-  ylab("Number of individuals") +
+  ylab("Individuals") +
   theme(panel.grid.minor=element_blank(),
         panel.grid.major.x=element_blank(),
         panel.grid.major.y=element_blank(),
@@ -143,12 +144,12 @@ denmark.plot <- ggplot(breeds.denmark, aes(x=Breed, y=n)) +
         plot.title=element_text(face="bold"),
         plot.caption=element_text(hjust=0,size=8))
 
-belgium.plot <- ggplot(breeds.belgium, aes(x=Breed, y=n)) +
+belgium.plot <- ggplot(belgium, aes(x=Breed, y=n)) +
   geom_col() +
   labs(title="Belgium") +
   theme_bw(base_family="Gidole")+ 
   xlab("Breed") +
-  ylab("Number of individuals") +
+  ylab("Individuals") +
   theme(panel.grid.minor=element_blank(),
         panel.grid.major.x=element_blank(),
         panel.grid.major.y=element_blank(),
@@ -161,12 +162,12 @@ belgium.plot <- ggplot(breeds.belgium, aes(x=Breed, y=n)) +
         plot.title=element_text(face="bold"),
         plot.caption=element_text(hjust=0,size=8))
       
-breed.country.plot <- plot_grid(sweden.plot, france.plot, finland.plot, denmark.plot, belgium.plot, labels = c("A", "B", "C", "D", "E"))
+breed.country.plot <- plot_grid(sweden.plot, france.plot, finland.plot, denmark.plot, belgium.plot, labels = c("A", "B", "C", "D", "E"), ncol = 2)
 
 ```
 ```{r}
-ggdraw(xlim=c(0,2.2), ylim = c(0,1)) +
-  draw_plot(europe.map.complete, x=0.05, y=0) +
-  draw_plot(breed.country.plot, x=1.1, y=0, scale=0.75) 
+ggdraw(xlim=c(0,2.3), ylim = c(0,1)) +
+  draw_plot(europe.map.complete, x=0.05, y=0, scale=1.2) +
+  draw_plot(breed.country.plot, x=1.2, y=0, scale=0.9) 
 ```
 
