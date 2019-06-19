@@ -19,9 +19,13 @@ print(res1)
 
 ggplot(data= res1, aes(x = "", y = total_dogs, fill = Country))+
   geom_bar(width = 1, stat = "identity")+
-  coord_polar("y", start=0)
+  coord_polar("y")+
+  labs(title="Dogs by country",
+       subtitle="RaukR project 2019")+
+  theme_bw()+
+  theme(axis.title.x = element_blank(),
+        axis.title.y=element_blank())
   
-
 
 # summary of dog breeds per country
 data_raw@phdata %>%
