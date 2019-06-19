@@ -142,7 +142,7 @@ breed.country.plot <- plot_grid(sweden.plot, france.plot, finland.plot, denmark.
 
 breed.country.plot
 
-ggdraw(xlim=c(0,2.2), ylim = c(0,1)) +
+ggdraw(xlim=c(0,2.3), ylim = c(0,1)) +
   draw_plot(europe.map.complete, x=0.05, y=0) +
-  draw_plot(breed.country.plot, x=1.1, y=0, scale=0.75) 
+  draw_plot(breed.country.plot, x=1.2, y=0, scale=0.8) 
 

@@ -1,4 +1,3 @@
-# Dovile's functions & data analysis
 
 # general info on the participants of the study
 length(unique(data_raw@phdata$Country)) ## data from 5 countries
@@ -56,4 +55,4 @@ print(dogsWH)
 
 
   
-  
+
