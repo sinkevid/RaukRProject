@@ -509,6 +509,13 @@ dogsWH<span class="op">$</span>sex[dogsWH<span class="op">$</span>sex <span clas
 <div id="multidimensional-scaling-mds" class="section level1">
 <h1>Multidimensional scaling MDS</h1>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#arranging the two grids side by side with one legend</span>
+
+<span class="kw">library</span>(gridExtra)
+<span class="kw">library</span>(grid)
+<span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(lattice)
+<span class="kw">library</span>(ggpubr)
+
 <span class="kw">ggarrange</span>(g,z, <span class="dt">ncol=</span><span class="dv">2</span>, <span class="dt">nrow=</span><span class="dv">1</span>, <span class="dt">common.legend =</span> <span class="ot">TRUE</span>, <span class="dt">legend=</span><span class="st">&quot;bottom&quot;</span>)</code></pre></div>
 <p><img src="data_analysis_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 </div>
