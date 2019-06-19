@@ -54,6 +54,8 @@ country_info[,c("Country", "Abbreviation", "Total number of dogs")]
 ```
 
 ### Map
+<<<<<<< HEAD
+=======
 
 ```{r include=FALSE}
 europe.map <- get_stamenmap(c(left = -25.410724, bottom = 35.479777,
@@ -129,6 +131,69 @@ belgium
 ```
 
 ## Map
+>>>>>>> upstream/master
+
+```{r include=FALSE}
+europe.map <- get_stamenmap(c(left = -25.410724, bottom = 35.479777,
+                              right = 35.618354, top = 71.280356), zoom = 5)
+```
+
+```{r}
+ggmap(europe.map)
+```
+
+## Distributions of Breeds by Country {.tabset}
+
+```{r include=FALSE}
+breeds.country <- data_raw@phdata %>%
+  group_by(Breed, Country) %>%
+  summarize(n = n()) %>%
+  arrange(desc(n)) %>%
+  arrange(desc(Country))
+```
+
+### Sweden
+
+```{r}
+sweden <- subset(breeds.country, breeds.country$Country == 'Swe')
+sweden$Country <- NULL
+sweden
+```
+
+### France
+
+```{r}
+france <- subset(breeds.country, breeds.country$Country == 'Fra')
+france$Country <- NULL
+france
+```
+
+<<<<<<< HEAD
+### Finland
+
+```{r}
+finland <- subset(breeds.country, breeds.country$Country == 'Fin')
+finland$Country <- NULL
+finland
+```
+
+### Denmark
+
+```{r}
+denmark <- subset(breeds.country, breeds.country$Country == 'Den')
+denmark$Country <- NULL
+denmark
+```
+
+### Belgium
+
+```{r}
+belgium <- subset(breeds.country, breeds.country$Country == 'Bel')
+belgium$Country <- NULL
+belgium
+```
+
+## Map
 
 ```{r include=FALSE}
 europe.map <- get_stamenmap(c(left = -25.410724, bottom = 35.479777,
@@ -154,7 +219,7 @@ europe.map.complete <- ggmap(europe.map) +
 sweden.plot <- ggplot(sweden, aes(x=Breed, y=n)) +
   geom_col() +
   labs(title="Sweden") +
-  theme_bw(base_family="Gidole")+ 
+  theme_bw()+ 
   xlab("Breed") +
   ylab("Individuals") +
   theme(panel.grid.minor=element_blank(),
@@ -172,7 +237,7 @@ sweden.plot <- ggplot(sweden, aes(x=Breed, y=n)) +
 france.plot <- ggplot(france, aes(x=Breed, y=n)) +
   geom_col() +
   labs(title="France") +
-  theme_bw(base_family="Gidole")+ 
+  theme_bw()+ 
   xlab("Breed") +
   ylab("Individuals") +
   theme(panel.grid.minor=element_blank(),
@@ -190,7 +255,7 @@ france.plot <- ggplot(france, aes(x=Breed, y=n)) +
 finland.plot <- ggplot(finland, aes(x=Breed, y=n)) +
   geom_col() +
   labs(title="Finland") +
-  theme_bw(base_family="Gidole")+ 
+  theme_bw()+ 
   xlab("Breed") +
   ylab("Individuals") +
   theme(panel.grid.minor=element_blank(),
@@ -208,7 +273,7 @@ finland.plot <- ggplot(finland, aes(x=Breed, y=n)) +
 denmark.plot <- ggplot(denmark, aes(x=Breed, y=n)) +
   geom_col() +
   labs(title="Denmark") +
-  theme_bw(base_family="Gidole")+ 
+  theme_bw()+ 
   xlab("Breed") +
   ylab("Individuals") +
   theme(panel.grid.minor=element_blank(),
@@ -226,7 +291,7 @@ denmark.plot <- ggplot(denmark, aes(x=Breed, y=n)) +
 belgium.plot <- ggplot(belgium, aes(x=Breed, y=n)) +
   geom_col() +
   labs(title="Belgium") +
-  theme_bw(base_family="Gidole")+ 
+  theme_bw()+ 
   xlab("Breed") +
   ylab("Individuals") +
   theme(panel.grid.minor=element_blank(),
@@ -244,6 +309,7 @@ belgium.plot <- ggplot(belgium, aes(x=Breed, y=n)) +
 breed.country.plot <- plot_grid(sweden.plot, france.plot, finland.plot, denmark.plot, belgium.plot, labels = c("A", "B", "C", "D", "E"), ncol = 2)
 
 ```
+
 ```{r}
 ggdraw(xlim=c(0,2.3), ylim = c(0,1)) +
   draw_plot(europe.map.complete, x=0.05, y=0, scale=1.2) +
