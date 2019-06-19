@@ -11,10 +11,16 @@ length(unique(data_raw@phdata$Breed)) ## data covers 9 dog breeds
 
 
 # country with the most dogs
-data_raw@phdata %>% 
+res1 <- data_raw@phdata %>% 
   group_by(Country) %>%
   summarize(total_dogs = sum(n())) %>%
   arrange(desc(total_dogs))
+print(res1)
+
+ggplot(data= res1, aes(x = "", y = total_dogs, fill = Country))+
+  geom_bar(width = 1, stat = "identity")+
+  coord_polar("y", start=0)
+  
 
 
 # summary of dog breeds per country
