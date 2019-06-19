@@ -146,3 +146,17 @@ ggdraw(xlim=c(0,2.3), ylim = c(0,1)) +
   draw_plot(europe.map.complete, x=0.05, y=0) +
   draw_plot(breed.country.plot, x=1.2, y=0, scale=0.8) 
 
+
+places <- tibble(
+  location = c("Sweden",
+               "France",
+               "Finland", 
+               "Denmark",
+               "Belgium"),
+  lon = c(18.063240, 2.349014, 24.945831, 12.568337, 4.402771),
+  lat = c(59.334591, 48.864716, 60.192059, 55.676098, 51.260197))
+
+ggmap(europe.map.complete) +
+  geom_point(data = places, aes(x = lon, y = lat), color = 'white', size = 3)
+
+

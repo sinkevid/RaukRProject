@@ -58,10 +58,24 @@ country_info[,c("Country", "Abbreviation", "Total number of dogs")]
 ```{r include=FALSE}
 europe.map <- get_stamenmap(c(left = -25.410724, bottom = 35.479777,
                               right = 35.618354, top = 71.280356), zoom = 5)
+places <- tibble(
+  location = c("Sweden",
+               "France",
+               "Finland", 
+               "Denmark",
+               "Belgium"),
+  lon = c(18.063240, 2.349014, 24.945831, 12.568337, 4.402771),
+  lat = c(59.334591, 48.864716, 60.192059, 55.676098, 51.260197))
+
 ```
 
 ```{r}
-ggmap(europe.map)
+ggmap(europe.map) +
+  geom_point(aes(x = 18.063240, y = 59.334591), color = 'white', size = 6.6) + #Sweden
+  geom_point(aes(x = 2.349014, y = 48.864716), color = 'white', size = 5.3) + #France
+  geom_point(aes(x = 24.945831, y = 60.192059), color = 'white', size = 7.1) + #Finland
+  geom_point(aes(x = 11.568337, y = 55.676098), color = 'white', size = 5.2) + #Denmark
+  geom_point(aes(x = 4.402771, y = 51.260197), color = 'white', size = 7) #Belgium
 ```
 
 ## Distributions of Breeds by Country {.tabset}
