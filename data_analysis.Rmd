@@ -340,7 +340,7 @@ data_raw@phdata %>%
 ```
 
 
-#Principal Component Analysis
+# Principal Component Analysis
 ```{r, echo=FALSE, warning=F}
 # Find marker for PCA analysis
 # qc0 <- check.marker(data_raw, call = 0.95, perid.call=0.95,
@@ -371,7 +371,7 @@ ggplot(df_data_raw, aes(Dim_1, Dim_2, color=Breed)) +
   scale_color_manual(values = c("black", "dodgerblue4", "bisque4", "darkgreen","yellow3", "darkgoldenrod3", "darkorchid4", "darkred", "grey")) 
 ```
 
-#Multidimensional scaling MDS
+# Multidimensional scaling MDS
 
 ```{r, cache= TRUE, include=FALSE, warning=F}
 # Compute genomic kinship-based distances
