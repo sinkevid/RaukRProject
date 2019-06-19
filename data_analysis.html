@@ -607,6 +607,52 @@ div.tocify {
 <div id="graph" class="section level3">
 <h3>Graph</h3>
 <p>Weight distribution for all breeds</p>
+<<<<<<< HEAD
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(Breed, Body_weight) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">na.omit</span>() <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Breed, <span class="dt">y=</span>Body_weight, <span class="dt">fill=</span>Breed)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.2</span>, <span class="dt">alpha=</span><span class="fl">0.3</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Weight distribution for all breeds&quot;</span>,
+         <span class="dt">subtitle=</span><span class="st">&quot;RaukR project 2019&quot;</span>,
+         <span class="dt">caption=</span><span class="st">&quot;Sources: PLoS ONE, 2015&quot;</span>)<span class="op">+</span>
+<span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</code></pre></div>
+<p><img src="data_analysis_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+</div>
+</div>
+<div id="principal-component-analysis" class="section level1">
+<h1>Principal Component Analysis</h1>
+<p><img src="data_analysis_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+<div id="multidimensional-scaling-mds" class="section level1">
+<h1>Multidimensional scaling MDS</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#arranging the two grids side by side with one legend</span>
+
+<span class="kw">library</span>(gridExtra)</code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;gridExtra&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     combine</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(grid)
+<span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(lattice)
+<span class="kw">library</span>(ggpubr)</code></pre></div>
+<pre><code>## Loading required package: magrittr</code></pre>
+<pre><code>## 
+## Attaching package: &#39;magrittr&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:tidyr&#39;:
+## 
+##     extract</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#arranging the two grids side by side with one legend</span>
+<span class="kw">ggarrange</span>(g,z, <span class="dt">ncol=</span><span class="dv">2</span>, <span class="dt">nrow=</span><span class="dv">1</span>, <span class="dt">common.legend =</span> <span class="ot">TRUE</span>, <span class="dt">legend=</span><span class="st">&quot;bottom&quot;</span>)</code></pre></div>
+<pre><code>## Warning in plyr::split_indices(scale_id, n): &#39;.Random.seed[1]&#39; is not a
+## valid integer, so ignored</code></pre>
+<p><img src="data_analysis_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+=======
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1">data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb18-2" data-line-number="2"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(Breed, Body_weight) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb18-3" data-line-number="3"><span class="st">    </span><span class="kw">na.omit</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
@@ -656,6 +702,7 @@ div.tocify {
 <p><img src="data_analysis_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
 </div>
 </div>
+>>>>>>> upstream/master
 </div>
 
 

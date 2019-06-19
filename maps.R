@@ -145,6 +145,8 @@ breed.country.plot
 ggdraw(xlim=c(0,2.3), ylim = c(0,1)) +
   draw_plot(europe.map.complete, x=0.05, y=0) +
   draw_plot(breed.country.plot, x=1.2, y=0, scale=0.8) 
+<<<<<<< HEAD
+=======
 
 
 places <- tibble(
@@ -159,4 +161,5 @@ places <- tibble(
 ggmap(europe.map.complete) +
   geom_point(data = places, aes(x = lon, y = lat), color = 'white', size = 3)
 
+>>>>>>> upstream/master
 

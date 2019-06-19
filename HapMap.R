@@ -7,7 +7,11 @@
 #Getting rid off the chromosome 39 (X chromosome)
 #data_autosomal <- data_raw[,data_raw@gtdata@chromosome != "39"]
 
+<<<<<<< HEAD
+# Compute genomic kinship-based distances
+=======
 # Compute genomic kinship-based distances, takes long time
+>>>>>>> upstream/master
 gkin <- ibs(data_raw, weight = 'freq')
 save(gkin, file="gkin.rdat") #making .rdat file from this 
 
