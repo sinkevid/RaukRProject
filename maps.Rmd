@@ -200,8 +200,6 @@ europe.map <- get_stamenmap(c(left = -25.410724, bottom = 35.479777,
                               right = 35.618354, top = 71.280356), zoom = 5)
 ggmap(europe.map)
 
-=======
->>>>>>> upstream/master
 europe.map.complete <- ggmap(europe.map) +
   annotate('rect', xmin=14, ymin=61.5, xmax=16, ymax=62.5, col='white', fill='white') +
   annotate('rect', xmin=2, ymin=47.5, xmax=4, ymax=48.5, col='white', fill='white') +
@@ -221,7 +219,7 @@ europe.map.complete <- ggmap(europe.map) +
 sweden.plot <- ggplot(sweden, aes(x=Breed, y=n)) +
   geom_col() +
   labs(title="Sweden") +
-  theme_bw(base_family="Gidole")+ 
+  theme_bw()+ 
   xlab("Breed") +
   ylab("Individuals") +
   theme(panel.grid.minor=element_blank(),
@@ -239,7 +237,7 @@ sweden.plot <- ggplot(sweden, aes(x=Breed, y=n)) +
 france.plot <- ggplot(france, aes(x=Breed, y=n)) +
   geom_col() +
   labs(title="France") +
-  theme_bw(base_family="Gidole")+ 
+  theme_bw()+ 
   xlab("Breed") +
   ylab("Individuals") +
   theme(panel.grid.minor=element_blank(),
@@ -257,7 +255,7 @@ france.plot <- ggplot(france, aes(x=Breed, y=n)) +
 finland.plot <- ggplot(finland, aes(x=Breed, y=n)) +
   geom_col() +
   labs(title="Finland") +
-  theme_bw(base_family="Gidole")+ 
+  theme_bw()+ 
   xlab("Breed") +
   ylab("Individuals") +
   theme(panel.grid.minor=element_blank(),
@@ -275,7 +273,7 @@ finland.plot <- ggplot(finland, aes(x=Breed, y=n)) +
 denmark.plot <- ggplot(denmark, aes(x=Breed, y=n)) +
   geom_col() +
   labs(title="Denmark") +
-  theme_bw(base_family="Gidole")+ 
+  theme_bw()+ 
   xlab("Breed") +
   ylab("Individuals") +
   theme(panel.grid.minor=element_blank(),
@@ -293,7 +291,7 @@ denmark.plot <- ggplot(denmark, aes(x=Breed, y=n)) +
 belgium.plot <- ggplot(belgium, aes(x=Breed, y=n)) +
   geom_col() +
   labs(title="Belgium") +
-  theme_bw(base_family="Gidole")+ 
+  theme_bw()+ 
   xlab("Breed") +
   ylab("Individuals") +
   theme(panel.grid.minor=element_blank(),

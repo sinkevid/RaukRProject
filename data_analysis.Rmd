@@ -41,7 +41,7 @@ load("geno_data_raw.rdat")
 
 ### Table
 
-```{r}
+```{r, warning=F}
 country_info <- data_raw@phdata %>% 
   group_by(Country) %>%
   summarize(total_dogs = sum(n())) %>%
@@ -55,7 +55,7 @@ country_info[,c("Country", "Abbreviation", "Total number of dogs")]
 
 ### Map
 
-```{r include=FALSE}
+```{r include=FALSE, warning=F}
 europe.map <- get_stamenmap(c(left = -25.410724, bottom = 35.479777,
                               right = 35.618354, top = 71.280356), zoom = 5)
 places <- tibble(
@@ -69,7 +69,7 @@ places <- tibble(
 
 ```
 
-```{r}
+```{r, warning=F}
 ggmap(europe.map) +
   geom_point(aes(x = 18.063240, y = 59.334591), color = 'white', size = 6.6) + #Sweden
   geom_point(aes(x = 2.349014, y = 48.864716), color = 'white', size = 5.3) + #France
@@ -80,7 +80,7 @@ ggmap(europe.map) +
 
 ## Distributions of Breeds by Country {.tabset}
 
-```{r include=FALSE}
+```{r include=FALSE, warning=F}
 breeds.country <- data_raw@phdata %>%
   group_by(Breed, Country) %>%
   summarize(n = n()) %>%
@@ -90,7 +90,7 @@ breeds.country <- data_raw@phdata %>%
 
 ### Sweden
 
-```{r}
+```{r, warning=F}
 sweden <- subset(breeds.country, breeds.country$Country == 'Swe')
 sweden$Country <- NULL
 sweden
@@ -98,7 +98,7 @@ sweden
 
 ### France
 
-```{r}
+```{r, warning=F}
 france <- subset(breeds.country, breeds.country$Country == 'Fra')
 france$Country <- NULL
 france
@@ -106,7 +106,7 @@ france
 
 ### Finland
 
-```{r}
+```{r, warning=F}
 finland <- subset(breeds.country, breeds.country$Country == 'Fin')
 finland$Country <- NULL
 finland
@@ -114,7 +114,7 @@ finland
 
 ### Denmark
 
-```{r}
+```{r, warning=F}
 denmark <- subset(breeds.country, breeds.country$Country == 'Den')
 denmark$Country <- NULL
 denmark
@@ -122,7 +122,7 @@ denmark
 
 ### Belgium
 
-```{r}
+```{r, warning=F} 
 belgium <- subset(breeds.country, breeds.country$Country == 'Bel')
 belgium$Country <- NULL
 belgium
@@ -130,7 +130,7 @@ belgium
 
 ## Map
 
-```{r include=FALSE}
+```{r include=FALSE, warning=F}
 europe.map <- get_stamenmap(c(left = -25.410724, bottom = 35.479777,
                               right = 35.618354, top = 71.280356), zoom = 5)
 ggmap(europe.map)
@@ -154,7 +154,7 @@ europe.map.complete <- ggmap(europe.map) +
 sweden.plot <- ggplot(sweden, aes(x=Breed, y=n)) +
   geom_col() +
   labs(title="Sweden") +
-  theme_bw(base_family="Gidole")+ 
+  theme_bw()+ 
   xlab("Breed") +
   ylab("Individuals") +
   theme(panel.grid.minor=element_blank(),
@@ -172,7 +172,7 @@ sweden.plot <- ggplot(sweden, aes(x=Breed, y=n)) +
 france.plot <- ggplot(france, aes(x=Breed, y=n)) +
   geom_col() +
   labs(title="France") +
-  theme_bw(base_family="Gidole")+ 
+  theme_bw()+ 
   xlab("Breed") +
   ylab("Individuals") +
   theme(panel.grid.minor=element_blank(),
@@ -190,7 +190,7 @@ france.plot <- ggplot(france, aes(x=Breed, y=n)) +
 finland.plot <- ggplot(finland, aes(x=Breed, y=n)) +
   geom_col() +
   labs(title="Finland") +
-  theme_bw(base_family="Gidole")+ 
+  theme_bw()+ 
   xlab("Breed") +
   ylab("Individuals") +
   theme(panel.grid.minor=element_blank(),
@@ -208,7 +208,7 @@ finland.plot <- ggplot(finland, aes(x=Breed, y=n)) +
 denmark.plot <- ggplot(denmark, aes(x=Breed, y=n)) +
   geom_col() +
   labs(title="Denmark") +
-  theme_bw(base_family="Gidole")+ 
+  theme_bw()+ 
   xlab("Breed") +
   ylab("Individuals") +
   theme(panel.grid.minor=element_blank(),
@@ -226,7 +226,7 @@ denmark.plot <- ggplot(denmark, aes(x=Breed, y=n)) +
 belgium.plot <- ggplot(belgium, aes(x=Breed, y=n)) +
   geom_col() +
   labs(title="Belgium") +
-  theme_bw(base_family="Gidole")+ 
+  theme_bw()+ 
   xlab("Breed") +
   ylab("Individuals") +
   theme(panel.grid.minor=element_blank(),
@@ -245,7 +245,7 @@ breed.country.plot <- plot_grid(sweden.plot, france.plot, finland.plot, denmark.
 
 ```
 
-```{r}
+```{r, warning=F}
 ggdraw(xlim=c(0,2.3), ylim = c(0,1)) +
   draw_plot(europe.map.complete, x=0.05, y=0, scale=1.2) +
   draw_plot(breed.country.plot, x=1.2, y=0, scale=0.9) 
@@ -254,12 +254,12 @@ ggdraw(xlim=c(0,2.3), ylim = c(0,1)) +
 # Description of the dataset
 
 ## Nine dog breeds from five different European countries were analysed in this study.{.tabset}
-```{r include=FALSE}
+```{r include=FALSE, warning=F}
 length(unique(data_raw@phdata$Country)) ## data from 5 countries
 length(unique(data_raw@phdata$Breed)) ## data covers 9 dog breeds
 ```
 ### Dog breeds in the study
-```{r}
+```{r, warning=F}
 # number of dogs per breed (male, female)
 dogs <- data_raw@phdata %>%
   group_by(Breed, sex) %>%
@@ -283,7 +283,7 @@ print(dogs[,c("Breed", "Abbreviation", "Female", "Male")])
 
 ```
 ### Countries
-```{r}
+```{r, warning=F}
 country_info <- data_raw@phdata %>% 
   group_by(Country) %>%
   summarize(total_dogs = sum(n())) %>%
@@ -295,7 +295,7 @@ print(country_info[,c("Country", "Abbreviation", "Total number of dogs")])
 ```
 
 ### Distribution of breeds by country
-```{r}
+```{r, warning=F}
 data_raw@phdata %>%
   group_by(Breed, Country) %>%
   summarize(Dogs = n()) %>%
@@ -306,7 +306,7 @@ data_raw@phdata %>%
 ## Weight {.tabset}
 ### Table
 Table with the mean age and weight of the dogs, taking sex into account
-```{r}
+```{r, warning=F}
 # mean ans sd functions
 funm <- function(x){mean(x, na.rm = T)}
 
@@ -325,7 +325,7 @@ print(dogsWH)
 
 ### Graph
 Weight distribution for all breeds
-```{r}
+```{r, warning=F}
 data_raw@phdata %>% 
     dplyr::select(Breed, Body_weight) %>% 
     na.omit() %>% 
@@ -341,7 +341,7 @@ data_raw@phdata %>%
 
 
 #Principal Component Analysis
-```{r, echo=FALSE}
+```{r, echo=FALSE, warning=F}
 # Find marker for PCA analysis
 # qc0 <- check.marker(data_raw, call = 0.95, perid.call=0.95,
 #                     maf=1e-06, p.lev=1e-08, ibs.exclude="lower")
@@ -373,7 +373,7 @@ ggplot(df_data_raw, aes(Dim_1, Dim_2, color=Breed)) +
 
 #Multidimensional scaling MDS
 
-```{r, cache= TRUE, include=FALSE}
+```{r, cache= TRUE, include=FALSE, warning=F}
 # Compute genomic kinship-based distances
 #gkin <- ibs(data_raw, weight = 'freq')
 #head(gkin)
@@ -410,7 +410,7 @@ z <-ggplot(ibs, mapping = aes(x=V1, y=V2, col=pop)) +
 
 ```
 
-```{r}
+```{r, warning=F}
 #arranging the two grids side by side with one legend
 
 library(gridExtra)
@@ -423,7 +423,7 @@ library(ggpubr)
 
 ```
 
-```{r}
+```{r, warning=F}
 #arranging the two grids side by side with one legend
 ggarrange(g,z, ncol=2, nrow=1, common.legend = TRUE, legend="bottom")
 
