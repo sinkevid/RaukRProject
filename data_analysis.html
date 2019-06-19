@@ -450,8 +450,11 @@ div.tocify {
 <a class="sourceLine" id="cb3-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">24.945831</span>, <span class="dt">y =</span> <span class="fl">60.192059</span>), <span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">size =</span> <span class="fl">7.1</span>) <span class="op">+</span><span class="st"> </span><span class="co">#Finland</span></a>
 <a class="sourceLine" id="cb3-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">11.568337</span>, <span class="dt">y =</span> <span class="fl">55.676098</span>), <span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">size =</span> <span class="fl">5.2</span>) <span class="op">+</span><span class="st"> </span><span class="co">#Denmark</span></a>
 <a class="sourceLine" id="cb3-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">4.402771</span>, <span class="dt">y =</span> <span class="fl">51.260197</span>), <span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">size =</span> <span class="dv">7</span>) <span class="co">#Belgium</span></a></code></pre></div>
-<p><img src="data_analysis_files/figure-html/unnamed-chunk-5-1.png" width="672" /> ## Distributions of Breeds by Country {.tabset}</p>
+<p><img src="data_analysis_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
+</div>
+<div id="distributions-of-breeds-by-country" class="section level2 tabset">
+<h2>Distributions of Breeds by Country</h2>
 <div id="sweden" class="section level3">
 <h3>Sweden</h3>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">sweden &lt;-<span class="st"> </span><span class="kw">subset</span>(breeds.country, breeds.country<span class="op">$</span>Country <span class="op">==</span><span class="st"> &#39;Swe&#39;</span>)</a>
@@ -513,7 +516,13 @@ div.tocify {
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">ggdraw</span>(<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">2.3</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb9-2" data-line-number="2"><span class="st">  </span><span class="kw">draw_plot</span>(europe.map.complete, <span class="dt">x=</span><span class="fl">0.05</span>, <span class="dt">y=</span><span class="dv">0</span>, <span class="dt">scale=</span><span class="fl">1.2</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb9-3" data-line-number="3"><span class="st">  </span><span class="kw">draw_plot</span>(breed.country.plot, <span class="dt">x=</span><span class="fl">1.2</span>, <span class="dt">y=</span><span class="dv">0</span>, <span class="dt">scale=</span><span class="fl">0.9</span>) </a></code></pre></div>
-<p><img src="data_analysis_files/figure-html/unnamed-chunk-13-1.png" width="672" /> ## Weight {.tabset} ### Graph Weight distribution for all breeds</p>
+<p><img src="data_analysis_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+</div>
+<div id="weight" class="section level2 tabset">
+<h2>Weight</h2>
+<div id="graph" class="section level3">
+<h3>Graph</h3>
+<p>Weight distribution for all breeds</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb10-2" data-line-number="2"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(Breed, Body_weight) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb10-3" data-line-number="3"><span class="st">    </span><span class="kw">na.omit</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
@@ -526,7 +535,10 @@ div.tocify {
 <a class="sourceLine" id="cb10-10" data-line-number="10"><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;dodgerblue4&quot;</span>, <span class="st">&quot;bisque4&quot;</span>, <span class="st">&quot;darkgreen&quot;</span>,<span class="st">&quot;yellow3&quot;</span>, <span class="st">&quot;darkgoldenrod3&quot;</span>, <span class="st">&quot;darkorchid4&quot;</span>, <span class="st">&quot;darkred&quot;</span>, <span class="st">&quot;grey&quot;</span>)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb10-11" data-line-number="11"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb10-12" data-line-number="12"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</a></code></pre></div>
-<p><img src="data_analysis_files/figure-html/unnamed-chunk-14-1.png" width="672" /> ### Table</p>
+<p><img src="data_analysis_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+</div>
+<div id="table-1" class="section level3">
+<h3>Table</h3>
 <p>Table with the mean age and weight of the dogs, taking sex into account</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co"># mean ans sd functions</span></a>
 <a class="sourceLine" id="cb11-2" data-line-number="2">funm &lt;-<span class="st"> </span><span class="cf">function</span>(x){<span class="kw">mean</span>(x, <span class="dt">na.rm =</span> T)}</a>
@@ -543,6 +555,7 @@ div.tocify {
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["Breed"],"name":[1],"type":["chr"],"align":["left"]},{"label":["sex"],"name":[2],"type":["chr"],"align":["left"]},{"label":["n"],"name":[3],"type":["int"],"align":["right"]},{"label":["mean.Age"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["mean.Weight"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"BOX","2":"male","3":"15","4":"3.433333","5":"32.980000"},{"1":"BS","2":"male","3":"121","4":"3.743526","5":"30.913717"},{"1":"CKCS","2":"male","3":"34","4":"3.342424","5":"9.476471"},{"1":"DACH","2":"male","3":"40","4":"3.674359","5":"10.280000"},{"1":"DOB","2":"male","3":"36","4":"2.997005","5":"42.934286"},{"1":"FIN_LAP","2":"male","3":"47","4":"3.614894","5":"19.984444"},{"1":"GS","2":"male","3":"65","4":"3.533846","5":"36.029365"},{"1":"LAB","2":"female","3":"73","4":"3.576056","5":"29.066197"},{"1":"LAB","2":"male","3":"52","4":"3.603922","5":"31.776471"},{"1":"NF","2":"female","3":"44","4":"3.382500","5":"54.188750"},{"1":"NF","2":"male","3":"1","4":"4.100000","5":"58.000000"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
+</div>
 </div>
 </div>
 </div>
@@ -579,13 +592,35 @@ div.tocify {
 <div id="multidimensional-scaling-mds" class="section level1">
 <h1>Multidimensional scaling MDS</h1>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="co">#arranging the two grids side by side with one legend</span></a>
-<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="kw">library</span>(gridExtra)</a>
-<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="kw">library</span>(grid)</a>
-<a class="sourceLine" id="cb13-4" data-line-number="4"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb13-5" data-line-number="5"><span class="kw">library</span>(lattice)</a>
-<a class="sourceLine" id="cb13-6" data-line-number="6"><span class="kw">library</span>(ggpubr)</a></code></pre></div>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="co">#arranging the two grids side by side with one legend</span></a>
-<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="kw">ggarrange</span>(g,z, <span class="dt">ncol=</span><span class="dv">2</span>, <span class="dt">nrow=</span><span class="dv">1</span>, <span class="dt">common.legend =</span> <span class="ot">TRUE</span>, <span class="dt">legend=</span><span class="st">&quot;bottom&quot;</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="kw">library</span>(gridExtra)</a></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;gridExtra&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     combine</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw">library</span>(grid)</a>
+<a class="sourceLine" id="cb16-2" data-line-number="2"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb16-3" data-line-number="3"><span class="kw">library</span>(lattice)</a>
+<a class="sourceLine" id="cb16-4" data-line-number="4"><span class="kw">library</span>(ggpubr)</a></code></pre></div>
+<pre><code>## Loading required package: magrittr</code></pre>
+<pre><code>## 
+## Attaching package: &#39;magrittr&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:ggmap&#39;:
+## 
+##     inset</code></pre>
+<pre><code>## The following object is masked from &#39;package:purrr&#39;:
+## 
+##     set_names</code></pre>
+<pre><code>## The following object is masked from &#39;package:tidyr&#39;:
+## 
+##     extract</code></pre>
+<pre><code>## 
+## Attaching package: &#39;ggpubr&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:cowplot&#39;:
+## 
+##     get_legend</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="co">#arranging the two grids side by side with one legend</span></a>
+<a class="sourceLine" id="cb24-2" data-line-number="2"><span class="kw">ggarrange</span>(g,z, <span class="dt">ncol=</span><span class="dv">2</span>, <span class="dt">nrow=</span><span class="dv">1</span>, <span class="dt">common.legend =</span> <span class="ot">TRUE</span>, <span class="dt">legend=</span><span class="st">&quot;bottom&quot;</span>)</a></code></pre></div>
 <p><img src="data_analysis_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 </div>
 
