@@ -58,7 +58,7 @@ colnames(dogs)<- c("Abbreviation", "Female", "Male", "Breed")
 dogs[,c("Breed", "Abbreviation", "Female", "Male")]
 ```
 
-## Distributions of Individuals by Country{.tabset}
+## Distributions of Individuals by Country {.tabset}
 
 ### Table
 
@@ -257,6 +257,7 @@ ggdraw(xlim=c(0,2.3), ylim = c(0,1)) +
   draw_plot(europe.map.complete, x=0.05, y=0, scale=1.2) +
   draw_plot(breed.country.plot, x=1.2, y=0, scale=0.9) 
 ```
+
 ## Weight {.tabset}
 
 ### Graph
@@ -357,7 +358,7 @@ z <-ggplot(ibs, mapping = aes(x=V1, y=V2, col=pop)) +
   theme(legend.position = 'none') #removing legend
 ```
 
-```{r}
+```{r, message=FALSE}
 #arranging the two grids side by side with one legend
 library(gridExtra)
 library(grid)
@@ -366,7 +367,7 @@ library(lattice)
 library(ggpubr)
 ```
 
-```{r}
+```{r, message=FALSE}
 #arranging the two grids side by side with one legend
 ggarrange(g,z, ncol=2, nrow=1, common.legend = TRUE, legend="bottom")
 ```
