@@ -43,7 +43,57 @@ data_raw@phdata %>%
   slice(which.max(n))
   
   
+# number of dogs per breed (male, female)
+dogs <- data_raw@phdata %>%
+  group_by(Breed, sex) %>%
+  summarize(n = n()) %>%
+  group_by(Breed) %>%
+  spread(key="sex", value = "n" ) %>%
+  mutate_all(~replace(., is.na(.), 0))
+
+dogs$Breed_name <- c("Boxer",
+                      "Belgian Shepperd",
+                      "Cavalier King Charles spaniel",
+                      "Dachshund", 
+                      "Doberman pinscher",
+                      "Finnish lapphund",
+                      "German Shepperd",
+                      "Labrador retriever", 
+                      "Newfoundland")
+
+colnames(dogs)<- c("Abbreviation", "Female", "Male", "Breed")
+dogs[,c("Breed", "Abbreviation", "Female", "Male")]
 
 
 
 
+
+
+
+
+
+
+
+
+dogs$Breed_name <- c("Boxer",
+                     "Belgian Shepperd",
+                     "Cavalier King Charles spaniel",
+                     "Dachshund", 
+                     "Doberman pinscher",
+                     "Finnish lapphund",
+                     "German Shepperd",
+                     "Labrador retriever", 
+                     "Newfoundland")
+
+colnames(dogs)<- c("Abbreviation", "Female", "Male", "Breed")
+dogs[,c("Breed", "Abbreviation", "Female", "Male")]
+
+
+country_info <- data_raw@phdata %>% 
+  group_by(Country) %>%
+  summarize(total_dogs = sum(n())) %>%
+  arrange(desc(total_dogs))
+
+country_info$fullname <- c("Finland", "Belgium", "Sweden", "France", "Denmark") 
+colnames(country_info)<- c("Abbreviation", "Total number of dogs", "Country")
+country_info[,c("Country", "Abbreviation", "Total number of dogs")]
