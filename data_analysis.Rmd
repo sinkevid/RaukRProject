@@ -371,3 +371,20 @@ library(ggpubr)
 #arranging the two grids side by side with one legend
 ggarrange(g,z, ncol=2, nrow=1, common.legend = TRUE, legend="bottom")
 ```
+
+# Autoencoder
+
+```{r pressure, echo=FALSE, fig.cap="A caption", out.width = '100%'}
+knitr::include_graphics("Autoencoder.png")
+```
+
+```{r pressure, echo=FALSE, fig.cap="A caption", out.width = '100%'}
+knitr::include_graphics("Training.jpeg")
+```
+
+```{r pressure, echo=FALSE, fig.cap="A caption", out.width = '100%'}
+knitr::include_graphics("heatmap.jpeg")
+```
+
+
+
