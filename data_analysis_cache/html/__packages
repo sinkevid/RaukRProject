@@ -14,3 +14,13 @@ gridExtra
 lattice
 magrittr
 ggpubr
+maps
+tidyverse
+tibble
+readr
+purrr
+stringr
+forcats
+cowplot
+ggmap
+mapproj
