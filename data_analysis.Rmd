@@ -18,7 +18,6 @@ output:
     encoding: "UTF-8"
     css: ["assets/lab.css"]
 ---
-
 ```{r include=FALSE}
 ## Load packages to use for the data analysis
 library(tidyr)
@@ -31,31 +30,43 @@ library(cowplot)
 library(ggmap)
 library(mapproj)
 library(maps)
-
-
 # Load the data
 load("geno_data_raw.rdat")
 ```
-
+# Description of the dataset
+```{r warning=FALSE}
+# number of dogs per breed (male, female)
+dogs <- data_raw@phdata %>%
+  dplyr::group_by(Breed, sex) %>%
+  dplyr::summarize(n = n()) %>%
+  group_by(Breed) %>%
+  spread(key="sex", value = "n" ) %>%
+  mutate_at(vars(-group_cols()), ~replace(., is.na(.), 0))
+dogs$Breed_name <- c("Boxer",
+                     "Belgian Shepperd",
+                     "Cavalier King Charles spaniel",
+                     "Dachshund", 
+                     "Doberman pinscher",
+                     "Finnish lapphund",
+                     "German Shepperd",
+                     "Labrador retriever", 
+                     "Newfoundland")
+colnames(dogs)<- c("Abbreviation", "Female", "Male", "Breed")
+dogs[,c("Breed", "Abbreviation", "Female", "Male")]
+```
 ## Distributions of Individuals by Country{.tabset}
-
 ### Table
-
-```{r, warning=F}
+```{r, warning = F}
 country_info <- data_raw@phdata %>% 
   group_by(Country) %>%
   summarize(total_dogs = sum(n())) %>%
   arrange(desc(total_dogs))
-
 country_info$fullname <- c("Finland", "Belgium", "Sweden", "France", "Denmark") 
 colnames(country_info)<- c("Abbreviation", "Total number of dogs", "Country")
 country_info[,c("Country", "Abbreviation", "Total number of dogs")]
-
 ```
-
 ### Map
-
-```{r include=FALSE, warning=F}
+```{r include=FALSE, warning = F}
 europe.map <- get_stamenmap(c(left = -25.410724, bottom = 35.479777,
                               right = 35.618354, top = 71.280356), zoom = 5)
 places <- tibble(
@@ -66,10 +77,8 @@ places <- tibble(
                "Belgium"),
   lon = c(18.063240, 2.349014, 24.945831, 12.568337, 4.402771),
   lat = c(59.334591, 48.864716, 60.192059, 55.676098, 51.260197))
-
 ```
-
-```{r, warning=F}
+```{r, warning = F}
 ggmap(europe.map) +
   geom_point(aes(x = 18.063240, y = 59.334591), color = 'white', size = 6.6) + #Sweden
   geom_point(aes(x = 2.349014, y = 48.864716), color = 'white', size = 5.3) + #France
@@ -77,64 +86,49 @@ ggmap(europe.map) +
   geom_point(aes(x = 11.568337, y = 55.676098), color = 'white', size = 5.2) + #Denmark
   geom_point(aes(x = 4.402771, y = 51.260197), color = 'white', size = 7) #Belgium
 ```
-
 ## Distributions of Breeds by Country {.tabset}
-
-```{r include=FALSE, warning=F}
+```{r include=FALSE, warning = F}
 breeds.country <- data_raw@phdata %>%
   group_by(Breed, Country) %>%
   summarize(n = n()) %>%
   arrange(desc(n)) %>%
   arrange(desc(Country))
 ```
-
 ### Sweden
-
-```{r, warning=F}
+```{r}
 sweden <- subset(breeds.country, breeds.country$Country == 'Swe')
 sweden$Country <- NULL
 sweden
 ```
-
 ### France
-
-```{r, warning=F}
+```{r}
 france <- subset(breeds.country, breeds.country$Country == 'Fra')
 france$Country <- NULL
 france
 ```
-
 ### Finland
-
-```{r, warning=F}
+```{r}
 finland <- subset(breeds.country, breeds.country$Country == 'Fin')
 finland$Country <- NULL
 finland
 ```
-
 ### Denmark
-
-```{r, warning=F}
+```{r}
 denmark <- subset(breeds.country, breeds.country$Country == 'Den')
 denmark$Country <- NULL
 denmark
 ```
-
 ### Belgium
-
-```{r, warning=F} 
+```{r}
 belgium <- subset(breeds.country, breeds.country$Country == 'Bel')
 belgium$Country <- NULL
 belgium
 ```
-
 ## Map
-
-```{r include=FALSE, warning=F}
+```{r include=FALSE, warning = F}
 europe.map <- get_stamenmap(c(left = -25.410724, bottom = 35.479777,
                               right = 35.618354, top = 71.280356), zoom = 5)
 ggmap(europe.map)
-
 europe.map.complete <- ggmap(europe.map) +
   annotate('rect', xmin=14, ymin=61.5, xmax=16, ymax=62.5, col='white', fill='white') +
   annotate('rect', xmin=2, ymin=47.5, xmax=4, ymax=48.5, col='white', fill='white') +
@@ -148,9 +142,6 @@ europe.map.complete <- ggmap(europe.map) +
   annotate('text', x=5, y= 51, label = 'E', colour='black', size= 4) 
   
  europe.map.complete
-
-
-
 sweden.plot <- ggplot(sweden, aes(x=Breed, y=n)) +
   geom_col() +
   labs(title="Sweden") +
@@ -168,7 +159,6 @@ sweden.plot <- ggplot(sweden, aes(x=Breed, y=n)) +
         axis.ticks.x=element_line(color="grey60"),
         plot.title=element_text(face="bold"),
         plot.caption=element_text(hjust=0,size=8))
-
 france.plot <- ggplot(france, aes(x=Breed, y=n)) +
   geom_col() +
   labs(title="France") +
@@ -186,7 +176,6 @@ france.plot <- ggplot(france, aes(x=Breed, y=n)) +
         axis.ticks.x=element_line(color="grey60"),
         plot.title=element_text(face="bold"),
         plot.caption=element_text(hjust=0,size=8))
-
 finland.plot <- ggplot(finland, aes(x=Breed, y=n)) +
   geom_col() +
   labs(title="Finland") +
@@ -204,7 +193,6 @@ finland.plot <- ggplot(finland, aes(x=Breed, y=n)) +
         axis.ticks.x=element_line(color="grey60"),
         plot.title=element_text(face="bold"),
         plot.caption=element_text(hjust=0,size=8))
-
 denmark.plot <- ggplot(denmark, aes(x=Breed, y=n)) +
   geom_col() +
   labs(title="Denmark") +
@@ -222,7 +210,6 @@ denmark.plot <- ggplot(denmark, aes(x=Breed, y=n)) +
         axis.ticks.x=element_line(color="grey60"),
         plot.title=element_text(face="bold"),
         plot.caption=element_text(hjust=0,size=8))
-
 belgium.plot <- ggplot(belgium, aes(x=Breed, y=n)) +
   geom_col() +
   labs(title="Belgium") +
@@ -242,90 +229,16 @@ belgium.plot <- ggplot(belgium, aes(x=Breed, y=n)) +
         plot.caption=element_text(hjust=0,size=8))
       
 breed.country.plot <- plot_grid(sweden.plot, france.plot, finland.plot, denmark.plot, belgium.plot, labels = c("A", "B", "C", "D", "E"), ncol = 2)
-
 ```
-
-```{r, warning=F}
+```{r, warning = F}
 ggdraw(xlim=c(0,2.3), ylim = c(0,1)) +
   draw_plot(europe.map.complete, x=0.05, y=0, scale=1.2) +
   draw_plot(breed.country.plot, x=1.2, y=0, scale=0.9) 
 ```
-
-# Description of the dataset
-
-## Nine dog breeds from five different European countries were analysed in this study.{.tabset}
-```{r include=FALSE, warning=F}
-length(unique(data_raw@phdata$Country)) ## data from 5 countries
-length(unique(data_raw@phdata$Breed)) ## data covers 9 dog breeds
-```
-### Dog breeds in the study
-```{r, warning=F}
-# number of dogs per breed (male, female)
-dogs <- data_raw@phdata %>%
-  group_by(Breed, sex) %>%
-  summarize(n = n()) %>%
-  group_by(Breed) %>%
-  spread(key="sex", value = "n" ) %>%
-  mutate_all(~replace(., is.na(.), 0))
-
-dogs$Breed_name <- c("Boxer",
-                     "Belgian Shepperd",
-                     "Cavalier King Charles spaniel",
-                     "Dachshund", 
-                     "Doberman pinscher",
-                     "Finnish lapphund",
-                     "German Shepperd",
-                     "Labrador retriever", 
-                     "Newfoundland")
-
-colnames(dogs)<- c("Abbreviation", "Female", "Male", "Breed")
-print(dogs[,c("Breed", "Abbreviation", "Female", "Male")])
-
-```
-### Countries
-```{r, warning=F}
-country_info <- data_raw@phdata %>% 
-  group_by(Country) %>%
-  summarize(total_dogs = sum(n())) %>%
-  arrange(desc(total_dogs))
-
-country_info$fullname <- c("Finland", "Belgium", "Sweden", "France", "Denmark") 
-colnames(country_info)<- c("Abbreviation", "Total number of dogs", "Country")
-print(country_info[,c("Country", "Abbreviation", "Total number of dogs")])
-```
-
-### Distribution of breeds by country
-```{r, warning=F}
-data_raw@phdata %>%
-  group_by(Breed, Country) %>%
-  summarize(Dogs = n()) %>%
-  arrange(desc(Dogs)) %>%
-  arrange(desc(Country))
-```
-
 ## Weight {.tabset}
-### Table
-Table with the mean age and weight of the dogs, taking sex into account
-```{r, warning=F}
-# mean ans sd functions
-funm <- function(x){mean(x, na.rm = T)}
-
-#table
-dogsWH <- data_raw@phdata %>%
-  group_by(Breed, sex) %>%
-  summarize(n = n(),
-            mean.Age = funm(Age), 
-            mean.Weight = funm(Body_weight)) 
-
-dogsWH$sex[dogsWH$sex == 0]<- "female"
-dogsWH$sex[dogsWH$sex == 1]<- "male"
-
-print(dogsWH)
-```
-
 ### Graph
 Weight distribution for all breeds
-```{r, warning=F}
+```{r, warning = F}
 data_raw@phdata %>% 
     dplyr::select(Breed, Body_weight) %>% 
     na.omit() %>% 
@@ -335,13 +248,30 @@ data_raw@phdata %>%
     labs(title="Weight distribution for all breeds",
          subtitle="RaukR project 2019",
          caption="Sources: PLoS ONE, 2015")+
+  scale_fill_manual(values = c("black", "dodgerblue4", "bisque4", "darkgreen","yellow3", "darkgoldenrod3", "darkorchid4", "darkred", "grey")) +
     theme_bw() + 
     theme(legend.position = "none")
 ```
+### Table
 
+Table with the mean age and weight of the dogs, taking sex into account
+```{r, warning = F}
+# mean ans sd functions
+funm <- function(x){mean(x, na.rm = T)}
+#table
+dogsWH <- data_raw@phdata %>%
+  group_by(Breed, sex) %>%
+  summarize(n = n(),
+            mean.Age = funm(Age), 
+            mean.Weight = funm(Body_weight)) 
+dogsWH$sex[dogsWH$sex == 0]<- "female"
+dogsWH$sex[dogsWH$sex == 1]<- "male"
+dogsWH
+```
 
 # Principal Component Analysis
-```{r, echo=FALSE, warning=F}
+
+```{r}
 # Find marker for PCA analysis
 # qc0 <- check.marker(data_raw, call = 0.95, perid.call=0.95,
 #                     maf=1e-06, p.lev=1e-08, ibs.exclude="lower")
@@ -359,7 +289,6 @@ data_raw@phdata %>%
 # data.qc0.mds <- cmdscale(data.qc0.dist)
 # # Save the results so no need to run every single time
 # pca_result <- save(data.qc0.mds, file="pca_results.rdat")
-
 # Plot the result
 load("pca_results.rdat")
 df_data_raw <- data.frame(Dim_1 = data.qc0.mds[,1], Dim_2 = data.qc0.mds[,2], Breed= data_raw@phdata$Breed)
@@ -373,58 +302,45 @@ ggplot(df_data_raw, aes(Dim_1, Dim_2, color=Breed)) +
 
 # Multidimensional scaling MDS
 
-```{r, cache= TRUE, include=FALSE, warning=F}
+```{r, cache= TRUE, include=FALSE}
 # Compute genomic kinship-based distances
 #gkin <- ibs(data_raw, weight = 'freq')
 #head(gkin)
 load("gkin.rdat")
 dm <- as.dist(.5 - gkin) # Normalize it
-
 # PCA
 pca <- prcomp(dm) #Principal components analysis
-
 library(devtools)
 install_github("vqv/ggbiplot") #to get the ggbiplot
 library(ggbiplot)
-
 #vector for the colors
 color_9 <- c("black", "dodgerblue4", "bisque4", "darkgreen","yellow3", "darkgoldenrod3", "darkorchid4", "darkred", "grey")
-
 g <- ggbiplot(pca, obs.scale = 1, var.scale = 1,
               groups = data_raw@phdata$Breed, ellipse = F, #using breed as a group
               circle = TRUE, var.axes = F) +
   ggtitle("PCA")+
   scale_color_manual(values = color_9)+
   theme(legend.position = 'none') #removing legend
-
 # MDS
 ibs <- as.data.frame(cmdscale(dm))
-
 ibs <- cbind(ibs, pop = data_raw@phdata$Breed) #same as group at PCA
-
 z <-ggplot(ibs, mapping = aes(x=V1, y=V2, col=pop)) + 
   geom_point() +
   ggtitle("MDS") +
   scale_color_manual(values = color_9) +
   theme(legend.position = 'none') #removing legend
-
 ```
 
-```{r, warning=F}
+```{r}
 #arranging the two grids side by side with one legend
-
 library(gridExtra)
 library(grid)
 library(ggplot2)
 library(lattice)
 library(ggpubr)
-
 ```
 
-```{r, warning=F}
+```{r}
 #arranging the two grids side by side with one legend
 ggarrange(g,z, ncol=2, nrow=1, common.legend = TRUE, legend="bottom")
-
-
 ```
-
