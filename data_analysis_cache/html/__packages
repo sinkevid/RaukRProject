@@ -1,0 +1,16 @@
+base
+tidyr
+dplyr
+ggplot2
+MASS
+GenABEL.data
+GenABEL
+devtools
+usethis
+plyr
+scales
+ggbiplot
+gridExtra
+lattice
+magrittr
+ggpubr

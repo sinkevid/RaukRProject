@@ -135,7 +135,11 @@ h6 {
 }
 </style>
 
+<<<<<<< HEAD
 <link rel="stylesheet" href="assets/lab.css" type="text/css" />
+=======
+<link rel="stylesheet" href="assets\lab.css" type="text/css" />
+>>>>>>> upstream/master
 
 
 
@@ -380,6 +384,7 @@ div.tocify {
 <h2>Nine dog breeds from five different European countries were analysed in this study.</h2>
 <div id="dog-breeds-in-the-study" class="section level3">
 <h3>Dog breeds in the study</h3>
+<<<<<<< HEAD
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#dogs$Breed_name &lt;- c(&quot;Boxer&quot;,</span>
                       <span class="co"># &quot;Belgian Shepperd&quot;,</span>
                       <span class="co"># &quot;Cavalier King Charles spaniel&quot;,</span>
@@ -392,6 +397,43 @@ div.tocify {
 
 <span class="co"># colnames(dogs)&lt;- c(&quot;Abbreviation&quot;, &quot;Female&quot;, &quot;Male&quot;, &quot;Breed&quot;)</span>
 <span class="co"># dogs[,c(&quot;Breed&quot;, &quot;Abbreviation&quot;, &quot;Female&quot;, &quot;Male&quot;)]</span></code></pre></div>
+=======
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># number of dogs per breed (male, female)</span>
+dogs &lt;-<span class="st"> </span>data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(Breed, sex) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(Breed) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">spread</span>(<span class="dt">key=</span><span class="st">&quot;sex&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;n&quot;</span> ) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate_all</span>(<span class="op">~</span><span class="kw">replace</span>(., <span class="kw">is.na</span>(.), <span class="dv">0</span>))</code></pre></div>
+<pre><code>## `mutate_all()` ignored the following grouping variables:
+## Column `Breed`
+## Use `mutate_at(df, vars(-group_cols()), myoperation)` to silence the message.</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dogs<span class="op">$</span>Breed_name &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Boxer&quot;</span>,
+                     <span class="st">&quot;Belgian Shepperd&quot;</span>,
+                     <span class="st">&quot;Cavalier King Charles spaniel&quot;</span>,
+                     <span class="st">&quot;Dachshund&quot;</span>, 
+                     <span class="st">&quot;Doberman pinscher&quot;</span>,
+                     <span class="st">&quot;Finnish lapphund&quot;</span>,
+                     <span class="st">&quot;German Shepperd&quot;</span>,
+                     <span class="st">&quot;Labrador retriever&quot;</span>, 
+                     <span class="st">&quot;Newfoundland&quot;</span>)
+
+<span class="kw">colnames</span>(dogs)&lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Abbreviation&quot;</span>, <span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Breed&quot;</span>)
+<span class="kw">print</span>(dogs[,<span class="kw">c</span>(<span class="st">&quot;Breed&quot;</span>, <span class="st">&quot;Abbreviation&quot;</span>, <span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>)])</code></pre></div>
+<pre><code>## # A tibble: 9 x 4
+## # Groups:   Breed [9]
+##   Breed                         Abbreviation Female  Male
+##   &lt;chr&gt;                         &lt;chr&gt;         &lt;dbl&gt; &lt;dbl&gt;
+## 1 Boxer                         BOX               0    15
+## 2 Belgian Shepperd              BS                0   121
+## 3 Cavalier King Charles spaniel CKCS              0    34
+## 4 Dachshund                     DACH              0    40
+## 5 Doberman pinscher             DOB               0    36
+## 6 Finnish lapphund              FIN_LAP           0    47
+## 7 German Shepperd               GS                0    65
+## 8 Labrador retriever            LAB              73    52
+## 9 Newfoundland                  NF               44     1</code></pre>
+>>>>>>> upstream/master
 </div>
 <div id="countries" class="section level3">
 <h3>Countries</h3>
@@ -402,6 +444,7 @@ div.tocify {
 
 country_info<span class="op">$</span>fullname &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Finland&quot;</span>, <span class="st">&quot;Belgium&quot;</span>, <span class="st">&quot;Sweden&quot;</span>, <span class="st">&quot;France&quot;</span>, <span class="st">&quot;Denmark&quot;</span>) 
 <span class="kw">colnames</span>(country_info)&lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Abbreviation&quot;</span>, <span class="st">&quot;Total number of dogs&quot;</span>, <span class="st">&quot;Country&quot;</span>)
+<<<<<<< HEAD
 country_info[,<span class="kw">c</span>(<span class="st">&quot;Country&quot;</span>, <span class="st">&quot;Abbreviation&quot;</span>, <span class="st">&quot;Total number of dogs&quot;</span>)]</code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
@@ -444,6 +487,70 @@ data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span>
 </div>
 <div id="weight-distribution-for-all-breeds" class="section level1">
 <h1>Weight distribution for all breeds</h1>
+=======
+<span class="kw">print</span>(country_info[,<span class="kw">c</span>(<span class="st">&quot;Country&quot;</span>, <span class="st">&quot;Abbreviation&quot;</span>, <span class="st">&quot;Total number of dogs&quot;</span>)])</code></pre></div>
+<pre><code>## # A tibble: 5 x 3
+##   Country Abbreviation `Total number of dogs`
+##   &lt;chr&gt;   &lt;chr&gt;                         &lt;int&gt;
+## 1 Finland Fin                             120
+## 2 Belgium Bel                             118
+## 3 Sweden  Swe                             111
+## 4 France  Fra                              90
+## 5 Denmark Den                              89</code></pre>
+</div>
+<div id="distribution-of-breeds-by-country" class="section level3">
+<h3>Distribution of breeds by country</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(Breed, Country) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">Dogs =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(Dogs)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(Country))</code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["Breed"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Country"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Dogs"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"LAB","2":"Swe","3":"46"},{"1":"CKCS","2":"Swe","3":"34"},{"1":"DACH","2":"Swe","3":"16"},{"1":"BOX","2":"Swe","3":"15"},{"1":"DOB","2":"Fra","3":"36"},{"1":"LAB","2":"Fra","3":"29"},{"1":"BS","2":"Fra","3":"25"},{"1":"GS","2":"Fin","3":"49"},{"1":"FIN_LAP","2":"Fin","3":"47"},{"1":"DACH","2":"Fin","3":"24"},{"1":"NF","2":"Den","3":"45"},{"1":"LAB","2":"Den","3":"44"},{"1":"BS","2":"Bel","3":"96"},{"1":"GS","2":"Bel","3":"16"},{"1":"LAB","2":"Bel","3":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<div id="weight" class="section level2 tabset">
+<h2>Weight</h2>
+<div id="table" class="section level3">
+<h3>Table</h3>
+<p>Table with the mean age and weight of the dogs, taking sex into account</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># mean ans sd functions</span>
+funm &lt;-<span class="st"> </span><span class="cf">function</span>(x){<span class="kw">mean</span>(x, <span class="dt">na.rm =</span> T)}
+
+<span class="co">#table</span>
+dogsWH &lt;-<span class="st"> </span>data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(Breed, sex) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>(),
+            <span class="dt">mean.Age =</span> <span class="kw">funm</span>(Age), 
+            <span class="dt">mean.Weight =</span> <span class="kw">funm</span>(Body_weight)) 
+
+dogsWH<span class="op">$</span>sex[dogsWH<span class="op">$</span>sex <span class="op">==</span><span class="st"> </span><span class="dv">0</span>]&lt;-<span class="st"> &quot;female&quot;</span>
+dogsWH<span class="op">$</span>sex[dogsWH<span class="op">$</span>sex <span class="op">==</span><span class="st"> </span><span class="dv">1</span>]&lt;-<span class="st"> &quot;male&quot;</span>
+
+<span class="kw">print</span>(dogsWH)</code></pre></div>
+<pre><code>## # A tibble: 11 x 5
+## # Groups:   Breed [9]
+##    Breed   sex        n mean.Age mean.Weight
+##    &lt;chr&gt;   &lt;chr&gt;  &lt;int&gt;    &lt;dbl&gt;       &lt;dbl&gt;
+##  1 BOX     male      15     3.43       33.0 
+##  2 BS      male     121     3.74       30.9 
+##  3 CKCS    male      34     3.34        9.48
+##  4 DACH    male      40     3.67       10.3 
+##  5 DOB     male      36     3.00       42.9 
+##  6 FIN_LAP male      47     3.61       20.0 
+##  7 GS      male      65     3.53       36.0 
+##  8 LAB     female    73     3.58       29.1 
+##  9 LAB     male      52     3.60       31.8 
+## 10 NF      female    44     3.38       54.2 
+## 11 NF      male       1     4.1        58</code></pre>
+</div>
+<div id="graph" class="section level3">
+<h3>Graph</h3>
+<p>Weight distribution for all breeds</p>
+>>>>>>> upstream/master
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(Breed, Body_weight) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">na.omit</span>() <span class="op">%&gt;%</span><span class="st"> </span>
@@ -457,10 +564,31 @@ data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</code></pre></div>
 <p><img src="data_analysis_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 </div>
+<<<<<<< HEAD
+=======
+</div>
+</div>
+>>>>>>> upstream/master
 <div id="principal-component-analysis" class="section level1">
 <h1>Principal Component Analysis</h1>
 <p><img src="data_analysis_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 </div>
+<<<<<<< HEAD
+=======
+<div id="multidimensional-scaling-mds" class="section level1">
+<h1>Multidimensional scaling MDS</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#arranging the two grids side by side with one legend</span>
+
+<span class="kw">library</span>(gridExtra)
+<span class="kw">library</span>(grid)
+<span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(lattice)
+<span class="kw">library</span>(ggpubr)
+
+<span class="kw">ggarrange</span>(g,z, <span class="dt">ncol=</span><span class="dv">2</span>, <span class="dt">nrow=</span><span class="dv">1</span>, <span class="dt">common.legend =</span> <span class="ot">TRUE</span>, <span class="dt">legend=</span><span class="st">&quot;bottom&quot;</span>)</code></pre></div>
+<p><img src="data_analysis_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+</div>
+>>>>>>> upstream/master
 
 
 
