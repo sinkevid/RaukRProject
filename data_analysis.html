@@ -31,44 +31,70 @@
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; background-color: #ffffff; color: #1f1c1b; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #ffffff; color: #a0a0a0; border-right: 1px solid #a0a0a0; }
-td.sourceCode { padding-left: 5px; }
-pre, code { color: #1f1c1b; background-color: #ffffff; }
-code > span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
-code > span.dt { color: #0057ae; } /* DataType */
-code > span.dv { color: #b08000; } /* DecVal */
-code > span.bn { color: #b08000; } /* BaseN */
-code > span.fl { color: #b08000; } /* Float */
-code > span.cn { color: #aa5500; } /* Constant */
-code > span.ch { color: #924c9d; } /* Char */
-code > span.sc { color: #3daee9; } /* SpecialChar */
-code > span.st { color: #bf0303; } /* String */
-code > span.vs { color: #bf0303; } /* VerbatimString */
-code > span.ss { color: #ff5500; } /* SpecialString */
-code > span.im { color: #ff5500; } /* Import */
-code > span.co { color: #898887; } /* Comment */
-code > span.do { color: #607880; } /* Documentation */
-code > span.an { color: #ca60ca; } /* Annotation */
-code > span.cv { color: #0095ff; } /* CommentVar */
-code > span.ot { color: #006e28; } /* Other */
-code > span.fu { color: #644a9b; } /* Function */
-code > span.va { color: #0057ae; } /* Variable */
-code > span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #1f1c1b; } /* Operator */
-code > span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
-code > span.ex { color: #0095ff; font-weight: bold; } /* Extension */
-code > span.pp { color: #006e28; } /* Preprocessor */
-code > span.at { color: #0057ae; } /* Attribute */
-code > span.re { color: #0057ae; } /* RegionMarker */
-code > span.in { color: #b08000; } /* Information */
-code > span.wa { color: #bf0303; } /* Warning */
-code > span.al { color: #bf0303; font-weight: bold; } /* Alert */
-code > span.er { color: #bf0303; text-decoration: underline; } /* Error */
-code > span. { color: #1f1c1b; } /* Normal */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #ffffff;
+    color: #a0a0a0;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+div.sourceCode
+  { color: #1f1c1b; background-color: #ffffff; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span. { color: #1f1c1b; } /* Normal */
+code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+code span.an { color: #ca60ca; } /* Annotation */
+code span.at { color: #0057ae; } /* Attribute */
+code span.bn { color: #b08000; } /* BaseN */
+code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #924c9d; } /* Char */
+code span.cn { color: #aa5500; } /* Constant */
+code span.co { color: #898887; } /* Comment */
+code span.cv { color: #0095ff; } /* CommentVar */
+code span.do { color: #607880; } /* Documentation */
+code span.dt { color: #0057ae; } /* DataType */
+code span.dv { color: #b08000; } /* DecVal */
+code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code span.fl { color: #b08000; } /* Float */
+code span.fu { color: #644a9b; } /* Function */
+code span.im { color: #ff5500; } /* Import */
+code span.in { color: #b08000; } /* Information */
+code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code span.op { color: #1f1c1b; } /* Operator */
+code span.ot { color: #006e28; } /* Other */
+code span.pp { color: #006e28; } /* Preprocessor */
+code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #ff5500; } /* SpecialString */
+code span.st { color: #bf0303; } /* String */
+code span.va { color: #0057ae; } /* Variable */
+code span.vs { color: #bf0303; } /* VerbatimString */
+code span.wa { color: #bf0303; } /* Warning */
 
 .sourceCode .row {
   width: 100%;
@@ -380,10 +406,10 @@ div.tocify {
 <h2>Nine dog breeds from five different European countries were analysed in this study.</h2>
 <div id="dog-breeds" class="section level3">
 <h3>Dog breeds</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Abbr &lt;-<span class="st"> </span><span class="kw">unique</span>(data_raw<span class="op">@</span>phdata<span class="op">$</span>Breed)
-Breed_name &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;German Shepperd&quot;</span>, <span class="st">&quot;Belgian Shepperd&quot;</span>, <span class="st">&quot;Labrador retriever&quot;</span>, <span class="st">&quot;Finnish lapphund&quot;</span>, <span class="st">&quot;Newfoundland&quot;</span>, <span class="st">&quot;Dachshund&quot;</span>, <span class="st">&quot;Cavalier King Charles spaniel&quot;</span>, <span class="st">&quot;Boxer&quot;</span>, <span class="st">&quot;Doberman pinscher&quot;</span>)
-
-<span class="kw">data.frame</span>(Breed_name, Abbr)</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">Abbr &lt;-<span class="st"> </span><span class="kw">unique</span>(data_raw<span class="op">@</span>phdata<span class="op">$</span>Breed)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">Breed_name &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;German Shepperd&quot;</span>, <span class="st">&quot;Belgian Shepperd&quot;</span>, <span class="st">&quot;Labrador retriever&quot;</span>, <span class="st">&quot;Finnish lapphund&quot;</span>, <span class="st">&quot;Newfoundland&quot;</span>, <span class="st">&quot;Dachshund&quot;</span>, <span class="st">&quot;Cavalier King Charles spaniel&quot;</span>, <span class="st">&quot;Boxer&quot;</span>, <span class="st">&quot;Doberman pinscher&quot;</span>)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">data.frame</span>(Breed_name, Abbr)</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["Breed_name"],"name":[1],"type":["fctr"],"align":["left"]},{"label":["Abbr"],"name":[2],"type":["fctr"],"align":["left"]}],"data":[{"1":"German Shepperd","2":"GS"},{"1":"Belgian Shepperd","2":"BS"},{"1":"Labrador retriever","2":"LAB"},{"1":"Finnish lapphund","2":"FIN_LAP"},{"1":"Newfoundland","2":"NF"},{"1":"Dachshund","2":"DACH"},{"1":"Cavalier King Charles spaniel","2":"CKCS"},{"1":"Boxer","2":"BOX"},{"1":"Doberman pinscher","2":"DOB"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -392,17 +418,17 @@ Breed_name &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="
 </div>
 <div id="countries" class="section level3">
 <h3>Countries</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">unique</span>(data_raw<span class="op">@</span>phdata<span class="op">$</span>Country)</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">unique</span>(data_raw<span class="op">@</span>phdata<span class="op">$</span>Country)</a></code></pre></div>
 <pre><code>## [1] &quot;Bel&quot; &quot;Fin&quot; &quot;Den&quot; &quot;Swe&quot; &quot;Fra&quot;</code></pre>
 </div>
 </div>
 <div id="distribution-of-breeds-by-country" class="section level2">
 <h2>Distribution of breeds by country</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(Breed, Country) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(n)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(Country))</code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(Breed, Country) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(n)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(Country))</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["Breed"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Country"],"name":[2],"type":["chr"],"align":["left"]},{"label":["n"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"LAB","2":"Swe","3":"46"},{"1":"CKCS","2":"Swe","3":"34"},{"1":"DACH","2":"Swe","3":"16"},{"1":"BOX","2":"Swe","3":"15"},{"1":"DOB","2":"Fra","3":"36"},{"1":"LAB","2":"Fra","3":"29"},{"1":"BS","2":"Fra","3":"25"},{"1":"GS","2":"Fin","3":"49"},{"1":"FIN_LAP","2":"Fin","3":"47"},{"1":"DACH","2":"Fin","3":"24"},{"1":"NF","2":"Den","3":"45"},{"1":"LAB","2":"Den","3":"44"},{"1":"BS","2":"Bel","3":"96"},{"1":"GS","2":"Bel","3":"16"},{"1":"LAB","2":"Bel","3":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -411,16 +437,16 @@ Breed_name &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="
 </div>
 <div id="table-with-the-mean-age-and-weight-of-the-dogs-taking-sex-into-account" class="section level2">
 <h2>Table with the mean age and weight of the dogs, taking sex into account</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># mean ans sd functions</span>
-funm &lt;-<span class="st"> </span><span class="cf">function</span>(x){<span class="kw">mean</span>(x, <span class="dt">na.rm =</span> T)}
-funsd &lt;-<span class="st"> </span><span class="cf">function</span>(y){<span class="kw">sd</span>(y, <span class="dt">na.rm =</span> T)}
-
-<span class="co">#table</span>
-data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(Breed, sex) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>(),
-            <span class="dt">meanAge =</span> <span class="kw">funm</span>(Age), <span class="dt">meanAgeSD =</span> <span class="kw">funsd</span>(Age), 
-            <span class="dt">meanWeight =</span> <span class="kw">funm</span>(Body_weight), <span class="dt">meanWeightSD =</span> <span class="kw">funsd</span>(Body_weight))</code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># mean ans sd functions</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">funm &lt;-<span class="st"> </span><span class="cf">function</span>(x){<span class="kw">mean</span>(x, <span class="dt">na.rm =</span> T)}</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">funsd &lt;-<span class="st"> </span><span class="cf">function</span>(y){<span class="kw">sd</span>(y, <span class="dt">na.rm =</span> T)}</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#table</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="st">  </span><span class="kw">group_by</span>(Breed, sex) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>(),</a>
+<a class="sourceLine" id="cb5-9" data-line-number="9">            <span class="dt">meanAge =</span> <span class="kw">funm</span>(Age), <span class="dt">meanAgeSD =</span> <span class="kw">funsd</span>(Age), </a>
+<a class="sourceLine" id="cb5-10" data-line-number="10">            <span class="dt">meanWeight =</span> <span class="kw">funm</span>(Body_weight), <span class="dt">meanWeightSD =</span> <span class="kw">funsd</span>(Body_weight))</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["Breed"],"name":[1],"type":["chr"],"align":["left"]},{"label":["sex"],"name":[2],"type":["int"],"align":["right"]},{"label":["n"],"name":[3],"type":["int"],"align":["right"]},{"label":["meanAge"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["meanAgeSD"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["meanWeight"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["meanWeightSD"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"BOX","2":"1","3":"15","4":"3.433333","5":"1.019570","6":"32.980000","7":"3.593685"},{"1":"BS","2":"1","3":"121","4":"3.743526","5":"1.251583","6":"30.913717","7":"4.709471"},{"1":"CKCS","2":"1","3":"34","4":"3.342424","5":"1.106806","6":"9.476471","7":"1.712885"},{"1":"DACH","2":"1","3":"40","4":"3.674359","5":"1.198402","6":"10.280000","7":"1.597145"},{"1":"DOB","2":"1","3":"36","4":"2.997005","5":"1.220216","6":"42.934286","7":"3.455426"},{"1":"FIN_LAP","2":"1","3":"47","4":"3.614894","5":"1.087674","6":"19.984444","7":"3.069125"},{"1":"GS","2":"1","3":"65","4":"3.533846","5":"1.143224","6":"36.029365","7":"3.758427"},{"1":"LAB","2":"0","3":"73","4":"3.576056","5":"1.117582","6":"29.066197","7":"3.407468"},{"1":"LAB","2":"1","3":"52","4":"3.603922","5":"1.190119","6":"31.776471","7":"5.047438"},{"1":"NF","2":"0","3":"44","4":"3.382500","5":"1.074145","6":"54.188750","7":"6.104554"},{"1":"NF","2":"1","3":"1","4":"4.100000","5":"NA","6":"58.000000","7":"NA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -430,17 +456,17 @@ data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span>
 </div>
 <div id="weight-distribution-for-all-breeds" class="section level1">
 <h1>Weight distribution for all breeds</h1>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(Breed, Body_weight) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">na.omit</span>() <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Breed, <span class="dt">y=</span>Body_weight, <span class="dt">fill=</span>Breed)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.2</span>, <span class="dt">alpha=</span><span class="fl">0.3</span>) <span class="op">+</span>
-<span class="st">    </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Weight distribution for all breeds&quot;</span>,
-         <span class="dt">subtitle=</span><span class="st">&quot;RaukR project 2019&quot;</span>,
-         <span class="dt">caption=</span><span class="st">&quot;Sources: PLoS ONE, 2015&quot;</span>)<span class="op">+</span>
-<span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(Breed, Body_weight) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="st">    </span><span class="kw">na.omit</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Breed, <span class="dt">y=</span>Body_weight, <span class="dt">fill=</span>Breed)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="st">    </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.2</span>, <span class="dt">alpha=</span><span class="fl">0.3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Weight distribution for all breeds&quot;</span>,</a>
+<a class="sourceLine" id="cb6-8" data-line-number="8">         <span class="dt">subtitle=</span><span class="st">&quot;RaukR project 2019&quot;</span>,</a>
+<a class="sourceLine" id="cb6-9" data-line-number="9">         <span class="dt">caption=</span><span class="st">&quot;Sources: PLoS ONE, 2015&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</a></code></pre></div>
 <p><img src="data_analysis_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 </div>
 
