@@ -251,11 +251,56 @@ $(document).ready(function () {
 <p>Read in the data</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<<<<<<< HEAD
+=======
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubG9hZChcImdlbm9fZGF0YV9yYXcucmRhdFwiKVxuXG4jRGF0YSBpcyBTNCBmb3JtYXRcbmRhdGFfcmF3QHBoZGF0YSRCcmVlZCAjanVzdCB0aGUgYnJlZWRzXG5cbmRhdGFfcmF3QGd0ZGF0YUBpZG5hbWVzXG5kYXRhX3Jhd0BndGRhdGFAY29kaW5nXG5cbmxpYnJhcnkodGlkeXZlcnNlKVxuXG5waGRhdGEgPC0gZGF0YV9yYXdAcGhkYXRhICN0YWJsZSBmcm9tIHRoZSBwaGRhdGEgZmlsZVxuXG5zdW1tYXJ5KGRhdGFfcmF3QGd0ZGF0YSkjc3VtbWFyeSBvZiB0aGUgZ2VuZXRpYyBkYXRhXG5cbiNwbGF5aW5nIHdpdGggcGxvdHRpbmcuLiBub3RoaW5nIHJlYWwgc3R1ZmYgOilcbnBsb3QocCRDaHJvbW9zb21lKVxuXG5wbG90KHBoZGF0YSRCb2R5X3dlaWdodClcbmBgYCJ9 -->
+<pre class="r"><code>load(&quot;geno_data_raw.rdat&quot;)
+
+#Data is S4 format
+data_raw@phdata$Breed #just the breeds
+
+data_raw@gtdata@idnames
+data_raw@gtdata@coding
+
+library(tidyverse)
+
+phdata &lt;- data_raw@phdata #table from the phdata file
+
+summary(data_raw@gtdata)#summary of the genetic data
+
+#playing with plotting.. nothing real stuff :)
+plot(p$Chromosome)
+
+plot(phdata$Body_weight)</code></pre>
+<!-- rnb-source-end -->
+>>>>>>> c37f4b7b0c21153bd35b060dada222e1211ba456
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<div id="weight-distribution-for-all-breeds" class="section level2">
+<h2>Weight distribution for all breeds</h2>
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YV9yYXdAcGhkYXRhICU+JSBcbiAgICBzZWxlY3QoQnJlZWQsIEJvZHlfd2VpZ2h0KSAlPiUgXG4gICAgbmEub21pdCgpICU+JSBcbiAgICBnZ3Bsb3QoYWVzKHg9QnJlZWQsIHk9Qm9keV93ZWlnaHQsIGZpbGw9QnJlZWQpKSArXG4gICAgZ2VvbV9ib3hwbG90KCkgK1xuICAgIGdlb21faml0dGVyKHdpZHRoID0gMC4yLCBhbHBoYT0wLjMpICtcbiAgICBsYWJzKHRpdGxlPVwiV2VpZ2h0IGRpc3RyaWJ1dGlvbiBmb3IgYWxsIGJyZWVkc1wiLFxuICAgICAgICAgc3VidGl0bGU9XCJSYXVrUiBwcm9qZWN0IDIwMTlcIixcbiAgICAgICAgIGNhcHRpb249XCJTb3VyY2VzOiBQTG9TIE9ORSwgMjAxNVwiKStcbiAgICB0aGVtZV9idygpICsgXG4gICAgdGhlbWUobGVnZW5kLnBvc2l0aW9uID0gXCJub25lXCIpXG5gYGAifQ== -->
+<pre class="r"><code>data_raw@phdata %&gt;% 
+    select(Breed, Body_weight) %&gt;% 
+    na.omit() %&gt;% 
+    ggplot(aes(x=Breed, y=Body_weight, fill=Breed)) +
+    geom_boxplot() +
+    geom_jitter(width = 0.2, alpha=0.3) +
+    labs(title=&quot;Weight distribution for all breeds&quot;,
+         subtitle=&quot;RaukR project 2019&quot;,
+         caption=&quot;Sources: PLoS ONE, 2015&quot;)+
+    theme_bw() + 
+    theme(legend.position = &quot;none&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+</div>
 
+<<<<<<< HEAD
 <div id="rmd-source-code">LS0tDQp0aXRsZTogIlJhdWtSIHByb2plY3QiDQpzdWJ0aXRsZTogIkFuYWx5c2lzIG9mIGdlbm9taWMgYXJyYXkgZGF0YSBmcm9tIDkgZG9nIGJyZWVkcyINCmF1dGhvcjogQ8OhdGlhIFBlcmVpcmEsIERvdmlsxJcgU2lua2V2acSNacWrdMSXLCBNaW5uYSBTaXZvbmVuIGFuZCBTdmFuZMOtcyBTw6ZtdW5kc2TDs3R0aXINCmRhdGU6ICJyIGZvcm1hdChTeXMuRGF0ZSgpLGZvcm1hdD0nJWQvJW0vJVknKSINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNClJlYWQgaW4gdGhlIGRhdGENCmBgYHtyfQ0KDQpgYGANCg0K</div>
+=======
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUmF1a1IgcHJvamVjdCIKc3VidGl0bGU6ICJBbmFseXNpcyBvZiBnZW5vbWljIGFycmF5IGRhdGEgZnJvbSA5IGRvZyBicmVlZHMiCmF1dGhvcjogQ8OhdGlhIFBlcmVpcmEsIERvdmlsxJcgU2lua2V2acSNacWrdMSXLCBNaW5uYSBTaXZvbmVuIGFuZCBTdmFuZMOtcyBTw6ZtdW5kc2TDs3R0aXIKZGF0ZTogInIgZm9ybWF0KFN5cy5EYXRlKCksZm9ybWF0PSclZC8lbS8lWScpIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpSZWFkIGluIHRoZSBkYXRhCmBgYHtyfQpsb2FkKCJnZW5vX2RhdGFfcmF3LnJkYXQiKQoKI0RhdGEgaXMgUzQgZm9ybWF0CmRhdGFfcmF3QHBoZGF0YSRCcmVlZCAjanVzdCB0aGUgYnJlZWRzCgpkYXRhX3Jhd0BndGRhdGFAaWRuYW1lcwpkYXRhX3Jhd0BndGRhdGFAY29kaW5nCgpsaWJyYXJ5KHRpZHl2ZXJzZSkKCnBoZGF0YSA8LSBkYXRhX3Jhd0BwaGRhdGEgI3RhYmxlIGZyb20gdGhlIHBoZGF0YSBmaWxlCgpzdW1tYXJ5KGRhdGFfcmF3QGd0ZGF0YSkjc3VtbWFyeSBvZiB0aGUgZ2VuZXRpYyBkYXRhCgojcGxheWluZyB3aXRoIHBsb3R0aW5nLi4gbm90aGluZyByZWFsIHN0dWZmIDopCnBsb3QocCRDaHJvbW9zb21lKQoKcGxvdChwaGRhdGEkQm9keV93ZWlnaHQpCmBgYAoKIyMgV2VpZ2h0IGRpc3RyaWJ1dGlvbiBmb3IgYWxsIGJyZWVkcwpgYGB7cn0KZGF0YV9yYXdAcGhkYXRhICU+JSAKICAgIHNlbGVjdChCcmVlZCwgQm9keV93ZWlnaHQpICU+JSAKICAgIG5hLm9taXQoKSAlPiUgCiAgICBnZ3Bsb3QoYWVzKHg9QnJlZWQsIHk9Qm9keV93ZWlnaHQsIGZpbGw9QnJlZWQpKSArCiAgICBnZW9tX2JveHBsb3QoKSArCiAgICBnZW9tX2ppdHRlcih3aWR0aCA9IDAuMiwgYWxwaGE9MC4zKSArCiAgICBsYWJzKHRpdGxlPSJXZWlnaHQgZGlzdHJpYnV0aW9uIGZvciBhbGwgYnJlZWRzIiwKICAgICAgICAgc3VidGl0bGU9IlJhdWtSIHByb2plY3QgMjAxOSIsCiAgICAgICAgIGNhcHRpb249IlNvdXJjZXM6IFBMb1MgT05FLCAyMDE1IikrCiAgICB0aGVtZV9idygpICsgCiAgICB0aGVtZShsZWdlbmQucG9zaXRpb24gPSAibm9uZSIpCmBgYA==</div>
+>>>>>>> c37f4b7b0c21153bd35b060dada222e1211ba456
 
 
 
