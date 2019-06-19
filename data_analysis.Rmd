@@ -25,11 +25,18 @@ library(tidyr)
 library(dplyr)
 library(ggplot2)
 library(GenABEL)
+library(maps)
+library(tidyverse)
+library(purrr)
+library(cowplot)
+library(ggmap)
+library(mapproj)
+library(devtools)
+
 
 # Load the data
 load("geno_data_raw.rdat")
 ```
-
 
 # Description of the dataset
 
@@ -194,6 +201,7 @@ library(lattice)
 library(ggpubr)
 
 ```
+
 ```{r}
 #arranging the two grids side by side with one legend
 ggarrange(g,z, ncol=2, nrow=1, common.legend = TRUE, legend="bottom")
