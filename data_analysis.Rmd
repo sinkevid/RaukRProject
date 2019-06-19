@@ -40,18 +40,26 @@ length(unique(data_raw@phdata$Breed)) ## data covers 9 dog breeds
 ```
 ### Dog breeds in the study
 ```{r}
+# number of dogs per breed (male, female)
+dogs <- data_raw@phdata %>%
+  group_by(Breed, sex) %>%
+  summarize(n = n()) %>%
+  group_by(Breed) %>%
+  spread(key="sex", value = "n" ) %>%
+  mutate_all(~replace(., is.na(.), 0))
+
 dogs$Breed_name <- c("Boxer",
-                      "Belgian Shepperd",
-                      "Cavalier King Charles spaniel",
-                      "Dachshund",
-                      "Doberman pinscher",
-                      "Finnish lapphund",
-                      "German Shepperd",
-                      "Labrador retriever",
-                      "Newfoundland")
+                     "Belgian Shepperd",
+                     "Cavalier King Charles spaniel",
+                     "Dachshund", 
+                     "Doberman pinscher",
+                     "Finnish lapphund",
+                     "German Shepperd",
+                     "Labrador retriever", 
+                     "Newfoundland")
 
 colnames(dogs)<- c("Abbreviation", "Female", "Male", "Breed")
-dogs[,c("Breed", "Abbreviation", "Female", "Male")]
+print(dogs[,c("Breed", "Abbreviation", "Female", "Male")])
 
 ```
 ### Countries
@@ -63,38 +71,40 @@ country_info <- data_raw@phdata %>%
 
 country_info$fullname <- c("Finland", "Belgium", "Sweden", "France", "Denmark") 
 colnames(country_info)<- c("Abbreviation", "Total number of dogs", "Country")
-country_info[,c("Country", "Abbreviation", "Total number of dogs")]
-
+print(country_info[,c("Country", "Abbreviation", "Total number of dogs")])
 ```
 
-
-
-## Distribution of breeds by country
+### Distribution of breeds by country
 ```{r}
 data_raw@phdata %>%
   group_by(Breed, Country) %>%
-  summarize(n = n()) %>%
-  arrange(desc(n)) %>%
+  summarize(Dogs = n()) %>%
+  arrange(desc(Dogs)) %>%
   arrange(desc(Country))
 ```
 
-## Table with the mean age and weight of the dogs, taking sex into account
+## Weight {.tabset}
+### Table
+Table with the mean age and weight of the dogs, taking sex into account
 ```{r}
 # mean ans sd functions
 funm <- function(x){mean(x, na.rm = T)}
-funsd <- function(y){sd(y, na.rm = T)}
 
 #table
-data_raw@phdata %>%
+dogsWH <- data_raw@phdata %>%
   group_by(Breed, sex) %>%
   summarize(n = n(),
-            meanAge = funm(Age), meanAgeSD = funsd(Age), 
-            meanWeight = funm(Body_weight), meanWeightSD = funsd(Body_weight))
+            mean.Age = funm(Age), 
+            mean.Weight = funm(Body_weight)) 
+
+dogsWH$sex[dogsWH$sex == 0]<- "female"
+dogsWH$sex[dogsWH$sex == 1]<- "male"
+
+print(dogsWH)
 ```
 
-
-
-# Weight distribution for all breeds
+### Graph
+Weight distribution for all breeds
 ```{r}
 data_raw@phdata %>% 
     dplyr::select(Breed, Body_weight) %>% 
@@ -142,10 +152,11 @@ ggplot(df_data_raw, aes(Dim_1, Dim_2, color=Breed)) +
 ```
 
 #Multidimensional scaling MDS
-```{r, cache= TRUE}
+```{r, cache= TRUE, include=FALSE}
 # Compute genomic kinship-based distances
-gkin <- ibs(data_raw, weight = 'freq')
-head(gkin)
+#gkin <- ibs(data_raw, weight = 'freq')
+#head(gkin)
+load("gkin.rdat")
 dm <- as.dist(.5 - gkin) # Normalize it
 
 # PCA
@@ -182,8 +193,9 @@ library(ggplot2)
 library(lattice)
 library(ggpubr)
 
+```
+```{r}
 #arranging the two grids side by side with one legend
 ggarrange(g,z, ncol=2, nrow=1, common.legend = TRUE, legend="bottom")
-
 ```
 
