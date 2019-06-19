@@ -400,12 +400,94 @@ div.tocify {
 </div>
 
 
-<div id="distributions-of-breeds-by-country" class="section level1">
-<h1>Distributions of Breeds by Country</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">ggdraw</span>(<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">2.3</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="st">  </span><span class="kw">draw_plot</span>(europe.map.complete, <span class="dt">x=</span><span class="fl">0.05</span>, <span class="dt">y=</span><span class="dv">0</span>, <span class="dt">scale=</span><span class="fl">1.2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="st">  </span><span class="kw">draw_plot</span>(breed.country.plot, <span class="dt">x=</span><span class="fl">1.2</span>, <span class="dt">y=</span><span class="dv">0</span>, <span class="dt">scale=</span><span class="fl">0.9</span>) </a></code></pre></div>
-<p><img src="maps_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<div id="distributions-of-individuals-by-country" class="section level2 tabset">
+<h2>Distributions of Individuals by Country</h2>
+<div id="table" class="section level3">
+<h3>Table</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">country_info &lt;-<span class="st"> </span>data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(Country) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">total_dogs =</span> <span class="kw">sum</span>(<span class="kw">n</span>())) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(total_dogs))</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">country_info<span class="op">$</span>fullname &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Finland&quot;</span>, <span class="st">&quot;Belgium&quot;</span>, <span class="st">&quot;Sweden&quot;</span>, <span class="st">&quot;France&quot;</span>, <span class="st">&quot;Denmark&quot;</span>) </a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="kw">colnames</span>(country_info)&lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Abbreviation&quot;</span>, <span class="st">&quot;Total number of dogs&quot;</span>, <span class="st">&quot;Country&quot;</span>)</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">country_info[,<span class="kw">c</span>(<span class="st">&quot;Country&quot;</span>, <span class="st">&quot;Abbreviation&quot;</span>, <span class="st">&quot;Total number of dogs&quot;</span>)]</a></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["Country"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Abbreviation"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Total number of dogs"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"Finland","2":"Fin","3":"120"},{"1":"Belgium","2":"Bel","3":"118"},{"1":"Sweden","2":"Swe","3":"111"},{"1":"France","2":"Fra","3":"90"},{"1":"Denmark","2":"Den","3":"89"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div id="map" class="section level3">
+<h3>Map</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">ggmap</span>(europe.map)</a></code></pre></div>
+<p><img src="maps_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+</div>
+<div id="distributions-of-breeds-by-country" class="section level2 tabset">
+<h2>Distributions of Breeds by Country</h2>
+<div id="sweden" class="section level3">
+<h3>Sweden</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">sweden &lt;-<span class="st"> </span><span class="kw">subset</span>(breeds.country, breeds.country<span class="op">$</span>Country <span class="op">==</span><span class="st"> &#39;Swe&#39;</span>)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">sweden<span class="op">$</span>Country &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">sweden</a></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["Breed"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"LAB","2":"46"},{"1":"CKCS","2":"34"},{"1":"DACH","2":"16"},{"1":"BOX","2":"15"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div id="france" class="section level3">
+<h3>France</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">france &lt;-<span class="st"> </span><span class="kw">subset</span>(breeds.country, breeds.country<span class="op">$</span>Country <span class="op">==</span><span class="st"> &#39;Fra&#39;</span>)</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">france<span class="op">$</span>Country &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">france</a></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["Breed"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"DOB","2":"36"},{"1":"LAB","2":"29"},{"1":"BS","2":"25"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div id="finland" class="section level3">
+<h3>Finland</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">finland &lt;-<span class="st"> </span><span class="kw">subset</span>(breeds.country, breeds.country<span class="op">$</span>Country <span class="op">==</span><span class="st"> &#39;Fin&#39;</span>)</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">finland<span class="op">$</span>Country &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">finland</a></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["Breed"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"GS","2":"49"},{"1":"FIN_LAP","2":"47"},{"1":"DACH","2":"24"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div id="denmark" class="section level3">
+<h3>Denmark</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">denmark &lt;-<span class="st"> </span><span class="kw">subset</span>(breeds.country, breeds.country<span class="op">$</span>Country <span class="op">==</span><span class="st"> &#39;Den&#39;</span>)</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">denmark<span class="op">$</span>Country &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">denmark</a></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["Breed"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"NF","2":"45"},{"1":"LAB","2":"44"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div id="belgium" class="section level3">
+<h3>Belgium</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">belgium &lt;-<span class="st"> </span><span class="kw">subset</span>(breeds.country, breeds.country<span class="op">$</span>Country <span class="op">==</span><span class="st"> &#39;Bel&#39;</span>)</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">belgium<span class="op">$</span>Country &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">belgium</a></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["Breed"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"BS","2":"96"},{"1":"GS","2":"16"},{"1":"LAB","2":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<div id="map-1" class="section level2">
+<h2>Map</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">ggdraw</span>(<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">2.3</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="st">  </span><span class="kw">draw_plot</span>(europe.map.complete, <span class="dt">x=</span><span class="fl">0.05</span>, <span class="dt">y=</span><span class="dv">0</span>, <span class="dt">scale=</span><span class="fl">1.2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="st">  </span><span class="kw">draw_plot</span>(breed.country.plot, <span class="dt">x=</span><span class="fl">1.2</span>, <span class="dt">y=</span><span class="dv">0</span>, <span class="dt">scale=</span><span class="fl">0.9</span>) </a></code></pre></div>
+<p><img src="maps_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 </div>
 
 

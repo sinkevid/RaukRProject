@@ -37,7 +37,84 @@ library(mapproj)
 load("geno_data_raw.rdat")
 ```
 
-# Distributions of Breeds by Country
+## Distributions of Individuals by Country{.tabset}
+
+### Table
+
+```{r}
+country_info <- data_raw@phdata %>% 
+  group_by(Country) %>%
+  summarize(total_dogs = sum(n())) %>%
+  arrange(desc(total_dogs))
+
+country_info$fullname <- c("Finland", "Belgium", "Sweden", "France", "Denmark") 
+colnames(country_info)<- c("Abbreviation", "Total number of dogs", "Country")
+country_info[,c("Country", "Abbreviation", "Total number of dogs")]
+
+```
+
+### Map
+
+```{r include=FALSE}
+europe.map <- get_stamenmap(c(left = -25.410724, bottom = 35.479777,
+                              right = 35.618354, top = 71.280356), zoom = 5)
+```
+
+```{r}
+ggmap(europe.map)
+```
+
+## Distributions of Breeds by Country {.tabset}
+
+```{r include=FALSE}
+breeds.country <- data_raw@phdata %>%
+  group_by(Breed, Country) %>%
+  summarize(n = n()) %>%
+  arrange(desc(n)) %>%
+  arrange(desc(Country))
+```
+
+### Sweden
+
+```{r}
+sweden <- subset(breeds.country, breeds.country$Country == 'Swe')
+sweden$Country <- NULL
+sweden
+```
+
+### France
+
+```{r}
+france <- subset(breeds.country, breeds.country$Country == 'Fra')
+france$Country <- NULL
+france
+```
+
+### Finland
+
+```{r}
+finland <- subset(breeds.country, breeds.country$Country == 'Fin')
+finland$Country <- NULL
+finland
+```
+
+### Denmark
+
+```{r}
+denmark <- subset(breeds.country, breeds.country$Country == 'Den')
+denmark$Country <- NULL
+denmark
+```
+
+### Belgium
+
+```{r}
+belgium <- subset(breeds.country, breeds.country$Country == 'Bel')
+belgium$Country <- NULL
+belgium
+```
+
+## Map
 
 ```{r include=FALSE}
 europe.map <- get_stamenmap(c(left = -25.410724, bottom = 35.479777,
@@ -58,18 +135,6 @@ europe.map.complete <- ggmap(europe.map) +
   
  europe.map.complete
 
-
-breeds.country <- data_raw@phdata %>%
-  group_by(Breed, Country) %>%
-  summarize(n = n()) %>%
-  arrange(desc(n)) %>%
-  arrange(desc(Country))
-
-sweden <- subset(breeds.country, breeds.country$Country == 'Swe')
-france <- subset(breeds.country, breeds.country$Country == 'Fra')
-finland <- subset(breeds.country, breeds.country$Country == 'Fin')
-denmark <- subset(breeds.country, breeds.country$Country == 'Den')
-belgium <- subset(breeds.country, breeds.country$Country == 'Bel')
 
 
 sweden.plot <- ggplot(sweden, aes(x=Breed, y=n)) +
