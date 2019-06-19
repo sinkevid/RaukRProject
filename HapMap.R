@@ -7,11 +7,8 @@
 #Getting rid off the chromosome 39 (X chromosome)
 #data_autosomal <- data_raw[,data_raw@gtdata@chromosome != "39"]
 
-<<<<<<< HEAD
 # Compute genomic kinship-based distances
-=======
 # Compute genomic kinship-based distances, takes long time
->>>>>>> upstream/master
 gkin <- ibs(data_raw, weight = 'freq')
 save(gkin, file="gkin.rdat") #making .rdat file from this 
 
@@ -179,6 +176,9 @@ delta <- abs(train_data - reconstructed_points)
 heatmap(delta[1:100, 1:100], Rowv = NA, Colv = NA,
         col=heat.colors(5), scale = 'none')
 
+
+#HOX!! Works untill here. There is a problem with the package. Hopefully this 
+#will be fixed in few weeks. 
 
 #Building the encoder
 autoencoder_weights <- autoencoder_model %>% keras::get_weights()
