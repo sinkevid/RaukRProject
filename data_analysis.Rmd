@@ -86,6 +86,7 @@ places <- tibble(
   lon = c(18.063240, 2.349014, 24.945831, 12.568337, 4.402771),
   lat = c(59.334591, 48.864716, 60.192059, 55.676098, 51.260197))
 ```
+
 ```{r, warning = F}
 ggmap(europe.map) +
   geom_point(aes(x = 18.063240, y = 59.334591), color = 'white', size = 6.6) + #Sweden
@@ -338,7 +339,7 @@ dm <- as.dist(.5 - gkin) # Normalize it
 # PCA
 pca <- prcomp(dm) #Principal components analysis
 library(devtools)
-install_github("vqv/ggbiplot") #to get the ggbiplot
+#install_github("vqv/ggbiplot") #to get the ggbiplot
 library(ggbiplot)
 #vector for the colors
 color_9 <- c("black", "dodgerblue4", "bisque4", "darkgreen","yellow3", "darkgoldenrod3", "darkorchid4", "darkred", "grey")
