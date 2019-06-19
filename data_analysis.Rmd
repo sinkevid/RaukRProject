@@ -2,13 +2,13 @@
 title: "RaukR project"
 subtitle: "Analysis of genomic array data from 9 dog breeds"
 author: Cátia Pereira, Dovilė Sinkevičiūtė, Minna Sivonen and Svandís Sæmundsdóttir
-date: "r format(Sys.Date(),format='%d/%m/%Y')"
+date: "`r format(Sys.Date(),format='%d/%m/%Y')`"
 output:
   rmarkdown::html_document:
     toc: true
     toc_float: true
     toc_depth: 3
-    number_sections: true
+    number_sections: false
     theme: flatly
     highlight: kate
     df_print: paged
@@ -24,6 +24,7 @@ output:
 library(tidyr)
 library(dplyr)
 library(ggplot2)
+library(GenABEL)
 
 # Load the data
 load("geno_data_raw.rdat")
@@ -32,10 +33,22 @@ load("geno_data_raw.rdat")
 
 # Description of the dataset
 
-
-```{r}
+## Nine dog breeds from five different European countries were analysed in this study.{.tabset}
+```{r include=FALSE}
 length(unique(data_raw@phdata$Country)) ## data from 5 countries
 length(unique(data_raw@phdata$Breed)) ## data covers 9 dog breeds
+```
+### Dog breeds
+```{r}
+Abbr <- unique(data_raw@phdata$Breed)
+Breed_name <- c("German Shepperd", "Belgian Shepperd", "Labrador retriever", "Finnish lapphund", "Newfoundland", "Dachshund", "Cavalier King Charles spaniel", "Boxer", "Doberman pinscher")
+
+data.frame(Breed_name, Abbr)
+
+```
+### Countries
+```{r}
+unique(data_raw@phdata$Country)
 ```
 
 
@@ -65,10 +78,10 @@ data_raw@phdata %>%
 
 
 
-## Weight distribution for all breeds
+# Weight distribution for all breeds
 ```{r}
 data_raw@phdata %>% 
-    select(Breed, Body_weight) %>% 
+    dplyr::select(Breed, Body_weight) %>% 
     na.omit() %>% 
     ggplot(aes(x=Breed, y=Body_weight, fill=Breed)) +
     geom_boxplot() +
@@ -79,3 +92,6 @@ data_raw@phdata %>%
     theme_bw() + 
     theme(legend.position = "none")
 ```
+
+
+
