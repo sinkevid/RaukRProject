@@ -309,6 +309,7 @@ belgium.plot <- ggplot(belgium, aes(x=Breed, y=n)) +
 breed.country.plot <- plot_grid(sweden.plot, france.plot, finland.plot, denmark.plot, belgium.plot, labels = c("A", "B", "C", "D", "E"), ncol = 2)
 
 ```
+
 ```{r}
 ggdraw(xlim=c(0,2.3), ylim = c(0,1)) +
   draw_plot(europe.map.complete, x=0.05, y=0, scale=1.2) +
