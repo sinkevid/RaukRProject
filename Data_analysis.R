@@ -7,6 +7,9 @@ data_raw@phdata$Breed #just the breeds
 data_raw@gtdata@idnames
 data_raw@gtdata@coding
 
+#without 39 (theX)
+autosomalMarkerNames <- snpnames(data.qc0)[chromosome(data.qc0) != 39]
+
 library(tidyverse)
 
 phdata <- data_raw@phdata #table from the phdata file

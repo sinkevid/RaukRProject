@@ -141,4 +141,49 @@ ggplot(df_data_raw, aes(Dim_1, Dim_2, color=Breed)) +
   scale_color_manual(values = c("black", "dodgerblue4", "bisque4", "darkgreen","yellow3", "darkgoldenrod3", "darkorchid4", "darkred", "grey")) 
 ```
 
+#Multidimensional scaling MDS
+```{r, cache= TRUE}
+# Compute genomic kinship-based distances
+gkin <- ibs(data_raw, weight = 'freq')
+head(gkin)
+dm <- as.dist(.5 - gkin) # Normalize it
+
+# PCA
+pca <- prcomp(dm) #Principal components analysis
+
+library(devtools)
+install_github("vqv/ggbiplot") #to get the ggbiplot
+library(ggbiplot)
+
+#vector for the colors
+color_9 <- c("black", "dodgerblue4", "bisque4", "darkgreen","yellow3", "darkgoldenrod3", "darkorchid4", "darkred", "grey")
+
+g <- ggbiplot(pca, obs.scale = 1, var.scale = 1,
+              groups = data_raw@phdata$Breed, ellipse = F, #using breed as a group
+              circle = TRUE, var.axes = F) +
+  ggtitle("PCA")+
+  scale_color_manual(values = color_9)+
+  theme(legend.position = 'none') #removing legend
+
+# MDS
+ibs <- as.data.frame(cmdscale(dm))
+
+ibs <- cbind(ibs, pop = data_raw@phdata$Breed) #same as group at PCA
+
+z <-ggplot(ibs, mapping = aes(x=V1, y=V2, col=pop)) + 
+  geom_point() +
+  ggtitle("MDS") +
+  scale_color_manual(values = color_9) +
+  theme(legend.position = 'none') #removing legend
+
+library(gridExtra)
+library(grid)
+library(ggplot2)
+library(lattice)
+library(ggpubr)
+
+#arranging the two grids side by side with one legend
+ggarrange(g,z, ncol=2, nrow=1, common.legend = TRUE, legend="bottom")
+
+```
 
