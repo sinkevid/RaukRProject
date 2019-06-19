@@ -152,7 +152,7 @@ ggplot(df_data_raw, aes(Dim_1, Dim_2, color=Breed)) +
 ```
 
 #Multidimensional scaling MDS
-```{r, cache= TRUE}
+```{r, cache= TRUE, include=FALSE}
 # Compute genomic kinship-based distances
 gkin <- ibs(data_raw, weight = 'freq')
 head(gkin)
