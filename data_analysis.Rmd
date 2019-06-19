@@ -37,17 +37,33 @@ load("geno_data_raw.rdat")
 length(unique(data_raw@phdata$Country)) ## data from 5 countries
 length(unique(data_raw@phdata$Breed)) ## data covers 9 dog breeds
 ```
-### Dog breeds
+### Dog breeds in the study
 ```{r}
-Abbr <- unique(data_raw@phdata$Breed)
-Breed_name <- c("German Shepperd", "Belgian Shepperd", "Labrador retriever", "Finnish lapphund", "Newfoundland", "Dachshund", "Cavalier King Charles spaniel", "Boxer", "Doberman pinscher")
+dogs$Breed_name <- c("Boxer",
+                      "Belgian Shepperd",
+                      "Cavalier King Charles spaniel",
+                      "Dachshund", 
+                      "Doberman pinscher",
+                      "Finnish lapphund",
+                      "German Shepperd",
+                      "Labrador retriever", 
+                      "Newfoundland")
 
-data.frame(Breed_name, Abbr)
+colnames(dogs)<- c("Abbreviation", "Female", "Male", "Breed")
+dogs[,c("Breed", "Abbreviation", "Female", "Male")]
 
 ```
 ### Countries
 ```{r}
-unique(data_raw@phdata$Country)
+country_info <- data_raw@phdata %>% 
+  group_by(Country) %>%
+  summarize(total_dogs = sum(n())) %>%
+  arrange(desc(total_dogs))
+
+country_info$fullname <- c("Finland", "Belgium", "Sweden", "France", "Denmark") 
+colnames(country_info)<- c("Abbreviation", "Total number of dogs", "Country")
+country_info[,c("Country", "Abbreviation", "Total number of dogs")]
+
 ```
 
 
