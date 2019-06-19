@@ -31,70 +31,44 @@
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    background-color: #ffffff;
-    color: #a0a0a0;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
-div.sourceCode
-  { color: #1f1c1b; background-color: #ffffff; }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span. { color: #1f1c1b; } /* Normal */
-code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
-code span.an { color: #ca60ca; } /* Annotation */
-code span.at { color: #0057ae; } /* Attribute */
-code span.bn { color: #b08000; } /* BaseN */
-code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
-code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #924c9d; } /* Char */
-code span.cn { color: #aa5500; } /* Constant */
-code span.co { color: #898887; } /* Comment */
-code span.cv { color: #0095ff; } /* CommentVar */
-code span.do { color: #607880; } /* Documentation */
-code span.dt { color: #0057ae; } /* DataType */
-code span.dv { color: #b08000; } /* DecVal */
-code span.er { color: #bf0303; text-decoration: underline; } /* Error */
-code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
-code span.fl { color: #b08000; } /* Float */
-code span.fu { color: #644a9b; } /* Function */
-code span.im { color: #ff5500; } /* Import */
-code span.in { color: #b08000; } /* Information */
-code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
-code span.op { color: #1f1c1b; } /* Operator */
-code span.ot { color: #006e28; } /* Other */
-code span.pp { color: #006e28; } /* Preprocessor */
-code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
-code span.sc { color: #3daee9; } /* SpecialChar */
-code span.ss { color: #ff5500; } /* SpecialString */
-code span.st { color: #bf0303; } /* String */
-code span.va { color: #0057ae; } /* Variable */
-code span.vs { color: #bf0303; } /* VerbatimString */
-code span.wa { color: #bf0303; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #ffffff; color: #1f1c1b; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #ffffff; color: #a0a0a0; border-right: 1px solid #a0a0a0; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #1f1c1b; background-color: #ffffff; }
+code > span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code > span.dt { color: #0057ae; } /* DataType */
+code > span.dv { color: #b08000; } /* DecVal */
+code > span.bn { color: #b08000; } /* BaseN */
+code > span.fl { color: #b08000; } /* Float */
+code > span.cn { color: #aa5500; } /* Constant */
+code > span.ch { color: #924c9d; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #bf0303; } /* String */
+code > span.vs { color: #bf0303; } /* VerbatimString */
+code > span.ss { color: #ff5500; } /* SpecialString */
+code > span.im { color: #ff5500; } /* Import */
+code > span.co { color: #898887; } /* Comment */
+code > span.do { color: #607880; } /* Documentation */
+code > span.an { color: #ca60ca; } /* Annotation */
+code > span.cv { color: #0095ff; } /* CommentVar */
+code > span.ot { color: #006e28; } /* Other */
+code > span.fu { color: #644a9b; } /* Function */
+code > span.va { color: #0057ae; } /* Variable */
+code > span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #1f1c1b; } /* Operator */
+code > span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code > span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code > span.pp { color: #006e28; } /* Preprocessor */
+code > span.at { color: #0057ae; } /* Attribute */
+code > span.re { color: #0057ae; } /* RegionMarker */
+code > span.in { color: #b08000; } /* Information */
+code > span.wa { color: #bf0303; } /* Warning */
+code > span.al { color: #bf0303; font-weight: bold; } /* Alert */
+code > span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code > span. { color: #1f1c1b; } /* Normal */
 
 .sourceCode .row {
   width: 100%;
@@ -404,14 +378,14 @@ div.tocify {
 <h2>Distributions of Individuals by Country</h2>
 <div id="table" class="section level3">
 <h3>Table</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">country_info &lt;-<span class="st"> </span>data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(Country) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">total_dogs =</span> <span class="kw">sum</span>(<span class="kw">n</span>())) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(total_dogs))</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">country_info<span class="op">$</span>fullname &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Finland&quot;</span>, <span class="st">&quot;Belgium&quot;</span>, <span class="st">&quot;Sweden&quot;</span>, <span class="st">&quot;France&quot;</span>, <span class="st">&quot;Denmark&quot;</span>) </a>
-<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="kw">colnames</span>(country_info)&lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Abbreviation&quot;</span>, <span class="st">&quot;Total number of dogs&quot;</span>, <span class="st">&quot;Country&quot;</span>)</a>
-<a class="sourceLine" id="cb1-8" data-line-number="8">country_info[,<span class="kw">c</span>(<span class="st">&quot;Country&quot;</span>, <span class="st">&quot;Abbreviation&quot;</span>, <span class="st">&quot;Total number of dogs&quot;</span>)]</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">country_info &lt;-<span class="st"> </span>data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(Country) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">total_dogs =</span> <span class="kw">sum</span>(<span class="kw">n</span>())) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(total_dogs))
+
+country_info<span class="op">$</span>fullname &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Finland&quot;</span>, <span class="st">&quot;Belgium&quot;</span>, <span class="st">&quot;Sweden&quot;</span>, <span class="st">&quot;France&quot;</span>, <span class="st">&quot;Denmark&quot;</span>) 
+<span class="kw">colnames</span>(country_info)&lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Abbreviation&quot;</span>, <span class="st">&quot;Total number of dogs&quot;</span>, <span class="st">&quot;Country&quot;</span>)
+country_info[,<span class="kw">c</span>(<span class="st">&quot;Country&quot;</span>, <span class="st">&quot;Abbreviation&quot;</span>, <span class="st">&quot;Total number of dogs&quot;</span>)]</code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["Country"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Abbreviation"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Total number of dogs"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"Finland","2":"Fin","3":"120"},{"1":"Belgium","2":"Bel","3":"118"},{"1":"Sweden","2":"Swe","3":"111"},{"1":"France","2":"Fra","3":"90"},{"1":"Denmark","2":"Den","3":"89"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -420,12 +394,12 @@ div.tocify {
 </div>
 <div id="map" class="section level3">
 <h3>Map</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">ggmap</span>(europe.map) <span class="op">+</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">18.063240</span>, <span class="dt">y =</span> <span class="fl">59.334591</span>), <span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">size =</span> <span class="fl">6.6</span>) <span class="op">+</span><span class="st"> </span><span class="co">#Sweden</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">2.349014</span>, <span class="dt">y =</span> <span class="fl">48.864716</span>), <span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">size =</span> <span class="fl">5.3</span>) <span class="op">+</span><span class="st"> </span><span class="co">#France</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">24.945831</span>, <span class="dt">y =</span> <span class="fl">60.192059</span>), <span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">size =</span> <span class="fl">7.1</span>) <span class="op">+</span><span class="st"> </span><span class="co">#Finland</span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">11.568337</span>, <span class="dt">y =</span> <span class="fl">55.676098</span>), <span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">size =</span> <span class="fl">5.2</span>) <span class="op">+</span><span class="st"> </span><span class="co">#Denmark</span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">4.402771</span>, <span class="dt">y =</span> <span class="fl">51.260197</span>), <span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">size =</span> <span class="dv">7</span>) <span class="co">#Belgium</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggmap</span>(europe.map) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">18.063240</span>, <span class="dt">y =</span> <span class="fl">59.334591</span>), <span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">size =</span> <span class="fl">6.6</span>) <span class="op">+</span><span class="st"> </span><span class="co">#Sweden</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">2.349014</span>, <span class="dt">y =</span> <span class="fl">48.864716</span>), <span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">size =</span> <span class="fl">5.3</span>) <span class="op">+</span><span class="st"> </span><span class="co">#France</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">24.945831</span>, <span class="dt">y =</span> <span class="fl">60.192059</span>), <span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">size =</span> <span class="fl">7.1</span>) <span class="op">+</span><span class="st"> </span><span class="co">#Finland</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">11.568337</span>, <span class="dt">y =</span> <span class="fl">55.676098</span>), <span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">size =</span> <span class="fl">5.2</span>) <span class="op">+</span><span class="st"> </span><span class="co">#Denmark</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">4.402771</span>, <span class="dt">y =</span> <span class="fl">51.260197</span>), <span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">size =</span> <span class="dv">7</span>) <span class="co">#Belgium</span></code></pre></div>
 <p><img src="data_analysis_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
 </div>
@@ -433,9 +407,9 @@ div.tocify {
 <h2>Distributions of Breeds by Country</h2>
 <div id="sweden" class="section level3">
 <h3>Sweden</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">sweden &lt;-<span class="st"> </span><span class="kw">subset</span>(breeds.country, breeds.country<span class="op">$</span>Country <span class="op">==</span><span class="st"> &#39;Swe&#39;</span>)</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">sweden<span class="op">$</span>Country &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">sweden</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sweden &lt;-<span class="st"> </span><span class="kw">subset</span>(breeds.country, breeds.country<span class="op">$</span>Country <span class="op">==</span><span class="st"> &#39;Swe&#39;</span>)
+sweden<span class="op">$</span>Country &lt;-<span class="st"> </span><span class="ot">NULL</span>
+sweden</code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["Breed"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"LAB","2":"46"},{"1":"CKCS","2":"34"},{"1":"DACH","2":"16"},{"1":"BOX","2":"15"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -444,9 +418,9 @@ div.tocify {
 </div>
 <div id="france" class="section level3">
 <h3>France</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">france &lt;-<span class="st"> </span><span class="kw">subset</span>(breeds.country, breeds.country<span class="op">$</span>Country <span class="op">==</span><span class="st"> &#39;Fra&#39;</span>)</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">france<span class="op">$</span>Country &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">france</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">france &lt;-<span class="st"> </span><span class="kw">subset</span>(breeds.country, breeds.country<span class="op">$</span>Country <span class="op">==</span><span class="st"> &#39;Fra&#39;</span>)
+france<span class="op">$</span>Country &lt;-<span class="st"> </span><span class="ot">NULL</span>
+france</code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["Breed"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"DOB","2":"36"},{"1":"LAB","2":"29"},{"1":"BS","2":"25"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -455,9 +429,9 @@ div.tocify {
 </div>
 <div id="finland" class="section level3">
 <h3>Finland</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">finland &lt;-<span class="st"> </span><span class="kw">subset</span>(breeds.country, breeds.country<span class="op">$</span>Country <span class="op">==</span><span class="st"> &#39;Fin&#39;</span>)</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">finland<span class="op">$</span>Country &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3">finland</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">finland &lt;-<span class="st"> </span><span class="kw">subset</span>(breeds.country, breeds.country<span class="op">$</span>Country <span class="op">==</span><span class="st"> &#39;Fin&#39;</span>)
+finland<span class="op">$</span>Country &lt;-<span class="st"> </span><span class="ot">NULL</span>
+finland</code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["Breed"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"GS","2":"49"},{"1":"FIN_LAP","2":"47"},{"1":"DACH","2":"24"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -466,9 +440,9 @@ div.tocify {
 </div>
 <div id="denmark" class="section level3">
 <h3>Denmark</h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">denmark &lt;-<span class="st"> </span><span class="kw">subset</span>(breeds.country, breeds.country<span class="op">$</span>Country <span class="op">==</span><span class="st"> &#39;Den&#39;</span>)</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">denmark<span class="op">$</span>Country &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3">denmark</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">denmark &lt;-<span class="st"> </span><span class="kw">subset</span>(breeds.country, breeds.country<span class="op">$</span>Country <span class="op">==</span><span class="st"> &#39;Den&#39;</span>)
+denmark<span class="op">$</span>Country &lt;-<span class="st"> </span><span class="ot">NULL</span>
+denmark</code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["Breed"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"NF","2":"45"},{"1":"LAB","2":"44"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -477,9 +451,9 @@ div.tocify {
 </div>
 <div id="belgium" class="section level3">
 <h3>Belgium</h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">belgium &lt;-<span class="st"> </span><span class="kw">subset</span>(breeds.country, breeds.country<span class="op">$</span>Country <span class="op">==</span><span class="st"> &#39;Bel&#39;</span>)</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">belgium<span class="op">$</span>Country &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">belgium</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">belgium &lt;-<span class="st"> </span><span class="kw">subset</span>(breeds.country, breeds.country<span class="op">$</span>Country <span class="op">==</span><span class="st"> &#39;Bel&#39;</span>)
+belgium<span class="op">$</span>Country &lt;-<span class="st"> </span><span class="ot">NULL</span>
+belgium</code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["Breed"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"BS","2":"96"},{"1":"GS","2":"16"},{"1":"LAB","2":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -489,9 +463,9 @@ div.tocify {
 </div>
 <div id="map-1" class="section level2">
 <h2>Map</h2>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">ggdraw</span>(<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">2.3</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="st">  </span><span class="kw">draw_plot</span>(europe.map.complete, <span class="dt">x=</span><span class="fl">0.05</span>, <span class="dt">y=</span><span class="dv">0</span>, <span class="dt">scale=</span><span class="fl">1.2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="st">  </span><span class="kw">draw_plot</span>(breed.country.plot, <span class="dt">x=</span><span class="fl">1.2</span>, <span class="dt">y=</span><span class="dv">0</span>, <span class="dt">scale=</span><span class="fl">0.9</span>) </a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggdraw</span>(<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">2.3</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">draw_plot</span>(europe.map.complete, <span class="dt">x=</span><span class="fl">0.05</span>, <span class="dt">y=</span><span class="dv">0</span>, <span class="dt">scale=</span><span class="fl">1.2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">draw_plot</span>(breed.country.plot, <span class="dt">x=</span><span class="fl">1.2</span>, <span class="dt">y=</span><span class="dv">0</span>, <span class="dt">scale=</span><span class="fl">0.9</span>) </code></pre></div>
 <p><img src="data_analysis_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 </div>
 <div id="description-of-the-dataset" class="section level1">
@@ -500,28 +474,28 @@ div.tocify {
 <h2>Nine dog breeds from five different European countries were analysed in this study.</h2>
 <div id="dog-breeds-in-the-study" class="section level3">
 <h3>Dog breeds in the study</h3>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># number of dogs per breed (male, female)</span></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2">dogs &lt;-<span class="st"> </span>data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Breed, sex) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="st">  </span><span class="kw">group_by</span>(Breed) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb9-6" data-line-number="6"><span class="st">  </span><span class="kw">spread</span>(<span class="dt">key=</span><span class="st">&quot;sex&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;n&quot;</span> ) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb9-7" data-line-number="7"><span class="st">  </span><span class="kw">mutate_all</span>(<span class="op">~</span><span class="kw">replace</span>(., <span class="kw">is.na</span>(.), <span class="dv">0</span>))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># number of dogs per breed (male, female)</span>
+dogs &lt;-<span class="st"> </span>data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(Breed, sex) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(Breed) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">spread</span>(<span class="dt">key=</span><span class="st">&quot;sex&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;n&quot;</span> ) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate_all</span>(<span class="op">~</span><span class="kw">replace</span>(., <span class="kw">is.na</span>(.), <span class="dv">0</span>))</code></pre></div>
 <pre><code>## `mutate_all()` ignored the following grouping variables:
 ## Column `Breed`
 ## Use `mutate_at(df, vars(-group_cols()), myoperation)` to silence the message.</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">dogs<span class="op">$</span>Breed_name &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Boxer&quot;</span>,</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2">                     <span class="st">&quot;Belgian Shepperd&quot;</span>,</a>
-<a class="sourceLine" id="cb11-3" data-line-number="3">                     <span class="st">&quot;Cavalier King Charles spaniel&quot;</span>,</a>
-<a class="sourceLine" id="cb11-4" data-line-number="4">                     <span class="st">&quot;Dachshund&quot;</span>, </a>
-<a class="sourceLine" id="cb11-5" data-line-number="5">                     <span class="st">&quot;Doberman pinscher&quot;</span>,</a>
-<a class="sourceLine" id="cb11-6" data-line-number="6">                     <span class="st">&quot;Finnish lapphund&quot;</span>,</a>
-<a class="sourceLine" id="cb11-7" data-line-number="7">                     <span class="st">&quot;German Shepperd&quot;</span>,</a>
-<a class="sourceLine" id="cb11-8" data-line-number="8">                     <span class="st">&quot;Labrador retriever&quot;</span>, </a>
-<a class="sourceLine" id="cb11-9" data-line-number="9">                     <span class="st">&quot;Newfoundland&quot;</span>)</a>
-<a class="sourceLine" id="cb11-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb11-11" data-line-number="11"><span class="kw">colnames</span>(dogs)&lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Abbreviation&quot;</span>, <span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Breed&quot;</span>)</a>
-<a class="sourceLine" id="cb11-12" data-line-number="12"><span class="kw">print</span>(dogs[,<span class="kw">c</span>(<span class="st">&quot;Breed&quot;</span>, <span class="st">&quot;Abbreviation&quot;</span>, <span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>)])</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dogs<span class="op">$</span>Breed_name &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Boxer&quot;</span>,
+                     <span class="st">&quot;Belgian Shepperd&quot;</span>,
+                     <span class="st">&quot;Cavalier King Charles spaniel&quot;</span>,
+                     <span class="st">&quot;Dachshund&quot;</span>, 
+                     <span class="st">&quot;Doberman pinscher&quot;</span>,
+                     <span class="st">&quot;Finnish lapphund&quot;</span>,
+                     <span class="st">&quot;German Shepperd&quot;</span>,
+                     <span class="st">&quot;Labrador retriever&quot;</span>, 
+                     <span class="st">&quot;Newfoundland&quot;</span>)
+
+<span class="kw">colnames</span>(dogs)&lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Abbreviation&quot;</span>, <span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Breed&quot;</span>)
+<span class="kw">print</span>(dogs[,<span class="kw">c</span>(<span class="st">&quot;Breed&quot;</span>, <span class="st">&quot;Abbreviation&quot;</span>, <span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>)])</code></pre></div>
 <pre><code>## # A tibble: 9 x 4
 ## # Groups:   Breed [9]
 ##   Breed                         Abbreviation Female  Male
@@ -538,14 +512,14 @@ div.tocify {
 </div>
 <div id="countries" class="section level3">
 <h3>Countries</h3>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">country_info &lt;-<span class="st"> </span>data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(Country) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">total_dogs =</span> <span class="kw">sum</span>(<span class="kw">n</span>())) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb13-4" data-line-number="4"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(total_dogs))</a>
-<a class="sourceLine" id="cb13-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb13-6" data-line-number="6">country_info<span class="op">$</span>fullname &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Finland&quot;</span>, <span class="st">&quot;Belgium&quot;</span>, <span class="st">&quot;Sweden&quot;</span>, <span class="st">&quot;France&quot;</span>, <span class="st">&quot;Denmark&quot;</span>) </a>
-<a class="sourceLine" id="cb13-7" data-line-number="7"><span class="kw">colnames</span>(country_info)&lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Abbreviation&quot;</span>, <span class="st">&quot;Total number of dogs&quot;</span>, <span class="st">&quot;Country&quot;</span>)</a>
-<a class="sourceLine" id="cb13-8" data-line-number="8"><span class="kw">print</span>(country_info[,<span class="kw">c</span>(<span class="st">&quot;Country&quot;</span>, <span class="st">&quot;Abbreviation&quot;</span>, <span class="st">&quot;Total number of dogs&quot;</span>)])</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">country_info &lt;-<span class="st"> </span>data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(Country) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">total_dogs =</span> <span class="kw">sum</span>(<span class="kw">n</span>())) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(total_dogs))
+
+country_info<span class="op">$</span>fullname &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Finland&quot;</span>, <span class="st">&quot;Belgium&quot;</span>, <span class="st">&quot;Sweden&quot;</span>, <span class="st">&quot;France&quot;</span>, <span class="st">&quot;Denmark&quot;</span>) 
+<span class="kw">colnames</span>(country_info)&lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Abbreviation&quot;</span>, <span class="st">&quot;Total number of dogs&quot;</span>, <span class="st">&quot;Country&quot;</span>)
+<span class="kw">print</span>(country_info[,<span class="kw">c</span>(<span class="st">&quot;Country&quot;</span>, <span class="st">&quot;Abbreviation&quot;</span>, <span class="st">&quot;Total number of dogs&quot;</span>)])</code></pre></div>
 <pre><code>## # A tibble: 5 x 3
 ##   Country Abbreviation `Total number of dogs`
 ##   &lt;chr&gt;   &lt;chr&gt;                         &lt;int&gt;
@@ -557,11 +531,11 @@ div.tocify {
 </div>
 <div id="distribution-of-breeds-by-country" class="section level3">
 <h3>Distribution of breeds by country</h3>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(Breed, Country) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb15-3" data-line-number="3"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">Dogs =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb15-4" data-line-number="4"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(Dogs)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb15-5" data-line-number="5"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(Country))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(Breed, Country) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">Dogs =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(Dogs)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(Country))</code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["Breed"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Country"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Dogs"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"LAB","2":"Swe","3":"46"},{"1":"CKCS","2":"Swe","3":"34"},{"1":"DACH","2":"Swe","3":"16"},{"1":"BOX","2":"Swe","3":"15"},{"1":"DOB","2":"Fra","3":"36"},{"1":"LAB","2":"Fra","3":"29"},{"1":"BS","2":"Fra","3":"25"},{"1":"GS","2":"Fin","3":"49"},{"1":"FIN_LAP","2":"Fin","3":"47"},{"1":"DACH","2":"Fin","3":"24"},{"1":"NF","2":"Den","3":"45"},{"1":"LAB","2":"Den","3":"44"},{"1":"BS","2":"Bel","3":"96"},{"1":"GS","2":"Bel","3":"16"},{"1":"LAB","2":"Bel","3":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -574,20 +548,20 @@ div.tocify {
 <div id="table-1" class="section level3">
 <h3>Table</h3>
 <p>Table with the mean age and weight of the dogs, taking sex into account</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="co"># mean ans sd functions</span></a>
-<a class="sourceLine" id="cb16-2" data-line-number="2">funm &lt;-<span class="st"> </span><span class="cf">function</span>(x){<span class="kw">mean</span>(x, <span class="dt">na.rm =</span> T)}</a>
-<a class="sourceLine" id="cb16-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb16-4" data-line-number="4"><span class="co">#table</span></a>
-<a class="sourceLine" id="cb16-5" data-line-number="5">dogsWH &lt;-<span class="st"> </span>data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb16-6" data-line-number="6"><span class="st">  </span><span class="kw">group_by</span>(Breed, sex) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb16-7" data-line-number="7"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>(),</a>
-<a class="sourceLine" id="cb16-8" data-line-number="8">            <span class="dt">mean.Age =</span> <span class="kw">funm</span>(Age), </a>
-<a class="sourceLine" id="cb16-9" data-line-number="9">            <span class="dt">mean.Weight =</span> <span class="kw">funm</span>(Body_weight)) </a>
-<a class="sourceLine" id="cb16-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb16-11" data-line-number="11">dogsWH<span class="op">$</span>sex[dogsWH<span class="op">$</span>sex <span class="op">==</span><span class="st"> </span><span class="dv">0</span>]&lt;-<span class="st"> &quot;female&quot;</span></a>
-<a class="sourceLine" id="cb16-12" data-line-number="12">dogsWH<span class="op">$</span>sex[dogsWH<span class="op">$</span>sex <span class="op">==</span><span class="st"> </span><span class="dv">1</span>]&lt;-<span class="st"> &quot;male&quot;</span></a>
-<a class="sourceLine" id="cb16-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb16-14" data-line-number="14"><span class="kw">print</span>(dogsWH)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># mean ans sd functions</span>
+funm &lt;-<span class="st"> </span><span class="cf">function</span>(x){<span class="kw">mean</span>(x, <span class="dt">na.rm =</span> T)}
+
+<span class="co">#table</span>
+dogsWH &lt;-<span class="st"> </span>data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(Breed, sex) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>(),
+            <span class="dt">mean.Age =</span> <span class="kw">funm</span>(Age), 
+            <span class="dt">mean.Weight =</span> <span class="kw">funm</span>(Body_weight)) 
+
+dogsWH<span class="op">$</span>sex[dogsWH<span class="op">$</span>sex <span class="op">==</span><span class="st"> </span><span class="dv">0</span>]&lt;-<span class="st"> &quot;female&quot;</span>
+dogsWH<span class="op">$</span>sex[dogsWH<span class="op">$</span>sex <span class="op">==</span><span class="st"> </span><span class="dv">1</span>]&lt;-<span class="st"> &quot;male&quot;</span>
+
+<span class="kw">print</span>(dogsWH)</code></pre></div>
 <pre><code>## # A tibble: 11 x 5
 ## # Groups:   Breed [9]
 ##    Breed   sex        n mean.Age mean.Weight
@@ -607,7 +581,6 @@ div.tocify {
 <div id="graph" class="section level3">
 <h3>Graph</h3>
 <p>Weight distribution for all breeds</p>
-<<<<<<< HEAD
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(Breed, Body_weight) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">na.omit</span>() <span class="op">%&gt;%</span><span class="st"> </span>
@@ -619,13 +592,13 @@ div.tocify {
          <span class="dt">caption=</span><span class="st">&quot;Sources: PLoS ONE, 2015&quot;</span>)<span class="op">+</span>
 <span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</code></pre></div>
-<p><img src="data_analysis_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="data_analysis_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 </div>
 </div>
 </div>
 <div id="principal-component-analysis" class="section level1">
 <h1>Principal Component Analysis</h1>
-<p><img src="data_analysis_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="data_analysis_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 </div>
 <div id="multidimensional-scaling-mds" class="section level1">
 <h1>Multidimensional scaling MDS</h1>
@@ -644,43 +617,23 @@ div.tocify {
 <pre><code>## Loading required package: magrittr</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;magrittr&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:ggmap&#39;:
+## 
+##     inset</code></pre>
+<pre><code>## The following object is masked from &#39;package:purrr&#39;:
+## 
+##     set_names</code></pre>
 <pre><code>## The following object is masked from &#39;package:tidyr&#39;:
 ## 
 ##     extract</code></pre>
+<pre><code>## 
+## Attaching package: &#39;ggpubr&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:cowplot&#39;:
+## 
+##     get_legend</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#arranging the two grids side by side with one legend</span>
 <span class="kw">ggarrange</span>(g,z, <span class="dt">ncol=</span><span class="dv">2</span>, <span class="dt">nrow=</span><span class="dv">1</span>, <span class="dt">common.legend =</span> <span class="ot">TRUE</span>, <span class="dt">legend=</span><span class="st">&quot;bottom&quot;</span>)</code></pre></div>
-<pre><code>## Warning in plyr::split_indices(scale_id, n): &#39;.Random.seed[1]&#39; is not a
-## valid integer, so ignored</code></pre>
-<p><img src="data_analysis_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-=======
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1">data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb18-2" data-line-number="2"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(Breed, Body_weight) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb18-3" data-line-number="3"><span class="st">    </span><span class="kw">na.omit</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb18-4" data-line-number="4"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Breed, <span class="dt">y=</span>Body_weight, <span class="dt">fill=</span>Breed)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb18-5" data-line-number="5"><span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb18-6" data-line-number="6"><span class="st">    </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.2</span>, <span class="dt">alpha=</span><span class="fl">0.3</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb18-7" data-line-number="7"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Weight distribution for all breeds&quot;</span>,</a>
-<a class="sourceLine" id="cb18-8" data-line-number="8">         <span class="dt">subtitle=</span><span class="st">&quot;RaukR project 2019&quot;</span>,</a>
-<a class="sourceLine" id="cb18-9" data-line-number="9">         <span class="dt">caption=</span><span class="st">&quot;Sources: PLoS ONE, 2015&quot;</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb18-10" data-line-number="10"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb18-11" data-line-number="11"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</a></code></pre></div>
-<p><img src="data_analysis_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
-<p>#Principal Component Analysis <img src="data_analysis_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
-<p>#Multidimensional scaling MDS</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="co">#arranging the two grids side by side with one legend</span></a>
-<a class="sourceLine" id="cb19-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb19-3" data-line-number="3"><span class="kw">library</span>(gridExtra)</a>
-<a class="sourceLine" id="cb19-4" data-line-number="4"><span class="kw">library</span>(grid)</a>
-<a class="sourceLine" id="cb19-5" data-line-number="5"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb19-6" data-line-number="6"><span class="kw">library</span>(lattice)</a>
-<a class="sourceLine" id="cb19-7" data-line-number="7"><span class="kw">library</span>(ggpubr)</a></code></pre></div>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="co">#arranging the two grids side by side with one legend</span></a>
-<a class="sourceLine" id="cb20-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb20-3" data-line-number="3"><span class="kw">ggarrange</span>(g,z, <span class="dt">ncol=</span><span class="dv">2</span>, <span class="dt">nrow=</span><span class="dv">1</span>, <span class="dt">common.legend =</span> <span class="ot">TRUE</span>, <span class="dt">legend=</span><span class="st">&quot;bottom&quot;</span>)</a></code></pre></div>
 <p><img src="data_analysis_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
-</div>
-</div>
->>>>>>> upstream/master
 </div>
 
 
