@@ -6,10 +6,51 @@ date: "r format(Sys.Date(),format='%d/%m/%Y')"
 output: html_notebook
 ---
 
-Read in the data
-```{r}
+```{r include=FALSE}
+## Load packages to use for the data analysis
+library(tidyr)
+library(dplyr)
+library(ggplot2)
 
+# Load the data
+load("geno_data_raw.rdat")
 ```
+
+
+# Description of the dataset
+
+
+```{r}
+length(unique(data_raw@phdata$Country)) ## data from 5 countries
+length(unique(data_raw@phdata$Breed)) ## data covers 9 dog breeds
+```
+
+
+
+## Distribution of breeds by country
+```{r}
+data_raw@phdata %>%
+  group_by(Breed, Country) %>%
+  summarize(n = n()) %>%
+  arrange(desc(n)) %>%
+  arrange(desc(Country))
+```
+
+## Table with the mean age and weight of the dogs, taking sex into account
+```{r}
+# mean ans sd functions
+funm <- function(x){mean(x, na.rm = T)}
+funsd <- function(y){sd(y, na.rm = T)}
+
+#table
+data_raw@phdata %>%
+  group_by(Breed, sex) %>%
+  summarize(n = n(),
+            meanAge = funm(Age), meanAgeSD = funsd(Age), 
+            meanWeight = funm(Body_weight), meanWeightSD = funsd(Body_weight))
+```
+
+
 
 ## Weight distribution for all breeds
 ```{r}
