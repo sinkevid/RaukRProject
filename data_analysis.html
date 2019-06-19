@@ -456,6 +456,7 @@ div.tocify {
 </div>
 <div id="weight-distribution-for-all-breeds" class="section level1">
 <h1>Weight distribution for all breeds</h1>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(Breed, Body_weight) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="st">    </span><span class="kw">na.omit</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
@@ -467,7 +468,51 @@ div.tocify {
 <a class="sourceLine" id="cb6-9" data-line-number="9">         <span class="dt">caption=</span><span class="st">&quot;Sources: PLoS ONE, 2015&quot;</span>)<span class="op">+</span></a>
 <a class="sourceLine" id="cb6-10" data-line-number="10"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb6-11" data-line-number="11"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</a></code></pre></div>
+=======
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_raw<span class="op">@</span>phdata <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(Breed, Body_weight) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">na.omit</span>() <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Breed, <span class="dt">y=</span>Body_weight, <span class="dt">fill=</span>Breed)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.2</span>, <span class="dt">alpha=</span><span class="fl">0.3</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Weight distribution for all breeds&quot;</span>,
+         <span class="dt">subtitle=</span><span class="st">&quot;RaukR project 2019&quot;</span>,
+         <span class="dt">caption=</span><span class="st">&quot;Sources: PLoS ONE, 2015&quot;</span>)<span class="op">+</span>
+<span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;dodgerblue4&quot;</span>, <span class="st">&quot;bisque4&quot;</span>, <span class="st">&quot;darkgreen&quot;</span>,<span class="st">&quot;yellow3&quot;</span>, <span class="st">&quot;darkgoldenrod3&quot;</span>, <span class="st">&quot;darkorchid4&quot;</span>, <span class="st">&quot;darkred&quot;</span>, <span class="st">&quot;grey&quot;</span>))<span class="op">+</span>
+<span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</code></pre></div>
+>>>>>>> af6de288f13617b5d4504f18685c7d17dc911d53
 <p><img src="data_analysis_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div id="principal-component-analysis" class="section level1">
+<h1>Principal Component Analysis</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Find marker for PCA analysis</span>
+<span class="co"># qc0 &lt;- check.marker(data_raw, call = 0.95, perid.call=0.95,</span>
+<span class="co">#                     maf=1e-06, p.lev=1e-08, ibs.exclude=&quot;lower&quot;)</span>
+<span class="co"># # Save output from check.marker</span>
+<span class="co"># data.qc0 &lt;- data_raw[qc0$idok, qc0$snpok]</span>
+<span class="co"># </span>
+<span class="co"># # Remove chromosome 39 (X) from dataset</span>
+<span class="co"># autosomalMarkerNames &lt;- snpnames(data.qc0)[chromosome(data.qc0) != 39]</span>
+<span class="co"># # Compute genomic kinship matrix</span>
+<span class="co"># data.qc0.gkin &lt;- ibs(data.qc0[, autosomalMarkerNames], weight = &quot;freq&quot;)</span>
+<span class="co"># # Transform it to a distance matrix</span>
+<span class="co"># data.qc0.dist &lt;- as.dist(0.5 - data.qc0.gkin)</span>
+<span class="co"># # Perform multidimensional scaling to display individuals on a 2D</span>
+<span class="co"># # plot preserving genomic distances between them</span>
+<span class="co"># data.qc0.mds &lt;- cmdscale(data.qc0.dist)</span>
+<span class="co"># # Save the results so no need to run every single time</span>
+<span class="co"># pca_result &lt;- save(data.qc0.mds, file=&quot;pca_results.rdat&quot;)</span>
+<span class="co"># Plot the result</span>
+<span class="kw">load</span>(<span class="st">&quot;pca_results.rdat&quot;</span>)
+df_data_raw &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Dim_1 =</span> data.qc0.mds[,<span class="dv">1</span>], <span class="dt">Dim_2 =</span> data.qc0.mds[,<span class="dv">2</span>], <span class="dt">Breed=</span> data_raw<span class="op">@</span>phdata<span class="op">$</span>Breed)
+<span class="kw">ggplot</span>(df_data_raw, <span class="kw">aes</span>(Dim_<span class="dv">1</span>, Dim_<span class="dv">2</span>, <span class="dt">color=</span>Breed)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.8</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Principal Component Analysis&quot;</span>,
+       <span class="dt">subtitle=</span><span class="st">&quot;RaukR project 2019&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;dodgerblue4&quot;</span>, <span class="st">&quot;bisque4&quot;</span>, <span class="st">&quot;darkgreen&quot;</span>,<span class="st">&quot;yellow3&quot;</span>, <span class="st">&quot;darkgoldenrod3&quot;</span>, <span class="st">&quot;darkorchid4&quot;</span>, <span class="st">&quot;darkred&quot;</span>, <span class="st">&quot;grey&quot;</span>)) </code></pre></div>
+<p><img src="data_analysis_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 </div>
 
 
