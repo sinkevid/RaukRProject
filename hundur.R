@@ -1,4 +1,6 @@
 #PCA plot 
+library(ggplot2)
+
 
 load("geno_data_raw.rdat")
 
@@ -19,6 +21,10 @@ data.qc0.dist <- as.dist(0.5 - data.qc0.gkin)
 data.qc0.mds <- cmdscale(data.qc0.dist)
 # Plot the result
 test <- data.frame(Dim_1 = data.qc0.mds[,1], Dim_2 = data.qc0.mds[,2], Breed= data_raw@phdata$Breed)
-ggplot(test, aes(Dim_1, Dim_2, color=Breed)) + geom_point()
-
+ggplot(test, aes(Dim_1, Dim_2, color=Breed)) + 
+  geom_point(alpha = 0.8) + 
+  labs(title="Principal Component Analysis",
+       subtitle="RaukR project 2019") +
+  theme_bw() +
+  scale_color_manual(values = c("black", "dodgerblue4", "bisque4", "darkgreen","yellow3", "darkgoldenrod3", "darkorchid4", "darkred", "grey")) 
        
