@@ -1,5 +1,6 @@
 #PCA plot 
 library(ggplot2)
+library(GenABEL)
 # Read in the data
 load("geno_data_raw.rdat")
 # Find marker for PCA analysis
